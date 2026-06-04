@@ -503,7 +503,8 @@
             'skills.ai.badge': 'vibe',
             'skills.db': 'Bancos (de afetos)',
             'skills.cloud': 'Nuvem (cinza)',
-            'skills.frameworks': 'Frameworks de Poltrona',
+            'skills.frontend': 'Frameworks de Poltrona',
+            'skills.backend': 'Frameworks de Cozinha',
             'skills.methods': 'Metodologias de Domingo',
 
             'certs.title': 'Certificações da vida',
@@ -558,9 +559,10 @@
         'Bancos de dados':   ['MyHeart', 'PostgreSadness', 'RedShift Mental', 'Snowflake Emocional'],
         'Databases':         ['MyHeart', 'PostgreSadness', 'RedShift Mental', 'Snowflake Emocional'],
         'Cloud & DevOps':    ['Nuvem 9', 'CI/Café', 'S3: Sofá-Sono-Sopa', 'Deploy de Roupa'],
-        'Frameworks & Tools':['Angular do Sofá', 'Reactish', 'Cordas (de roupa)'],
-        'Metodologias':      ['Scrum no Sextou', 'Kanban da Geladeira', "DRY: Don't Repeat Domingos"],
-        'Methodologies':     ['Scrum no Sextou', 'Kanban da Geladeira', "DRY: Don't Repeat Domingos"]
+        'Frontend Frameworks':['Angular do Sofá', 'Reactish', 'Vue da Janela', 'Cordas (de roupa)'],
+        'Backend Frameworks': ['Laravel de Frango', 'Djangostosa', 'FastForApi', 'YiYiYi', 'PontoNET (de pesca)'],
+        'Metodologias':       ['Scrum no Sextou', 'Kanban da Geladeira', "DRY: Don't Repeat Domingos"],
+        'Methodologies':      ['Scrum no Sextou', 'Kanban da Geladeira', "DRY: Don't Repeat Domingos"]
     };
 
     const CRED_TITLES_OFFDUTY = [

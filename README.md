@@ -22,7 +22,7 @@ Disponível para **consultoria, arquitetura, tech leadership, advisory e palestr
 - Tech Lead de times de **até 30 engenheiros**
 - **Certificado** Alteryx Designer Core/Advanced (ativas), MIT Data Science, University of Chicago
 - Cofundador da **BBI.Solutions** e da iniciativa social **Life Academy**
-- Stack: Python, SQL, Alteryx, AWS/Azure/GCP, Airflow, dbt, Angular, PHP
+- Stack: Python, SQL, PostgreSQL, Alteryx, AWS/Azure/GCP, Airflow, dbt, Coolify, n8n, Angular, Vue, React, Laravel, Django, FastAPI, .NET, PHP
 
 ## A página
 

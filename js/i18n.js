@@ -113,7 +113,8 @@
             'skills.ai.badge': 'MIT',
             'skills.db': 'Bancos de dados',
             'skills.cloud': 'Cloud & DevOps',
-            'skills.frameworks': 'Frameworks & Tools',
+            'skills.frontend': 'Frontend Frameworks',
+            'skills.backend': 'Backend Frameworks',
             'skills.methods': 'Metodologias',
 
             'certs.title': 'Certificações',
@@ -335,7 +336,8 @@
             'skills.ai.badge': 'MIT',
             'skills.db': 'Databases',
             'skills.cloud': 'Cloud & DevOps',
-            'skills.frameworks': 'Frameworks & Tools',
+            'skills.frontend': 'Frontend Frameworks',
+            'skills.backend': 'Backend Frameworks',
             'skills.methods': 'Methodologies',
 
             'certs.title': 'Certifications',
