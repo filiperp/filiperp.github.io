@@ -68,7 +68,7 @@ Ou qualquer outro servidor estático (`npx serve`, `caddy file-server`, etc).
 
 ## Easter eggs
 
-A página esconde 4 detalhes para visitantes curiosos:
+A página esconde **9 detalhes** para visitantes curiosos. Todos (exceto Konami e foto) podem ser acionados pelo command palette:
 
 ### 1. 🎮 Konami code
 
@@ -84,7 +84,7 @@ Junto aparece um toast confirmando: *"🎉 Modo Data Engineer ativado"*.
 
 ### 2. 💻 Mensagem no DevTools
 
-Abra o console do navegador (F12 / ⌥⌘I). Você verá um ASCII art "FR" colorido em burnt orange e uma **mensagem bilíngue** convidando para conversar, que segue o idioma ativo no momento. A mensagem é reemitida ao trocar de idioma.
+Abra o console do navegador (F12 / ⌥⌘I). Você verá um ASCII art "FR" colorido na cor de acento atual e uma **mensagem bilíngue** convidando para conversar, que segue o idioma ativo no momento. A mensagem é reemitida ao trocar de idioma.
 
 ### 3. 📸 Foto clicada 7×
 
@@ -92,11 +92,13 @@ Clique 7 vezes seguidas na minha foto no hero. Ela gira **360°** com uma anima�
 
 ### 4. ⌘K Command palette
 
-Pressione **`/`** ou **`⌘K`** (Mac) / **`Ctrl+K`** (Win/Linux) em qualquer lugar da página. Abre um command palette estilo Raycast / Linear com comandos organizados em 3 grupos:
+Pressione **`/`** ou **`⌘K`** (Mac) / **`Ctrl+K`** (Win/Linux) em qualquer lugar da página. Abre um command palette estilo Raycast / Linear com comandos organizados em 4 grupos:
 
 **Navegar** — Sobre · Experiência · Skills · Projetos · Contato
 
 **Ações** — Alternar tema · Alternar idioma · Baixar CV · Copiar email
+
+**Diversão** — Modo leitura por voz · Off-duty · Cor de acento · F1 · Flappy
 
 **Externo** — Agendar conversa · LinkedIn · GitHub · MDB
 
@@ -107,6 +109,54 @@ Controles:
 - digitar — filtrar por substring
 
 A busca é case-insensitive e considera nome do comando e seção. A ação "Copiar email" usa a Clipboard API com fallback para `document.execCommand`.
+
+### 5. 🔊 Modo leitura por voz (TTS)
+
+Comando: `⌘K → "Ativar leitura por voz"`. Usa a Web Speech API nativa do navegador.
+
+Quando ativo, clique em qualquer parágrafo, título ou bullet para **ouvir** a leitura na voz do sistema, no idioma atual da página (PT-BR ou EN-US). Clique novamente cancela a leitura em andamento. `Esc` desativa o modo.
+
+Não requer conexão com APIs externas — tudo roda no navegador. Qualidade da voz varia por SO.
+
+### 6. 🎨 Modo Off-duty (pichação)
+
+Comando: `⌘K → "Modo Off-duty"`. **Picha o site inteiro** — sobrepõe ~18 tags grafite, stickers e doodles SVG ancorados em pontos do conteúdo real, como se alguém tivesse invadido a página profissional para deixar marcas pessoais:
+
+- **Tags** (handwriting Permanent Marker, rotação aleatória): Niki Lauda > all, RT.66, Crossfit > cardio, post malone, Breaking Bad ⚗, Band of Brothers, Dostoyevsky 😱, Off-duty 🤙
+- **Stickers** (caixa colorida estilo skate): 🏈 GO BRONCOS!, 🇧🇷❤️🇦🇴, WEEZER 🎸, Veritasium ⚡, QUEEN 👑, SUBARU 💙, DENVER ⛰️
+- **Doodles SVG**: coração na cor de acento, halter na seção de experiência, capacete F1 vermelho nos projetos
+
+Animação sequencial de pop-in (cada uma com ~70ms de delay). Botão flutuante "✕ tirar a pichação" no canto inferior direito (rotação -3°, sombra accent offset). `Esc` ou clique no botão limpa tudo. Redimensionar a janela recoloca as pichações.
+
+### 7. 🎨 Color picker
+
+Comando: `⌘K → "Trocar cor de acento"`. Abre um modal com:
+
+- **8 presets curados** — Burnt orange (padrão), Amber, Emerald, Cyan, Indigo, Purple, Pink, Red
+- **Personalizada** — `<input type="color">` nativo para liberdade total
+- **Restaurar padrão** — volta ao burnt orange
+
+A cor escolhida é salva em `localStorage` e persiste entre visitas. Hover e soft variants são derivados automaticamente em JS. Funciona em ambos os temas (claro e escuro).
+
+### 8. 🏎️ Mini-jogo F1
+
+Comando: `⌘K → "Jogo: corrida F1"`. Mini-jogo em canvas:
+
+- Carro na **cor de acento atual** (atualiza dinamicamente se você mudar a cor).
+- `←` `→` movem entre 4 pistas
+- Obstáculos descem aleatoriamente; velocidade aumenta com o tempo
+- Score em tempo real no topo
+- `R` reinicia · `Esc` sai
+
+### 9. 🐦 Flappy Corporate
+
+Comando: `⌘K → "Flappy corporativo"`. Versão paródica do Flappy Bird:
+
+- Pássaro circular na cor de acento
+- `Space` ou click pulam
+- Os "canos" são **prédios corporativos parodiados**: FAtDonalds, StarSucks, Bang of America, MetAfterlife, MicroHard, AmaZone, NewtFlux, X (formerly Y)…
+- Score = prédios passados
+- `R` reinicia · `Esc` sai
 
 ---
 

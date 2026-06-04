@@ -177,7 +177,51 @@
             'toast.email_copied': '✓ Email copiado para a área de transferência',
 
             'console.greeting': 'Curtindo o código? Vamos trocar uma ideia: filiperp@gmail.com',
-            'console.hint': 'Dica: experimente o Konami code ↑↑↓↓←→←→BA ou tecle "/" para o command palette.'
+            'console.hint': 'Dica: experimente o Konami code ↑↑↓↓←→←→BA ou tecle "/" para o command palette.',
+
+            'cmdk.section.fun': 'Diversão',
+            'cmdk.tts.toggle': 'Ativar leitura por voz',
+            'cmdk.tts.toggle_off': 'Desativar leitura por voz',
+            'cmdk.offduty': 'Modo Off-duty (pichação)',
+            'cmdk.color': 'Trocar cor de acento',
+            'cmdk.game.f1': '🏎️ Jogo: corrida F1',
+            'cmdk.game.flappy': '🐦 Flappy corporativo',
+
+            'toast.tts_on': '🔊 Leitura ativa — clique em qualquer texto',
+            'toast.tts_off': '🔇 Leitura desativada',
+            'toast.tts_unsupported': 'TTS não suportado neste navegador',
+
+            'offduty.exit': '✕ tirar a pichação',
+            'graff.1': '🏈 GO BRONCOS!',
+            'graff.2': 'Niki Lauda > all',
+            'graff.4': 'RT.66 🚐',
+            'graff.5': '🇧🇷 ❤️ 🇦🇴',
+            'graff.6': 'Crossfit > cardio',
+            'graff.7': 'WEEZER 🎸',
+            'graff.8': 'post malone',
+            'graff.10': 'Veritasium ⚡',
+            'graff.11': 'Breaking Bad ⚗',
+            'graff.12': 'QUEEN 👑',
+            'graff.13': 'Band of Brothers',
+            'graff.15': 'SUBARU 💙',
+            'graff.16': 'Dostoyevsky 😱',
+            'graff.17': 'DENVER ⛰️',
+            'graff.18': 'Off-duty 🤙',
+
+            'color.title': 'Cor de acento',
+            'color.subtitle': 'Escolha um preset ou personalize',
+            'color.custom': 'Personalizada',
+            'color.reset': 'Restaurar padrão',
+            'color.close': 'Fechar',
+
+            'game.controls': '← → mover · Esc sair · R reiniciar',
+            'game.f1.title': '🏎️ Corrida F1',
+            'game.f1.score': 'Pontos',
+            'game.f1.over': 'Game Over — pressione R para reiniciar',
+            'game.flappy.title': '🐦 Flappy Corporate',
+            'game.flappy.start': 'Space ou click para começar',
+            'game.flappy.controls': 'Space/click pular · Esc sair · R reiniciar',
+            'game.flappy.over': 'Game Over — R para reiniciar'
         },
 
         en: {
@@ -355,7 +399,51 @@
             'toast.email_copied': '✓ Email copied to clipboard',
 
             'console.greeting': "Enjoying the code? Let's talk: filiperp@gmail.com",
-            'console.hint': 'Tip: try the Konami code ↑↑↓↓←→←→BA or press "/" for the command palette.'
+            'console.hint': 'Tip: try the Konami code ↑↑↓↓←→←→BA or press "/" for the command palette.',
+
+            'cmdk.section.fun': 'Fun',
+            'cmdk.tts.toggle': 'Enable voice reader',
+            'cmdk.tts.toggle_off': 'Disable voice reader',
+            'cmdk.offduty': 'Off-duty mode (graffiti)',
+            'cmdk.color': 'Change accent color',
+            'cmdk.game.f1': '🏎️ Game: F1 race',
+            'cmdk.game.flappy': '🐦 Corporate Flappy',
+
+            'toast.tts_on': '🔊 Voice reader on — click any text',
+            'toast.tts_off': '🔇 Voice reader off',
+            'toast.tts_unsupported': 'TTS not supported in this browser',
+
+            'offduty.exit': '✕ clean it up',
+            'graff.1': '🏈 GO BRONCOS!',
+            'graff.2': 'Niki Lauda > all',
+            'graff.4': 'RT.66 🚐',
+            'graff.5': '🇧🇷 ❤️ 🇦🇴',
+            'graff.6': 'Crossfit > cardio',
+            'graff.7': 'WEEZER 🎸',
+            'graff.8': 'post malone',
+            'graff.10': 'Veritasium ⚡',
+            'graff.11': 'Breaking Bad ⚗',
+            'graff.12': 'QUEEN 👑',
+            'graff.13': 'Band of Brothers',
+            'graff.15': 'SUBARU 💙',
+            'graff.16': 'Dostoyevsky 😱',
+            'graff.17': 'DENVER ⛰️',
+            'graff.18': 'Off-duty 🤙',
+
+            'color.title': 'Accent color',
+            'color.subtitle': 'Pick a preset or customize',
+            'color.custom': 'Custom',
+            'color.reset': 'Reset to default',
+            'color.close': 'Close',
+
+            'game.controls': '← → move · Esc exit · R restart',
+            'game.f1.title': '🏎️ F1 Race',
+            'game.f1.score': 'Score',
+            'game.f1.over': 'Game Over — press R to restart',
+            'game.flappy.title': '🐦 Corporate Flappy',
+            'game.flappy.start': 'Space or click to start',
+            'game.flappy.controls': 'Space/click flap · Esc exit · R restart',
+            'game.flappy.over': 'Game Over — R to restart'
         }
     };
 
