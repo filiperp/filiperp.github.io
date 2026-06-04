@@ -193,6 +193,7 @@
                     ta.remove();
                 }
             }},
+            { section: 'cmdk.section.external', label: 'cmdk.open.schedule', run: function () { window.open('https://calendar.app.google/2aG8genMhXuws8dKA', '_blank', 'noopener'); } },
             { section: 'cmdk.section.external', label: 'cmdk.open.linkedin', run: function () { window.open('https://www.linkedin.com/in/filiperp', '_blank', 'noopener'); } },
             { section: 'cmdk.section.external', label: 'cmdk.open.github', run: function () { window.open('https://github.com/filiperp', '_blank', 'noopener'); } },
             { section: 'cmdk.section.external', label: 'cmdk.open.mdb', run: function () { window.open('https://midiadados.gm.org.br/', '_blank', 'noopener'); } }

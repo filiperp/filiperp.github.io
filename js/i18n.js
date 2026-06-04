@@ -12,6 +12,7 @@
             'a11y.theme': 'Alternar tema',
             'a11y.lang': 'Alternar idioma',
             'a11y.socials': 'Redes profissionais',
+            'brand.tooltip': 'Filipe Rodrigues (IPA: /fi.ˈli.pɘ rʊ.ˈdri.ɡəʒ/)',
 
             'nav.about': 'Sobre',
             'nav.experience': 'Experiência',
@@ -23,9 +24,10 @@
             'hero.title.before': 'Construindo arquiteturas de dados que ',
             'hero.title.accent': 'escalam',
             'hero.title.after': '.',
-            'hero.lead': '22+ anos desenhando e operando pipelines, plataformas analíticas e arquiteturas cloud para organizações que processam dezenas de terabytes por dia. Lidero times multidisciplinares com práticas ágeis e DevOps/CI-CD.',
+            'hero.lead': 'Olá, sou o Filipe Rodrigues (IPA: /fi.ˈli.pɘ rʊ.ˈdri.ɡəʒ/). 22+ anos desenhando e operando pipelines, plataformas analíticas e arquiteturas cloud para organizações que processam dezenas de terabytes por dia. Lidero times multidisciplinares com práticas ágeis e DevOps/CI-CD.',
             'hero.cta.cv': 'Baixar CV (PDF)',
             'hero.cta.contact': 'Entrar em contato',
+            'hero.cta.schedule': 'Agendar conversa',
 
             'stats.years': 'anos de experiência',
             'stats.tb': 'processados / dia',
@@ -142,6 +144,7 @@
             'contact.title': 'Vamos conversar',
             'contact.lead': 'Aberto para conversas sobre consultoria, arquitetura de dados, tech leadership, advisory e palestras.',
             'contact.cta.email': 'Enviar email',
+            'contact.cta.schedule': 'Agendar conversa',
             'contact.cta.linkedin': 'LinkedIn',
             'contact.cta.cv': 'Baixar CV',
 
@@ -167,6 +170,7 @@
             'cmdk.open.linkedin': 'Abrir LinkedIn',
             'cmdk.open.github': 'Abrir GitHub',
             'cmdk.open.mdb': 'Abrir MDB – Mídia Dados Brasil',
+            'cmdk.open.schedule': 'Agendar conversa (Google Calendar)',
 
             'toast.konami': '🎉 Modo Data Engineer ativado',
             'toast.photo': '🏆 22+ anos em um clique. Bora conversar?',
@@ -186,6 +190,7 @@
             'a11y.theme': 'Toggle theme',
             'a11y.lang': 'Toggle language',
             'a11y.socials': 'Professional networks',
+            'brand.tooltip': 'Filipe Rodrigues (IPA: /fi.ˈli.pɘ rʊ.ˈdri.ɡəʒ/)',
 
             'nav.about': 'About',
             'nav.experience': 'Experience',
@@ -197,9 +202,10 @@
             'hero.title.before': 'Building data architectures that ',
             'hero.title.accent': 'scale',
             'hero.title.after': '.',
-            'hero.lead': '22+ years designing and operating pipelines, analytics platforms, and cloud architectures for organizations processing tens of terabytes per day. I lead cross-functional teams with Agile and DevOps/CI-CD practices.',
+            'hero.lead': "Hi, I'm Filipe Rodrigues (IPA: /fi.ˈli.pɘ rʊ.ˈdri.ɡəʒ/). 22+ years designing and operating pipelines, analytics platforms, and cloud architectures for organizations processing tens of terabytes per day. I lead cross-functional teams with Agile and DevOps/CI-CD practices.",
             'hero.cta.cv': 'Download CV (PDF)',
             'hero.cta.contact': 'Get in touch',
+            'hero.cta.schedule': 'Schedule a chat',
 
             'stats.years': 'years of experience',
             'stats.tb': 'processed / day',
@@ -316,6 +322,7 @@
             'contact.title': "Let's talk",
             'contact.lead': "Open to conversations about consulting, data architecture, tech leadership, advisory, and speaking.",
             'contact.cta.email': 'Send email',
+            'contact.cta.schedule': 'Schedule a chat',
             'contact.cta.linkedin': 'LinkedIn',
             'contact.cta.cv': 'Download CV',
 
@@ -341,6 +348,7 @@
             'cmdk.open.linkedin': 'Open LinkedIn',
             'cmdk.open.github': 'Open GitHub',
             'cmdk.open.mdb': 'Open MDB – Mídia Dados Brasil',
+            'cmdk.open.schedule': 'Schedule a chat (Google Calendar)',
 
             'toast.konami': '🎉 Data Engineer mode unlocked',
             'toast.photo': '🏆 22+ years in one click. Want to talk?',
