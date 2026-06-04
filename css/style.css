@@ -642,8 +642,16 @@ html[data-theme="dark"] .skill-group--accent h3 .badge { color: #0f1115; }
 }
 .footer-inner {
     display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+    flex-wrap: wrap;
 }
 .muted { color: var(--fg-subtle); }
+.version-tag {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.7rem;
+    color: var(--fg-subtle);
+    opacity: 0.6;
+    letter-spacing: 0.02em;
+}
 
 /* ============================================================
    Responsivo

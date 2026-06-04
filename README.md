@@ -46,12 +46,16 @@ filiperp.github.io/
 ├── index.html
 ├── css/style.css
 ├── js/
-│   ├── main.js          # tema + email ofuscado + ano do footer
+│   ├── main.js          # tema + email ofuscado + ano + versão no footer
 │   ├── i18n.js          # dicionário PT/EN + troca dinâmica
-│   └── easter-eggs.js   # Konami, console, foto, command palette
+│   ├── easter-eggs.js   # Konami, console, foto, command palette, ...
+│   └── version.js       # carimbo de versão (regenerado por git hook)
 ├── assets/
 │   ├── filipe_rodrigues.pdf
 │   └── foto.jpg
+├── .githooks/
+│   ├── pre-commit       # stampa js/version.js em cada commit
+│   └── install.sh       # ativa o hook localmente
 └── README.md
 ```
 
@@ -63,6 +67,20 @@ python3 -m http.server 8765
 ```
 
 Ou qualquer outro servidor estático (`npx serve`, `caddy file-server`, etc).
+
+### Versionamento
+
+A página exibe a versão no rodapé no formato `Y.m.d.H.i.S` (ano.mês.dia.hora.minuto.segundo) — por exemplo `v2026.06.04.03.19.59`.
+
+Ela é regenerada automaticamente antes de cada commit por um git hook em `.githooks/pre-commit`. Para ativar após clonar o repositório:
+
+```bash
+bash .githooks/install.sh
+# ou manualmente:
+git config core.hooksPath .githooks
+```
+
+Sem o hook ativo, `js/version.js` mantém o último valor commitado — a página continua funcionando, mas o timestamp não atualiza.
 
 ---
 

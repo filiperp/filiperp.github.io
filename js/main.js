@@ -44,4 +44,8 @@
     /* ---------- Ano no footer ---------- */
     const year = document.getElementById('year');
     if (year) year.textContent = new Date().getFullYear();
+
+    /* ---------- Versão (preenchida pelo pre-commit hook) ---------- */
+    const ver = document.getElementById('app-version');
+    if (ver && window.__APP_VERSION) ver.textContent = window.__APP_VERSION;
 })();

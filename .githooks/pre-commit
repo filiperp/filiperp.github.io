@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Auto-update js/version.js with current timestamp before each commit.
+# Format: Y.m.d.H.i.S (e.g. 2026.06.04.03.19.59).
+set -euo pipefail
+
+TS=$(date +%Y.%m.%d.%H.%M.%S)
+TARGET="js/version.js"
+
+# Only stamp if the target file exists (skip on detached or unusual states)
+if [ -f "$TARGET" ]; then
+    printf "window.__APP_VERSION = '%s';\n" "$TS" > "$TARGET"
+    git add "$TARGET"
+    echo "🏷  Stamped version: ${TS}"
+fi
