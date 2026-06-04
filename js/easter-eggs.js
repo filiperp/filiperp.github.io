@@ -399,8 +399,252 @@
     }
 
     /* ============================================================
-       6. Off-duty mode — pichação orgânica
+       6. Off-duty mode — pichação orgânica + modo zoeira
        ============================================================ */
+
+    const OFFDUTY_OVERRIDES = {
+        pt: {
+            'nav.about': 'Sobre',
+            'nav.experience': 'Pretexto',
+            'nav.skills': 'Vibes',
+            'nav.projects': 'Aventuras',
+            'nav.contact': 'Bora?',
+
+            'hero.eyebrow': 'Procrastinador certificado · Filósofo de boteco · Café-dependente',
+            'hero.title.before': 'Acordei e a única certeza foi o ',
+            'hero.title.accent': 'café',
+            'hero.title.after': '.',
+            'hero.lead': '"Só sei que nada sei" — Sócrates (e ele nem usava Jira). Funciono com 70% café, 20% trilha do Goonies e 10% prazo vencendo. Aceito ser convencido por GIF.',
+            'hero.cta.cv': '📥 Baixar lista de séries',
+            'hero.cta.contact': 'Me xinga (educadamente)',
+            'hero.cta.schedule': 'Marcar um café (ou cerveja)',
+
+            'stats.years': 'anos enrolando o despertador',
+            'stats.tb': 'litros de café/dia',
+            'stats.users': 'memes salvos sem motivo',
+            'stats.clients': "vezes que cliquei 'mais tarde'",
+
+            'about.title': 'Sobre (calma)',
+            'about.lead': '"Penso, logo existo" — Descartes. Aguardando confirmação na Receita. Tenho opinião forte sobre como abrir saco de salgadinho e qual é o melhor filme do Cage.',
+            'about.meta.location_label': 'Localização real',
+            'about.meta.location_value': 'Entre a geladeira e o sofá',
+            'about.meta.languages_label': 'Comunicação',
+            'about.meta.languages_value': 'Português · Inglês de Netflix · Espanhol de festa · Linguagem do silêncio',
+            'about.meta.available_label': 'Disponível para',
+            'about.meta.available_value': 'Indicações de série · Discussões inúteis · Pizza · Sextou',
+
+            'experience.title': 'Currículo paralelo',
+
+            'jobs.goldenlearn.title': 'Tester Profissional de Sofá',
+            'jobs.goldenlearn.company': 'Sala de Estar Inc.',
+            'jobs.goldenlearn.meta': '2003 – Presente · Em qualquer almofada',
+            'jobs.goldenlearn.b1': 'Testei 47 modelos de sofá em busca da posição ideal pra cochilo.',
+            'jobs.goldenlearn.b2': 'Liderei retrospectivas semanais segurando o controle remoto.',
+            'jobs.goldenlearn.b3': 'Otimizei o pipeline chips→boca→sofá em 180%.',
+            'jobs.goldenlearn.b4': 'Aceitei 100% das atualizações de termos do iTunes sem ler.',
+
+            'jobs.kreios.title': 'Detective de Geladeira',
+            'jobs.kreios.company': 'Cozinha Central',
+            'jobs.kreios.meta': 'Madrugada · 1995 – Presente',
+            'jobs.kreios.b1': 'Especialista em achar exatamente o que NÃO quero comer.',
+            'jobs.kreios.b2': 'Abri a porta 32x em uma única noite acreditando que algo novo apareceria.',
+            'jobs.kreios.b3': 'Provei que existem prazos de validade dentro de prazos de validade.',
+            'jobs.kreios.b4': 'Reduzi rollbacks de iogurte em 10%.',
+            'jobs.kreios.b5': "Encurtei o ciclo 'fome → comer → arrependimento' de 30 min pra 8 min.",
+
+            'jobs.athena.title': 'Arquiteto de Castelinhos de Areia',
+            'jobs.athena.company': 'Praia & Cia',
+            'jobs.athena.meta': 'Verão · Múltiplos contratos · Remoto (com vista pro mar)',
+            'jobs.athena.b1': 'Lidero equipes infantis em projetos de alta complexidade costeira.',
+            'jobs.athena.b2': "Sobrevivi a 100% das marés altas usando metodologia ágil de 'corre'.",
+            'jobs.athena.b3': 'Pioneiro do método balde-pá-grito.',
+            'jobs.athena.b4': 'Implementei pipelines de areia molhada com latência de 0.5s.',
+
+            'jobs.bbi.title': 'Diretor de Pensamentos Aleatórios',
+            'jobs.bbi.company': 'Chuveiro & Associados',
+            'jobs.bbi.meta': 'Banho · Vida toda · Em paralelo a tudo',
+            'jobs.bbi.b1': 'Cofundei a teoria que o chuveiro é o melhor escritório do mundo.',
+            'jobs.bbi.b2': 'Lancei 47 ideias revolucionárias que esqueci ao secar a cabeça.',
+            'jobs.bbi.b3': 'Liderei brainstorms unipessoais com altíssima rotatividade interna.',
+            'jobs.bbi.b4': "Construí e mantenho um repositório mental de 'depois eu faço'.",
+
+            'jobs.band.title': 'Operador de Controle Remoto Sênior',
+            'jobs.band.company': 'Sofá Bandeirantes',
+            'jobs.band.meta': 'Sofá · 1990 – Presente',
+            'jobs.band.b1': 'Multitarefa entre 6 canais e Instagram simultaneamente.',
+            'jobs.band.b2': 'Treinamento avançado em zapping de comerciais.',
+
+            'jobs.aennova.title': 'Estagiário de Bons Modos',
+            'jobs.aennova.company': 'Mesa de Almoço da Família',
+            'jobs.aennova.meta': 'Domingo · 2008 – 2014',
+            'jobs.aennova.b1': 'Aprendi a usar garfo e faca ao mesmo tempo.',
+            'jobs.aennova.b2': 'Liderei iniciativas de não falar de boca cheia (sucesso parcial).',
+            'jobs.aennova.b3': "Documentei pedidos de 'mais um pouquinho'.",
+            'jobs.aennova.b4': 'Apresentei recomendações sobre não mexer no celular à mesa.',
+
+            'jobs.md.title': 'Professor de Filosofia de Boteco',
+            'jobs.md.company': 'Mesa 5, Sempre',
+            'jobs.md.meta': 'Sextou · 2008',
+            'jobs.md.b1': 'Ministrei aulas magnas sobre a vida para quem não pediu.',
+
+            'jobs.unasp.title': 'Pesquisador de Travesseiros',
+            'jobs.unasp.company': 'Cama de Casal',
+            'jobs.unasp.meta': 'Madrugada · 1985 – Presente',
+            'jobs.unasp.b1': 'Conduzi estudos longitudinais sobre o lado frio do travesseiro.',
+            'jobs.unasp.b2': 'Liderei dois grupos: dorminhocos e cochiladores.',
+            'jobs.unasp.b2a': 'Processamento de sonos — arquiteturas e técnicas para cochilo industrial.',
+            'jobs.unasp.b2b': 'Sistemas Dinâmicos do Travesseiro — modelos de virar o lado frio.',
+            'jobs.unasp.b3': 'Reduzi em 92% o tempo entre acordar e fechar o olho de novo.',
+
+            'skills.title': 'Habilidades reais',
+            'skills.languages': 'Idiomas (que arrisco)',
+            'skills.data': 'Dados (afetivos)',
+            'skills.ai': 'Inteligência ✨',
+            'skills.ai.badge': 'vibe',
+            'skills.db': 'Bancos (de afetos)',
+            'skills.cloud': 'Nuvem (cinza)',
+            'skills.frameworks': 'Frameworks de Poltrona',
+            'skills.methods': 'Metodologias de Domingo',
+
+            'certs.title': 'Certificações da vida',
+            'certs.active': 'Vivo',
+            'certs.alteryx_core.desc': 'Universidade da Vida · contínuo',
+            'certs.alteryx_adv.desc': 'Universidade da Vida · contínuo',
+            'certs.alteryx_pro.desc': 'Pais · 2003',
+            'certs.mit.desc': 'Escola da Esquina · sempre',
+            'certs.uchicago.title': 'Storytelling em jantar de família',
+            'certs.uchicago.desc': 'Mãe · todo domingo',
+
+            'edu.title': 'Educação real',
+            'edu.ugf.title': 'Especialização em Procrastinação Aplicada',
+            'edu.ugf.meta': 'Quarto · 2009 – 2010',
+            'edu.ugf.desc': 'Programa focado em adiar tarefas grandes em favor de séries pequenas. Pesquisa em sistemas dinâmicos do controle remoto.',
+            'edu.unicesumar.title': 'Tecnólogo em Vídeo-Cassete',
+            'edu.unicesumar.meta': 'VHS · 2000 – 2003',
+
+            'projects.title': 'Projetos paralelos',
+            'projects.mdb.title': 'MDB – Mistério Demais Boletos',
+            'projects.mdb.desc': 'Plataforma de visualização das contas que esqueço de pagar. Adotada 100% por bancos quando me ligam.',
+            'projects.athena.title': 'Athena Beer Index',
+            'projects.athena.desc': 'Plataforma de inteligência para escolher cerveja servindo 4000+ chopes consumidos. Multi-mercado: boteco, rooftop, casa.',
+            'projects.life.title': 'Life Academy',
+            'projects.life.badge': 'vibe',
+            'projects.life.desc': 'Iniciativa pessoal: aprender a abrir saco de salgadinho sem explodir. 2500+ saquinhos abertos, 47% com sucesso.',
+
+            'contact.title': 'Bora?',
+            'contact.lead': 'Aberto para conversas sobre F1, Niki Lauda, Broncos, Weezer, qual o melhor episódio de Breaking Bad e por que Dostoyevsky é difícil mas vale a pena.',
+            'contact.cta.email': 'Mandar coração',
+            'contact.cta.schedule': 'Agendar bate-papo',
+            'contact.cta.linkedin': 'LinkedIn (raramente uso)',
+            'contact.cta.cv': 'Baixar lista de séries',
+
+            'footer.tagline': 'Feito sem pressa em São Paulo'
+        },
+        en: {
+            'hero.lead': '"I know that I know nothing" — Socrates. Running on 70% coffee, 20% Goonies soundtrack, 10% deadline panic.',
+            'about.lead': '"I think, therefore I am" — Descartes. Pending confirmation. Strong opinions on chip bags and which Cage movie is the best.',
+            'experience.title': 'Parallel résumé',
+            'contact.title': "Let's go?"
+        }
+    };
+
+    const SKILLS_OFFDUTY_LISTS = {
+        'Linguagens':        ['Português coloquial', 'Inglês de Netflix', 'Espanhol de festa', 'Emoji avançado'],
+        'Languages':         ['Português coloquial', 'Inglês de Netflix', 'Espanhol de festa', 'Emoji avançado'],
+        'Dados & Analytics': ['Análise de Memes', 'Big Procrastinação', 'Streaming Quality Index'],
+        'Data & Analytics':  ['Análise de Memes', 'Big Procrastinação', 'Streaming Quality Index'],
+        'IA & Data Science': ['ML: Mama Lê', 'Classificação de Pizzas', 'Clustering de Hábitos Ruins', 'Análise Preditiva do Sextou'],
+        'AI & Data Science': ['ML: Mama Lê', 'Classificação de Pizzas', 'Clustering de Hábitos Ruins', 'Análise Preditiva do Sextou'],
+        'Bancos de dados':   ['MyHeart', 'PostgreSadness', 'RedShift Mental', 'Snowflake Emocional'],
+        'Databases':         ['MyHeart', 'PostgreSadness', 'RedShift Mental', 'Snowflake Emocional'],
+        'Cloud & DevOps':    ['Nuvem 9', 'CI/Café', 'S3: Sofá-Sono-Sopa', 'Deploy de Roupa'],
+        'Frameworks & Tools':['Angular do Sofá', 'Reactish', 'Cordas (de roupa)'],
+        'Metodologias':      ['Scrum no Sextou', 'Kanban da Geladeira', "DRY: Don't Repeat Domingos"],
+        'Methodologies':     ['Scrum no Sextou', 'Kanban da Geladeira', "DRY: Don't Repeat Domingos"]
+    };
+
+    const CRED_TITLES_OFFDUTY = [
+        'Certificado de Resistência ao Despertador',
+        'Diploma de Procrastinador Avançado',
+        'Faixa Preta em Pijama',
+        "Pós-graduação em 'Já vai 5 minutos'",
+        'Reconhecimento de Filme dos anos 90',
+        "MBA em 'Tô indo'",
+        "Tecnólogo em 'Já tô descendo'"
+    ];
+
+    const ORIGINAL_TEXT_CACHE = new Map();
+    const ORIGINAL_SKILL_LISTS = new Map();
+    const ORIGINAL_CRED_TITLES = [];
+
+    function getOverride(key) {
+        const lang = (window.__i18n && window.__i18n.current()) || 'pt';
+        const block = OFFDUTY_OVERRIDES[lang] || {};
+        if (block[key] != null) return block[key];
+        return OFFDUTY_OVERRIDES.pt[key];
+    }
+
+    function applyOffdutyTexts() {
+        // A) Por chave i18n
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+            const key = el.getAttribute('data-i18n');
+            const override = getOverride(key);
+            if (override == null) return;
+            if (!ORIGINAL_TEXT_CACHE.has(el)) ORIGINAL_TEXT_CACHE.set(el, el.textContent);
+            el.textContent = override;
+        });
+
+        // B) Skill chips: substituir ul de cada .skill-group baseado no texto do h3
+        document.querySelectorAll('.skill-group').forEach(function (group) {
+            const h3 = group.querySelector('h3');
+            const ul = group.querySelector('ul');
+            if (!h3 || !ul) return;
+            const titleText = h3.textContent.trim();
+            // Trim badge suffix se houver (ex: "IA & Data Science MIT" → "IA & Data Science")
+            const matchTitle = Object.keys(SKILLS_OFFDUTY_LISTS).find(function (k) {
+                return titleText.indexOf(k) === 0;
+            });
+            if (!matchTitle) return;
+            if (!ORIGINAL_SKILL_LISTS.has(ul)) ORIGINAL_SKILL_LISTS.set(ul, ul.innerHTML);
+            ul.innerHTML = SKILLS_OFFDUTY_LISTS[matchTitle].map(function (item) {
+                return '<li>' + item + '</li>';
+            }).join('');
+        });
+
+        // C) Cred titles literais — substituir na ordem do DOM
+        const credTitles = document.querySelectorAll('.cred-title');
+        credTitles.forEach(function (el, i) {
+            if (ORIGINAL_CRED_TITLES[i] == null) ORIGINAL_CRED_TITLES[i] = el.textContent;
+            if (el.hasAttribute('data-i18n')) return; // already handled by A
+            const replacement = CRED_TITLES_OFFDUTY[i];
+            if (replacement) el.textContent = replacement;
+        });
+    }
+
+    function restoreOriginalTexts() {
+        // A) Restaurar i18n textContent
+        ORIGINAL_TEXT_CACHE.forEach(function (originalText, el) {
+            el.textContent = originalText;
+        });
+        ORIGINAL_TEXT_CACHE.clear();
+
+        // Reaplicar i18n (garante consistência com idioma atual)
+        if (window.__i18n) window.__i18n.apply(window.__i18n.current());
+
+        // B) Restaurar skill chips
+        ORIGINAL_SKILL_LISTS.forEach(function (originalHTML, ul) {
+            ul.innerHTML = originalHTML;
+        });
+        ORIGINAL_SKILL_LISTS.clear();
+
+        // C) Restaurar cred titles literais
+        document.querySelectorAll('.cred-title').forEach(function (el, i) {
+            if (ORIGINAL_CRED_TITLES[i] != null && !el.hasAttribute('data-i18n')) {
+                el.textContent = ORIGINAL_CRED_TITLES[i];
+            }
+        });
+        ORIGINAL_CRED_TITLES.length = 0;
+    }
     const SVG_HEART = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7-4.5-9.5-9C.8 8.6 2.6 4 7 4c2 0 3.5 1 5 3 1.5-2 3-3 5-3 4.4 0 6.2 4.6 4.5 8-2.5 4.5-9.5 9-9.5 9z"/></svg>';
     const SVG_DUMBBELL = '<svg viewBox="0 0 64 24" fill="currentColor" aria-hidden="true"><rect x="2" y="6" width="6" height="12" rx="1"/><rect x="10" y="3" width="6" height="18" rx="1"/><rect x="18" y="10" width="28" height="4"/><rect x="48" y="3" width="6" height="18" rx="1"/><rect x="56" y="6" width="6" height="12" rx="1"/></svg>';
     const SVG_HELMET = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3c-5 0-9 4-9 9v4c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-4c0-5-4-9-9-9zm-6 9c0-3.3 2.7-6 6-6s6 2.7 6 6v1H6v-1zm12 4H6v-1h12v1z"/><rect x="7" y="14" width="10" height="3" fill="rgba(0,0,0,0.4)"/></svg>';
@@ -507,15 +751,20 @@
         function activate() {
             if (active) return;
             active = true;
+            document.body.classList.add('offduty-on');
             root.classList.add('is-on');
             root.setAttribute('aria-hidden', 'false');
-            place();
+            applyOffdutyTexts();
+            // Wait one frame so DOM updates settle, then place anchors with new heights
+            requestAnimationFrame(place);
         }
         function deactivate() {
             active = false;
+            document.body.classList.remove('offduty-on');
             root.classList.remove('is-on');
             root.setAttribute('aria-hidden', 'true');
             root.innerHTML = '';
+            restoreOriginalTexts();
         }
         function toggle() { active ? deactivate() : activate(); }
 
@@ -528,7 +777,10 @@
             if (e.key === 'Escape' && active) deactivate();
         });
         document.addEventListener('langchange', function () {
-            if (active) place();
+            if (active) {
+                applyOffdutyTexts();
+                requestAnimationFrame(place);
+            }
         });
 
         window.__offduty = { open: activate, close: deactivate, toggle: toggle, isActive: function () { return active; } };
