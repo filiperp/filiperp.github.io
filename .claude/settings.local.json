@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -m http.server 8765)",
+      "Bash(echo \"server started, pid=$!\")",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" http://localhost:8765/)",
+      "Bash(open *)",
+      "Bash(curl -s -o /dev/null -w \"HTML %{http_code} | \" http://localhost:8765/)",
+      "Bash(curl -s -o /dev/null -w \"CSS %{http_code} | \" http://localhost:8765/css/style.css)",
+      "Bash(curl -s -o /dev/null -w \"JS %{http_code} | \" http://localhost:8765/js/main.js)",
+      "Bash(curl -s -o /dev/null -w \"PDF %{http_code} | \" http://localhost:8765/assets/filipe_rodrigues.pdf)",
+      "Bash(curl -s -o /dev/null -w \"FOTO %{http_code}\\\\n\" http://localhost:8765/assets/foto.jpg)"
+    ]
+  }
+}

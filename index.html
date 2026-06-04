@@ -1,10 +1,407 @@
 <!DOCTYPE html>
-<html>
-<head lang="en">
+<html lang="pt-BR">
+<head>
     <meta charset="UTF-8">
-    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="title.page">Filipe Rodrigues — Senior Data Engineer & Solution Architect</title>
+    <meta name="description" data-i18n-attr="content:meta.description" content="Filipe Rodrigues — Senior Data Engineer, Solution Architect e Tech Lead com 22+ anos de experiência em engenharia de dados, arquitetura cloud e plataformas analíticas.">
+    <meta name="author" content="Filipe Rodrigues">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Filipe Rodrigues — Senior Data Engineer & Solution Architect">
+    <meta property="og:description" content="22+ anos construindo pipelines de dados, arquiteturas cloud e plataformas analíticas em escala.">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:locale:alternate" content="en_US">
+
+    <link rel="alternate" hreflang="pt-BR" href="https://filiperp.github.io/">
+    <link rel="alternate" hreflang="en" href="https://filiperp.github.io/">
+    <link rel="alternate" hreflang="x-default" href="https://filiperp.github.io/">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%231a73e8%22/><text x=%2250%22 y=%2266%22 font-size=%2256%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22600%22>FR</text></svg>">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans:400,500,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-adfadfadfs
+    <a class="skip-link" href="#main" data-i18n="a11y.skip">Pular para o conteúdo</a>
+
+    <header class="topbar">
+        <div class="container topbar-inner">
+            <a href="#" class="brand" data-i18n-attr="aria-label:a11y.brand" aria-label="Filipe Rodrigues — início">
+                <span class="brand-mark">FR</span>
+                <span class="brand-name">Filipe Rodrigues</span>
+            </a>
+            <nav class="nav" data-i18n-attr="aria-label:a11y.nav" aria-label="Navegação principal">
+                <a href="#about" data-i18n="nav.about">Sobre</a>
+                <a href="#experience" data-i18n="nav.experience">Experiência</a>
+                <a href="#skills" data-i18n="nav.skills">Skills</a>
+                <a href="#projects" data-i18n="nav.projects">Projetos</a>
+                <a href="#contact" data-i18n="nav.contact">Contato</a>
+            </nav>
+            <div class="header-controls">
+                <button id="lang-toggle" class="lang-toggle" type="button" data-i18n-attr="aria-label:a11y.lang;title:a11y.lang" aria-label="Alternar idioma" title="Alternar idioma">
+                    <span class="lang-opt is-active" data-lang-option="pt" aria-pressed="true">PT</span>
+                    <span class="lang-sep" aria-hidden="true">/</span>
+                    <span class="lang-opt" data-lang-option="en" aria-pressed="false">EN</span>
+                </button>
+                <button id="theme-toggle" class="theme-toggle" type="button" data-i18n-attr="aria-label:a11y.theme;title:a11y.theme" aria-label="Alternar tema" title="Alternar tema claro/escuro">
+                    <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.5" y1="4.5" x2="6.5" y2="6.5"/><line x1="17.5" y1="17.5" x2="19.5" y2="19.5"/><line x1="4.5" y1="19.5" x2="6.5" y2="17.5"/><line x1="17.5" y1="6.5" x2="19.5" y2="4.5"/></g></svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" fill="currentColor"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="hero">
+            <div class="container hero-inner">
+                <div class="hero-text">
+                    <p class="eyebrow" data-i18n="hero.eyebrow">Senior Data Engineer · Solution Architect · Tech Lead</p>
+                    <h1><span data-i18n="hero.title.before">Construindo arquiteturas de dados que </span><span class="accent" data-i18n="hero.title.accent">escalam</span><span data-i18n="hero.title.after">.</span></h1>
+                    <p class="lead" data-i18n="hero.lead">22+ anos desenhando e operando pipelines, plataformas analíticas e arquiteturas cloud para organizações que processam dezenas de terabytes por dia. Lidero times multidisciplinares com práticas ágeis e DevOps/CI-CD.</p>
+                    <div class="hero-actions">
+                        <a class="btn btn-primary" href="assets/filipe_rodrigues.pdf" download data-i18n="hero.cta.cv">Baixar CV (PDF)</a>
+                        <a class="btn btn-ghost" href="#contact" data-i18n="hero.cta.contact">Entrar em contato</a>
+                    </div>
+                    <ul class="socials" data-i18n-attr="aria-label:a11y.socials" aria-label="Redes profissionais">
+                        <li><a href="https://www.linkedin.com/in/filiperp" target="_blank" rel="noopener" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+                        </a></li>
+                        <li><a href="https://github.com/filiperp" target="_blank" rel="noopener" aria-label="GitHub">
+                            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.27-1.68-1.27-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18.92-.26 1.92-.39 2.9-.4.98.01 1.98.14 2.9.4 2.2-1.49 3.17-1.18 3.17-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.41-5.26 5.69.41.35.78 1.05.78 2.12v3.14c0 .31.21.67.8.56 4.56-1.52 7.85-5.83 7.85-10.91C23.5 5.65 18.35.5 12 .5z"/></svg>
+                        </a></li>
+                        <li><a id="email-link" href="#" aria-label="Email"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M2 4h20c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H2c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm10 7L2.4 5.4 12 11.4l9.6-6L12 11z"/></svg></a></li>
+                    </ul>
+                </div>
+                <div class="hero-side">
+                    <img class="avatar" src="assets/foto.jpg" alt="Filipe Rodrigues" width="288" height="288" loading="eager">
+                    <ul class="stats">
+                        <li><strong>22+</strong><span data-i18n="stats.years">anos de experiência</span></li>
+                        <li><strong>40 TB</strong><span data-i18n="stats.tb">processados / dia</span></li>
+                        <li><strong>3000+</strong><span data-i18n="stats.users">usuários enterprise</span></li>
+                        <li><strong>9+</strong><span data-i18n="stats.clients">clientes enterprise</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title" data-i18n="about.title">Sobre</h2>
+                <p class="section-lead" data-i18n="about.lead">Engenheiro de Dados e Arquiteto de Soluções orientado a resultados. Projeto e implanto pipelines de dados escaláveis, arquiteturas cloud e plataformas analíticas. Lidero times multifuncionais de 18+ engenheiros usando Agile/Scrum e práticas de DevOps/CI-CD. Certificado Alteryx Designer Core &amp; Advanced, com expertise em Python, SQL, Angular, PHP e tecnologias cloud-native (AWS / Azure / GCP).</p>
+
+                <div class="meta-grid">
+                    <div class="meta"><span class="meta-label" data-i18n="about.meta.location_label">Localização</span><span class="meta-value" data-i18n="about.meta.location_value">São Paulo, SP — Brasil</span></div>
+                    <div class="meta"><span class="meta-label" data-i18n="about.meta.languages_label">Idiomas</span><span class="meta-value" data-i18n="about.meta.languages_value">Português (nativo) · Inglês (fluente) · Espanhol (conversacional)</span></div>
+                    <div class="meta"><span class="meta-label" data-i18n="about.meta.available_label">Disponível para</span><span class="meta-value" data-i18n="about.meta.available_value">Consultoria · Arquitetura · Tech Leadership · Advisory · Palestras</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="section section-alt">
+            <div class="container">
+                <h2 class="section-title" data-i18n="experience.title">Experiência profissional</h2>
+                <ol class="timeline">
+                    <li class="job">
+                        <div class="job-head">
+                            <h3 data-i18n="jobs.goldenlearn.title">Release Manager &amp; Solution Architect</h3>
+                            <span class="job-company" data-i18n="jobs.goldenlearn.company">Goldenlearn</span>
+                            <span class="job-meta" data-i18n="jobs.goldenlearn.meta">Set 2023 – Out 2024 · São Paulo, Brasil</span>
+                        </div>
+                        <ul class="job-points">
+                            <li data-i18n="jobs.goldenlearn.b1">Arquitetei e coordenei ciclos de entrega ponta a ponta integrando soluções de Data Warehouse e Data Science em 3 projetos simultâneos.</li>
+                            <li data-i18n="jobs.goldenlearn.b2">Implementei automação de fluxos de dados e pipelines em tempo real com IA/ML, reduzindo intervenção manual em 40% e acelerando time-to-insight em 180%.</li>
+                            <li data-i18n="jobs.goldenlearn.b3">Liderei time multifuncional de 10+ engenheiros, elevando a taxa de entrega no prazo de 20% para 60%.</li>
+                            <li data-i18n="jobs.goldenlearn.b4">Padronizei práticas de release management em 3 linhas de produto, reduzindo defeitos pós-release em 18%.</li>
+                        </ul>
+                        <ul class="tags"><li>Release Management</li><li>Solution Architecture</li><li>CI/CD</li><li>Python</li><li>SQL</li><li>AI/ML</li></ul>
+                    </li>
+
+                    <li class="job">
+                        <div class="job-head">
+                            <h3 data-i18n="jobs.kreios.title">QA Engineer &amp; Test Automation Engineer</h3>
+                            <span class="job-company" data-i18n="jobs.kreios.company">Kreios (Luxemburgo) — projeto SustainCERT</span>
+                            <span class="job-meta" data-i18n="jobs.kreios.meta">Mar 2022 – Out 2023 · Luxemburgo (Remoto)</span>
+                        </div>
+                        <ul class="job-points">
+                            <li data-i18n="jobs.kreios.b1">QA e automação dedicada à plataforma SustainCERT — sistema de certificação de impacto climático regulado.</li>
+                            <li data-i18n="jobs.kreios.b2">Projetei suítes automatizadas cobrindo 1000+ cenários funcionais, de regressão e integração em 2 ambientes, aumentando detecção de defeitos pré-release em até 25%.</li>
+                            <li data-i18n="jobs.kreios.b3">Conduzi processos de release ponta a ponta com 6 deploys por trimestre.</li>
+                            <li data-i18n="jobs.kreios.b4">Reduzi incidentes de rollback em 10% via melhorias em Go-Live e retrospectivas.</li>
+                            <li data-i18n="jobs.kreios.b5">Encurtei ciclo de testes de 7-10 para 2-3 dias com Scrum e Kanban.</li>
+                        </ul>
+                        <ul class="tags"><li>Test Automation</li><li>QA</li><li>CI/CD</li><li>Agile</li></ul>
+                    </li>
+
+                    <li class="job">
+                        <div class="job-head">
+                            <h3 data-i18n="jobs.athena.title">Tech Lead &amp; Project Coordinator</h3>
+                            <span class="job-company" data-i18n="jobs.athena.company">Athena.bi</span>
+                            <span class="job-meta" data-i18n="jobs.athena.meta">Out 2018 – Presente · Évora, Portugal (Remoto) · Concorrente</span>
+                        </div>
+                        <ul class="job-points">
+                            <li data-i18n="jobs.athena.b1">Lidero times entregando soluções analíticas e arquiteturas de dados integrando Alteryx, Python e cloud (AWS/Azure/GCP) para 9+ clientes enterprise.</li>
+                            <li data-i18n="jobs.athena.b2">Arquitetei soluções de BI adotadas por grandes corporações brasileiras e portuguesas dos mercados de publicidade e mídia, suportando 360+ usuários.</li>
+                            <li data-i18n="jobs.athena.b3">Cadência média de 1-2 deploys por mês com práticas DevOps.</li>
+                            <li data-i18n="jobs.athena.b4">Pipelines processando 1 TB/dia a partir de 55+ sistemas fonte.</li>
+                        </ul>
+                        <ul class="tags"><li>Technical Leadership</li><li>Data Engineering</li><li>Solution Architecture</li><li>Python</li><li>Alteryx</li><li>Cloud</li></ul>
+                    </li>
+
+                    <li class="job">
+                        <div class="job-head">
+                            <h3 data-i18n="jobs.bbi.title">Partner / CTO</h3>
+                            <span class="job-company" data-i18n="jobs.bbi.company">BBI.Solutions</span>
+                            <span class="job-meta" data-i18n="jobs.bbi.meta">Jun 2015 – Presente · São Paulo, Brasil · Concorrente</span>
+                        </div>
+                        <ul class="job-points">
+                            <li data-i18n="jobs.bbi.b1">Cofundador e diretor de estratégia tecnológica em empresa de produtos de dados; escalei produtos Big Data para 30+ clientes enterprise, com volume agregado &gt; 60 TB.</li>
+                            <li data-i18n="jobs.bbi.b2">Liderei iniciativas de integração de Data Warehouse e modelos de ML em produção para análise estratégica.</li>
+                            <li data-i18n="jobs.bbi.b3">Supervisiono operações e releases em ambientes de 4-10 milhões de transações/dia, gerenciando times de até 30 engenheiros.</li>
+                            <li data-i18n="jobs.bbi.b4">Construí e mantenho modelos avançados de analytics, integrando 100+ datasets.</li>
+                        </ul>
+                        <ul class="tags"><li>Big Data</li><li>Cloud Architecture</li><li>CI/CD</li><li>Machine Learning</li><li>Angular</li><li>PHP</li><li>Python</li></ul>
+                    </li>
+
+                    <li class="job">
+                        <div class="job-head">
+                            <h3 data-i18n="jobs.band.title">Multimedia Developer — Market Intelligence</h3>
+                            <span class="job-company" data-i18n="jobs.band.company">Grupo Bandeirantes de Comunicação</span>
+                            <span class="job-meta" data-i18n="jobs.band.meta">Jul 2014 – Jun 2015 · São Paulo, Brasil</span>
+                        </div>
+                        <ul class="job-points">
+                            <li data-i18n="jobs.band.b1">Engenheirei soluções multimídia de BI com Tableau, Alteryx, HTML5, JavaScript e Ionic para 2400+ stakeholders internos.</li>
+                            <li data-i18n="jobs.band.b2">Distribuição mobile de analytics via Phonegap/Cordova, expandindo acesso em mais de 50%.</li>
+                        </ul>
+                        <ul class="tags"><li>Tableau</li><li>Alteryx</li><li>BI</li><li>HTML5</li><li>JavaScript</li><li>Ionic</li></ul>
+                    </li>
+
+                    <li class="job">
+                        <div class="job-head">
+                            <h3 data-i18n="jobs.aennova.title">Software Engineering Lead</h3>
+                            <span class="job-company" data-i18n="jobs.aennova.company">Aennova</span>
+                            <span class="job-meta" data-i18n="jobs.aennova.meta">2008 – 2014 · São Paulo, Brasil</span>
+                        </div>
+                        <ul class="job-points">
+                            <li data-i18n="jobs.aennova.b1">Gestão técnica de soluções de games e e-learning entregues em parceria com fornecedores.</li>
+                            <li data-i18n="jobs.aennova.b2">Modelagem e validação via System Dynamics com desk-testing antes da implementação.</li>
+                            <li data-i18n="jobs.aennova.b3">Análise UML para serious games, traduzindo requisitos pedagógicos em arquiteturas funcionais.</li>
+                            <li data-i18n="jobs.aennova.b4">Frameworks de comunicação entre engines de simulação e interfaces visuais.</li>
+                        </ul>
+                        <ul class="tags"><li>Game Dev</li><li>E-Learning</li><li>System Dynamics</li><li>UML</li><li>AS3</li><li>SCRUM</li></ul>
+                    </li>
+
+                    <li class="job">
+                        <div class="job-head">
+                            <h3 data-i18n="jobs.md.title">Professor universitário — Game Development</h3>
+                            <span class="job-company" data-i18n="jobs.md.company">MD Educacional</span>
+                            <span class="job-meta" data-i18n="jobs.md.meta">2008 · São Paulo, Brasil</span>
+                        </div>
+                        <ul class="job-points">
+                            <li data-i18n="jobs.md.b1">Ensino de Game Development na graduação (200 alunos, 3 turmas), desenho de currículo e projetos práticos com POO e System Dynamics.</li>
+                        </ul>
+                        <ul class="tags"><li>Teaching</li><li>Game Dev</li><li>AS3</li></ul>
+                    </li>
+
+                    <li class="job">
+                        <div class="job-head">
+                            <h3 data-i18n="jobs.unasp.title">Senior Developer — Delphi &amp; PHP</h3>
+                            <span class="job-company" data-i18n="jobs.unasp.company">Centro Universitário Adventista de São Paulo (UNASP)</span>
+                            <span class="job-meta" data-i18n="jobs.unasp.meta">Jan 2004 – Jun 2008 · São Paulo, Brasil</span>
+                        </div>
+                        <ul class="job-points">
+                            <li data-i18n="jobs.unasp.b1">Desenvolvi e mantive sistemas Delphi e PHP para 5000+ usuários, com análise, integração e QA ponta a ponta.</li>
+                            <li>
+                                <span data-i18n="jobs.unasp.b2">Liderei dois grupos de pesquisa institucionais:</span>
+                                <ul>
+                                    <li data-i18n="jobs.unasp.b2a">Processamento Distribuído — arquiteturas e técnicas aplicadas a sistemas corporativos.</li>
+                                    <li data-i18n="jobs.unasp.b2b">System Dynamics &amp; Simulação — modelos para aprendizagem baseada em jogos e simuladores corporativos.</li>
+                                </ul>
+                            </li>
+                            <li data-i18n="jobs.unasp.b3">Redução de 7-12% em incidentes de produção através de melhorias em QA.</li>
+                        </ul>
+                        <ul class="tags"><li>Systems Analysis</li><li>Distributed Computing</li><li>System Dynamics</li><li>PHP</li><li>Delphi</li><li>MySQL</li></ul>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <div class="container">
+                <h2 class="section-title" data-i18n="skills.title">Habilidades técnicas</h2>
+                <div class="skills-grid">
+                    <div class="skill-group">
+                        <h3 data-i18n="skills.languages">Linguagens</h3>
+                        <ul><li>Python (8a)</li><li>SQL (10a)</li><li>JavaScript (11a)</li><li>PHP (11a)</li><li>HTML5 (11a)</li><li>ActionScript/AS3 (11a)</li><li>C# / C (1a)</li></ul>
+                    </div>
+                    <div class="skill-group">
+                        <h3 data-i18n="skills.data">Dados &amp; Analytics</h3>
+                        <ul><li>Data Engineering (6a)</li><li>Business Intelligence (7a)</li><li>Big Data (4a)</li><li>Alteryx (10a)</li><li>Tableau (1a)</li></ul>
+                    </div>
+                    <div class="skill-group skill-group--accent">
+                        <h3><span data-i18n="skills.ai">IA &amp; Data Science</span> <span class="badge" data-i18n="skills.ai.badge">MIT</span></h3>
+                        <ul>
+                            <li>Machine Learning</li>
+                            <li>Modelagem estatística</li>
+                            <li>Regressão / Classificação</li>
+                            <li>Clustering</li>
+                            <li>Feature Engineering</li>
+                            <li>Avaliação de modelos</li>
+                            <li>A/B Testing</li>
+                            <li>Análise preditiva</li>
+                            <li>Data-Driven Decisions</li>
+                            <li>scikit-learn · pandas · numpy</li>
+                        </ul>
+                    </div>
+                    <div class="skill-group">
+                        <h3 data-i18n="skills.db">Bancos de dados</h3>
+                        <ul><li>MySQL (13a)</li><li>MS SQL</li><li>Snowflake</li><li>Redshift</li><li>BigQuery</li><li>Databricks</li></ul>
+                    </div>
+                    <div class="skill-group">
+                        <h3 data-i18n="skills.cloud">Cloud &amp; DevOps</h3>
+                        <ul><li>AWS / Azure / GCP (9a)</li><li>CI/CD &amp; DevOps (6a)</li><li>S3 · Glue · Lambda</li><li>Airflow · dbt</li><li>Terraform</li></ul>
+                    </div>
+                    <div class="skill-group">
+                        <h3 data-i18n="skills.frameworks">Frameworks &amp; Tools</h3>
+                        <ul><li>Angular (8a)</li><li>Ionic / Cordova</li><li>PhoneGap</li></ul>
+                    </div>
+                    <div class="skill-group">
+                        <h3 data-i18n="skills.methods">Metodologias</h3>
+                        <ul><li>Agile / Scrum / Kanban (10a)</li><li>Solution Architecture</li><li>Release Management</li><li>ITIL</li></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt">
+            <div class="container two-col">
+                <div>
+                    <h2 class="section-title" data-i18n="certs.title">Certificações</h2>
+                    <div class="creds-list">
+                        <div class="cred-card cred-card--active">
+                            <span class="cred-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 2l2.39 4.84L19.6 7.6l-3.8 3.71.9 5.24L12 14.08l-4.7 2.47.9-5.24L4.4 7.6l5.21-.76L12 2zm-3.5 16h7l-1.2 4-2.3-1.5-2.3 1.5-1.2-4z"/></svg></span>
+                            <div class="cred-body">
+                                <strong class="cred-title">Alteryx Designer Core Certified</strong>
+                                <span class="cred-meta" data-i18n="certs.alteryx_core.desc">Alteryx</span>
+                            </div>
+                            <span class="cred-badge" data-i18n="certs.active">Ativo</span>
+                        </div>
+                        <div class="cred-card cred-card--active">
+                            <span class="cred-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 2l2.39 4.84L19.6 7.6l-3.8 3.71.9 5.24L12 14.08l-4.7 2.47.9-5.24L4.4 7.6l5.21-.76L12 2zm-3.5 16h7l-1.2 4-2.3-1.5-2.3 1.5-1.2-4z"/></svg></span>
+                            <div class="cred-body">
+                                <strong class="cred-title">Alteryx Designer Advanced Certified</strong>
+                                <span class="cred-meta" data-i18n="certs.alteryx_adv.desc">Alteryx</span>
+                            </div>
+                            <span class="cred-badge" data-i18n="certs.active">Ativo</span>
+                        </div>
+                        <div class="cred-card">
+                            <span class="cred-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 2l2.39 4.84L19.6 7.6l-3.8 3.71.9 5.24L12 14.08l-4.7 2.47.9-5.24L4.4 7.6l5.21-.76L12 2zm-3.5 16h7l-1.2 4-2.3-1.5-2.3 1.5-1.2-4z"/></svg></span>
+                            <div class="cred-body">
+                                <strong class="cred-title">Alteryx Certified Professional</strong>
+                                <span class="cred-meta" data-i18n="certs.alteryx_pro.desc">Alteryx · Jul 2016</span>
+                            </div>
+                        </div>
+                        <div class="cred-card">
+                            <span class="cred-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 2l2.39 4.84L19.6 7.6l-3.8 3.71.9 5.24L12 14.08l-4.7 2.47.9-5.24L4.4 7.6l5.21-.76L12 2zm-3.5 16h7l-1.2 4-2.3-1.5-2.3 1.5-1.2-4z"/></svg></span>
+                            <div class="cred-body">
+                                <strong class="cred-title">Data Science and Machine Learning: Making Data-Driven Decisions</strong>
+                                <span class="cred-meta" data-i18n="certs.mit.desc">MIT Schwarzman College of Computing · Dez 2023</span>
+                            </div>
+                        </div>
+                        <div class="cred-card">
+                            <span class="cred-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 2l2.39 4.84L19.6 7.6l-3.8 3.71.9 5.24L12 14.08l-4.7 2.47.9-5.24L4.4 7.6l5.21-.76L12 2zm-3.5 16h7l-1.2 4-2.3-1.5-2.3 1.5-1.2-4z"/></svg></span>
+                            <div class="cred-body">
+                                <strong class="cred-title" data-i18n="certs.uchicago.title">Storytelling com Dados Estratégicos</strong>
+                                <span class="cred-meta" data-i18n="certs.uchicago.desc">University of Chicago · Dez 2023</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="section-title" data-i18n="edu.title">Educação</h2>
+                    <div class="creds-list">
+                        <div class="cred-card">
+                            <span class="cred-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg></span>
+                            <div class="cred-body">
+                                <strong class="cred-title" data-i18n="edu.ugf.title">Especialização em Gestão de TI — Engenharia de Software</strong>
+                                <span class="cred-meta" data-i18n="edu.ugf.meta">Universidade Gama Filho · 2009 – 2010 · Rio de Janeiro, Brasil</span>
+                                <p class="cred-desc" data-i18n="edu.ugf.desc">Programa focado em projetos de alta variabilidade sob prazos curtos, com aplicação de Agile, SCRUM e ITIL. Ênfase em System Dynamics e simulação de negócios.</p>
+                            </div>
+                        </div>
+                        <div class="cred-card">
+                            <span class="cred-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg></span>
+                            <div class="cred-body">
+                                <strong class="cred-title" data-i18n="edu.unicesumar.title">Tecnólogo em Informática</strong>
+                                <span class="cred-meta" data-i18n="edu.unicesumar.meta">UniCesumar · 2000 – 2003 · Brasil</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title" data-i18n="projects.title">Projetos relevantes</h2>
+                <div class="projects-grid">
+                    <article class="project">
+                        <a class="project-link" href="https://midiadados.gm.org.br/" target="_blank" rel="noopener">
+                            <h3>
+                                <span data-i18n="projects.mdb.title">MDB – Mídia Dados Brasil</span>
+                                <svg class="external-icon" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zM19 19H5V5h7V3H5c-1.11 0-2 .89-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7z"/></svg>
+                            </h3>
+                            <p data-i18n="projects.mdb.desc">Plataforma interativa de visualização de dados construída para BBI.Solutions, permitindo análises demográficas e de mídia ao longo do tempo. Adotada por 75% das grandes mídias brasileiras; processa dados demográficos de 100+ fontes.</p>
+                            <span class="project-url">midiadados.gm.org.br</span>
+                        </a>
+                    </article>
+                    <article class="project">
+                        <h3 data-i18n="projects.athena.title">Athena.bi BI Platform</h3>
+                        <p data-i18n="projects.athena.desc">Plataforma de inteligência de dados servindo 4000+ especialistas de marketing e vendas nos mercados português e brasileiro, com analytics avançado e ferramentas de decisão sobre 100+ fontes de dados.</p>
+                    </article>
+                    <article class="project">
+                        <a class="project-link" href="https://lifeacademy.pro" target="_blank" rel="noopener">
+                            <h3>
+                                <span data-i18n="projects.life.title">Life Academy</span>
+                                <span class="badge" data-i18n="projects.life.badge">sem fins lucrativos</span>
+                                <svg class="external-icon" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zM19 19H5V5h7V3H5c-1.11 0-2 .89-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7z"/></svg>
+                            </h3>
+                            <p data-i18n="projects.life.desc">Iniciativa sem fins lucrativos que fundei em 2020, focada em desenvolvimento pessoal e profissional. 2500+ pessoas atendidas em workshops, mentorias e conteúdos sobre tecnologia, soft skills e empreendedorismo. Plataforma multilíngue.</p>
+                            <span class="project-url">lifeacademy.pro</span>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section section-alt">
+            <div class="container contact-block">
+                <h2 class="section-title" data-i18n="contact.title">Vamos conversar</h2>
+                <p class="section-lead" data-i18n="contact.lead">Aberto para conversas sobre consultoria, arquitetura de dados, tech leadership, advisory e palestras.</p>
+                <div class="contact-actions">
+                    <a id="email-cta" class="btn btn-primary" href="#" data-i18n="contact.cta.email">Enviar email</a>
+                    <a class="btn btn-ghost" href="https://www.linkedin.com/in/filiperp" target="_blank" rel="noopener" data-i18n="contact.cta.linkedin">LinkedIn</a>
+                    <a class="btn btn-ghost" href="assets/filipe_rodrigues.pdf" download data-i18n="contact.cta.cv">Baixar CV</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <span>© <span id="year"></span> Filipe Rodrigues</span>
+            <span class="muted" data-i18n="footer.tagline">Feito com cuidado em São Paulo</span>
+        </div>
+    </footer>
+
+    <!-- Command palette container (populated by easter-eggs.js) -->
+    <div id="cmdk-root" aria-hidden="true"></div>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/easter-eggs.js"></script>
 </body>
 </html>
