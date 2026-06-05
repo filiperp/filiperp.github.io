@@ -187,6 +187,7 @@
             'cmdk.color': 'Trocar cor de acento',
             'cmdk.game.f1': '🏎️ Jogo: corrida F1',
             'cmdk.game.flappy': '🐦 Flappy corporativo',
+            'cmdk.game.worms': '🐛 Batalha de artilharia',
 
             'toast.tts_on': '🔊 Leitura ativa — clique em qualquer texto',
             'toast.tts_off': '🔇 Leitura desativada',
@@ -222,7 +223,9 @@
             'game.flappy.title': '🐦 Flappy Corporate',
             'game.flappy.start': 'Space ou click para começar',
             'game.flappy.controls': 'Space/click pular · Esc sair · R reiniciar',
-            'game.flappy.over': 'Game Over — R para reiniciar'
+            'game.flappy.over': 'Game Over — R para reiniciar',
+            'game.worms.title': '🐛 Batalha de Artilharia',
+            'game.worms.controls': '←→ mover · ↑↓ ângulo · Espaço atirar (segure para força)'
         },
 
         en: {
@@ -410,6 +413,7 @@
             'cmdk.color': 'Change accent color',
             'cmdk.game.f1': '🏎️ Game: F1 race',
             'cmdk.game.flappy': '🐦 Corporate Flappy',
+            'cmdk.game.worms': '🐛 Artillery Battle',
 
             'toast.tts_on': '🔊 Voice reader on — click any text',
             'toast.tts_off': '🔇 Voice reader off',
@@ -445,7 +449,9 @@
             'game.flappy.title': '🐦 Corporate Flappy',
             'game.flappy.start': 'Space or click to start',
             'game.flappy.controls': 'Space/click flap · Esc exit · R restart',
-            'game.flappy.over': 'Game Over — R to restart'
+            'game.flappy.over': 'Game Over — R to restart',
+            'game.worms.title': '🐛 Artillery Battle',
+            'game.worms.controls': '←→ move · ↑↓ angle · Space fire (hold for power)'
         }
     };
 

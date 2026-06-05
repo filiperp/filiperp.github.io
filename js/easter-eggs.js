@@ -201,6 +201,7 @@
             { icon: '🌈', section: 'cmdk.section.fun', label: 'cmdk.color', run: function () { if (window.__color) window.__color.open(); } },
             { icon: '🏎️', section: 'cmdk.section.fun', label: 'cmdk.game.f1', run: function () { if (window.__games) window.__games.f1(); } },
             { icon: '🐦', section: 'cmdk.section.fun', label: 'cmdk.game.flappy', run: function () { if (window.__games) window.__games.flappy(); } },
+            { icon: '🐛', section: 'cmdk.section.fun', label: 'cmdk.game.worms', run: function () { if (window.__games) window.__games.worms(); } },
             { icon: '📅', section: 'cmdk.section.external', label: 'cmdk.open.schedule', run: function () { window.open('https://calendar.app.google/2aG8genMhXuws8dKA', '_blank', 'noopener'); } },
             { icon: '💼', section: 'cmdk.section.external', label: 'cmdk.open.linkedin', run: function () { window.open('https://www.linkedin.com/in/filiperp', '_blank', 'noopener'); } },
             { icon: '🐙', section: 'cmdk.section.external', label: 'cmdk.open.github', run: function () { window.open('https://github.com/filiperp', '_blank', 'noopener'); } },
@@ -1341,6 +1342,286 @@
     }
 
     /* ============================================================
+       10. Worms-like Artillery game
+       ============================================================ */
+    function initWormsGame() {
+        function start() {
+            const root = makeGameShell('game.worms.title', 'game.worms.controls');
+            const canvas = root.querySelector('canvas');
+            const ctx = canvas.getContext('2d');
+            const W = canvas.width, H = canvas.height;
+
+            let terrain = [];
+            let players = [];
+            let projectile = null;
+            let particles = [];
+            let turn = 0;
+            let keys = {};
+            let power = 0;
+            let charging = false;
+            let wind = (Math.random() - 0.5) * 0.05;
+            let winner = null;
+
+            function generateTerrain() {
+                terrain = [];
+                let y = H * 0.7;
+                for (let x = 0; x < W; x++) {
+                    y += (Math.random() - 0.5) * 1.5;
+                    y = Math.max(H * 0.5, Math.min(H - 20, y));
+                    terrain.push(y);
+                }
+            }
+
+            function createExplosion(x, y) {
+                for (let i = 0; i < 30; i++) {
+                    particles.push({
+                        x: x, y: y,
+                        vx: (Math.random() - 0.5) * 6,
+                        vy: (Math.random() - 0.5) * 6,
+                        life: 50 + Math.random() * 50,
+                        color: ['#ffc107', '#ff9800', '#f44336'][Math.floor(Math.random() * 3)]
+                    });
+                }
+            }
+
+            function reset() {
+                generateTerrain();
+                winner = null;
+                turn = 0;
+                wind = (Math.random() - 0.5) * 0.05;
+                players = [
+                    { x: 50, y: 0, angle: 45, hp: 100, color: '#3498db', dir: 1 },
+                    { x: W - 50, y: 0, angle: 135, hp: 100, color: '#e74c3c', dir: -1 }
+                ];
+                players.forEach(p => {
+                    p.y = terrain[Math.round(p.x)] - 10;
+                });
+            }
+
+            function update(dt) {
+                if (winner) return;
+                const p = players[turn];
+                if (keys['ArrowLeft']) p.x = Math.max(10, p.x - 1);
+                if (keys['ArrowRight']) p.x = Math.min(W - 10, p.x + 1);
+                p.y = terrain[Math.round(p.x)] - 10;
+
+                if (keys['ArrowUp']) p.angle = p.dir === 1 ? Math.min(90, p.angle + 1) : Math.max(90, p.angle - 1);
+                if (keys['ArrowDown']) p.angle = p.dir === 1 ? Math.max(0, p.angle - 1) : Math.min(180, p.angle + 1);
+
+                if (charging) {
+                    power = Math.min(100, power + dt * 0.1);
+                }
+
+                if (projectile) {
+                    projectile.vx += wind;
+                    projectile.vy += 0.15; // gravity
+                    projectile.x += projectile.vx;
+                    projectile.y += projectile.vy;
+
+                    if (projectile.x < 0 || projectile.x > W || projectile.y > terrain[Math.round(projectile.x)]) {
+                        const impactX = Math.round(projectile.x);
+                        if (impactX > 0 && impactX < W) {
+                            createExplosion(impactX, terrain[impactX]);
+                            const radius = 25;
+                            for (let i = -radius; i <= radius; i++) {
+                                const terrainIdx = impactX + i;
+                                if (terrainIdx >= 0 && terrainIdx < W) {
+                                    const dist = Math.sqrt(i*i);
+                                    const craterDepth = (radius - dist) * 1.2;
+                                    terrain[terrainIdx] += craterDepth;
+                                }
+                            }
+                            players.forEach(pl => {
+                                const dist = Math.hypot(pl.x - impactX, pl.y - terrain[impactX]);
+                                if (dist < radius * 1.8) {
+                                    pl.hp -= Math.max(0, Math.floor(50 * (1 - dist / (radius * 1.8))));
+                                }
+                            });
+                        }
+                        projectile = null;
+                        setTimeout(nextTurn, 1000);
+                    }
+                }
+
+                particles.forEach((p, i) => {
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.life--;
+                    if (p.life <= 0) particles.splice(i, 1);
+                });
+
+                players.forEach(p => {
+                    if (p.hp <= 0) {
+                        winner = p.color === players[0].color ? 1 : 0;
+                    }
+                });
+            }
+
+            function drawTank(p) {
+                ctx.save();
+                ctx.translate(p.x, p.y);
+                ctx.fillStyle = p.color;
+                // Body
+                ctx.beginPath();
+                ctx.roundRect(-12, -8, 24, 12, 4);
+                ctx.fill();
+                // Tracks
+                ctx.fillStyle = '#555';
+                ctx.fillRect(-14, 4, 28, 5);
+
+                // Turret
+                const angleRad = (p.angle - 90) * Math.PI / 180;
+                ctx.rotate(angleRad);
+                ctx.fillStyle = p.color;
+                ctx.beginPath();
+                ctx.roundRect(-5, -18, 10, 20, 3);
+                ctx.fill();
+                ctx.fillStyle = '#444';
+                ctx.fillRect(-2, -28, 4, 10);
+                ctx.restore();
+
+                // Health bar
+                ctx.fillStyle = '#333';
+                ctx.fillRect(p.x - 15, p.y - 30, 32, 7);
+                ctx.fillStyle = '#e74c3c';
+                ctx.fillRect(p.x - 14, p.y - 29, (p.hp / 100) * 30, 5);
+            }
+
+            function draw() {
+                // Sky
+                const sky = ctx.createLinearGradient(0, 0, 0, H);
+                sky.addColorStop(0, '#87ceeb');
+                sky.addColorStop(1, '#a0dff2');
+                ctx.fillStyle = sky;
+                ctx.fillRect(0, 0, W, H);
+                // Terrain
+                ctx.fillStyle = '#27ae60';
+                ctx.beginPath();
+                ctx.moveTo(0, H);
+                for (let x = 0; x < W; x++) {
+                    ctx.lineTo(x, terrain[x]);
+                }
+                ctx.lineTo(W, H);
+                ctx.closePath();
+                ctx.fill();
+                ctx.fillStyle = '#2ecc71';
+                ctx.beginPath();
+                ctx.moveTo(0, H);
+                for (let x = 0; x < W; x++) {
+                    ctx.lineTo(x, terrain[x] + 5);
+                }
+                ctx.lineTo(W, H);
+                ctx.closePath();
+                ctx.fill();
+
+                players.forEach(drawTank);
+
+                if (projectile) {
+                    ctx.fillStyle = '#333';
+                    ctx.beginPath();
+                    ctx.arc(projectile.x, projectile.y, 4, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                particles.forEach(p => {
+                    ctx.fillStyle = p.color;
+                    ctx.fillRect(p.x, p.y, 3, 3);
+                });
+
+                // HUD
+                const p = players[turn];
+                ctx.fillStyle = 'rgba(0,0,0,0.7)';
+                ctx.font = 'bold 14px "Google Sans", sans-serif';
+                ctx.textAlign = 'left';
+                ctx.fillText(`Angle: ${p.angle}°`, 10, 20);
+                ctx.fillText(`Power: ${Math.round(power)}`, 10, 40);
+                ctx.textAlign = 'center';
+                const windArrow = wind > 0 ? '→' : '←';
+                ctx.fillText(`Wind: ${Math.abs(wind * 100).toFixed(1)} ${windArrow}`, W / 2, 20);
+                ctx.textAlign = 'right';
+                ctx.fillStyle = p.color;
+                ctx.fillText(`Player ${turn + 1}'s Turn`, W - 10, 20);
+
+                if (winner !== null) {
+                    ctx.fillStyle = 'rgba(0,0,0,0.7)';
+                    ctx.fillRect(0, H/2 - 40, W, 80);
+                    ctx.fillStyle = players[winner].color;
+                    ctx.font = 'bold 24px sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.fillText(`Player ${winner + 1} Wins!`, W/2, H/2);
+                }
+            }
+
+            function fire() {
+                if (projectile) return;
+                const p = players[turn];
+                const angleRad = (p.angle - 90) * Math.PI / 180;
+                const speed = power * 0.12;
+                projectile = {
+                    x: p.x,
+                    y: p.y - 10,
+                    vx: Math.cos(angleRad) * speed,
+                    vy: Math.sin(angleRad) * speed
+                };
+                power = 0;
+            }
+            
+            function nextTurn() {
+                turn = (turn + 1) % 2;
+                wind = (Math.random() - 0.5) * 0.05;
+            }
+
+            let last = 0;
+            function tick(now) {
+                const dt = last ? now - last : 16;
+                last = now;
+                update(dt);
+                draw();
+                rafId = requestAnimationFrame(tick);
+            }
+
+            function onKey(e) {
+                if (e.key === ' ' || e.code === 'Space') {
+                    e.preventDefault();
+                    if (!charging && !projectile && winner === null) { charging = true; power = 0; }
+                } else {
+                    keys[e.key] = true;
+                }
+                if (e.key === 'Escape') stop();
+                if (e.key.toLowerCase() === 'r') reset();
+            }
+            function onKeyUp(e) {
+                if (e.key === ' ' || e.code === 'Space') {
+                    e.preventDefault();
+                    if (charging) {
+                        charging = false;
+                        fire();
+                    }
+                } else {
+                    keys[e.key] = false;
+                }
+            }
+            function onClose(e) {
+                if (e.target.hasAttribute('data-close') || e.target.classList.contains('game-backdrop') || e.target.classList.contains('game-close')) stop();
+            }
+            function stop() {
+                cancelAnimationFrame(rafId);
+                document.removeEventListener('keydown', onKey);
+                document.removeEventListener('keyup', onKeyUp);
+                root.removeEventListener('click', onClose);
+                closeGame();
+            }
+
+            reset();
+            document.addEventListener('keydown', onKey);
+            document.addEventListener('keyup', onKeyUp);
+            root.addEventListener('click', onClose);
+            rafId = requestAnimationFrame(tick);
+        }
+        return start;
+    }
+
+    /* ============================================================
        Bootstrap
        ============================================================ */
     document.addEventListener('DOMContentLoaded', function () {
@@ -1352,7 +1633,7 @@
         initTTS();
         initOffDuty();
         initColor();
-        window.__games = { f1: initF1Game(), flappy: initFlappyGame() };
+        window.__games = { f1: initF1Game(), flappy: initFlappyGame(), worms: initWormsGame() };
 
         // Re-greet on language change
         document.addEventListener('langchange', consoleGreeting);
