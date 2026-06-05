@@ -953,6 +953,47 @@
         return getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#fb923c';
     }
 
+    function drawF1Car(ctx, x, y, w, h, color, isPlayer) {
+        // Car body
+        ctx.fillStyle = color;
+        ctx.beginPath();
+        ctx.moveTo(x + w * 0.5, y); // Nose tip
+        ctx.bezierCurveTo(x + w * 0.5, y + h * 0.2, x, y + h * 0.1, x, y + h * 0.3);
+        ctx.lineTo(x, y + h * 0.8);
+        ctx.lineTo(x + w * 0.2, y + h);
+        ctx.lineTo(x + w * 0.8, y + h);
+        ctx.lineTo(x + w, y + h * 0.8);
+        ctx.lineTo(x + w, y + h * 0.3);
+        ctx.bezierCurveTo(x + w, y + h * 0.1, x + w * 0.5, y + h * 0.2, x + w * 0.5, y);
+        ctx.closePath();
+        ctx.fill();
+
+        // Front wing
+        ctx.fillStyle = '#222';
+        ctx.beginPath();
+        ctx.moveTo(x - w * 0.1, y + h * 0.25);
+        ctx.lineTo(x + w * 1.1, y + h * 0.25);
+        ctx.lineTo(x + w * 1.0, y + h * 0.4);
+        ctx.lineTo(x + w * 0.0, y + h * 0.4);
+        ctx.closePath();
+        ctx.fill();
+
+        // Rear wing
+        ctx.fillRect(x - w * 0.15, y + h * 0.85, w * 1.3, h * 0.12);
+
+        // Cockpit & Helmet
+        ctx.fillStyle = '#222';
+        ctx.beginPath();
+        ctx.roundRect(x + w * 0.2, y + h * 0.3, w * 0.6, h * 0.4, 5);
+        ctx.fill();
+        if (isPlayer) {
+            ctx.fillStyle = '#FFF';
+            ctx.beginPath();
+            ctx.arc(x + w * 0.5, y + h * 0.5, h * 0.08, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+
     function initF1Game() {
         function start() {
             const root = makeGameShell('game.f1.title', 'game.controls');
@@ -960,9 +1001,11 @@
             const ctx = canvas.getContext('2d');
             const W = canvas.width, H = canvas.height;
             const LANES = [60, 130, 200, 270];
-            const LANE_W = 50;
+            const LANE_W = 48;
+            const CAR_H = 70;
+            const OBSTACLE_COLORS = ['#9aa0a6', '#ef4444', '#3b82f6', '#f59e0b', '#10b981'];
 
-            let player = { lane: 1, x: 0, targetX: 0, y: H - 100, w: LANE_W, h: 70 };
+            let player = { lane: 1, x: 0, targetX: 0, y: H - 100, w: LANE_W, h: CAR_H };
             player.x = player.targetX = LANES[player.lane];
             let obstacles = [];
             let dashOffset = 0;
@@ -972,6 +1015,7 @@
             let last = 0;
             let rafId;
             let spawnTimer = 0;
+            let bestScore = parseInt(localStorage.getItem('f1_best_score') || '0');
 
             function reset() {
                 player.lane = 1; player.x = player.targetX = LANES[player.lane];
@@ -979,11 +1023,12 @@
             }
             function spawn() {
                 const lane = Math.floor(Math.random() * 4);
-                obstacles.push({ x: LANES[lane], y: -80, w: LANE_W, h: 70, lane: lane });
+                const color = OBSTACLE_COLORS[Math.floor(Math.random() * OBSTACLE_COLORS.length)];
+                obstacles.push({ x: LANES[lane], y: -CAR_H, w: LANE_W, h: CAR_H, lane: lane, color: color });
             }
             function update(dt) {
                 if (!alive) return;
-                dashOffset = (dashOffset + speed) % 40;
+                dashOffset = (dashOffset + speed) % 80;
                 player.x += (player.targetX - player.x) * 0.25;
                 spawnTimer += dt;
                 const spawnInterval = Math.max(380, 900 - score / 50);
@@ -991,9 +1036,12 @@
                 obstacles.forEach(function (o) { o.y += speed; });
                 obstacles = obstacles.filter(function (o) { return o.y < H + 100; });
                 obstacles.forEach(function (o) {
-                    if (o.x < player.x + player.w && o.x + o.w > player.x &&
-                        o.y < player.y + player.h && o.y + o.h > player.y) {
+                    if (o.lane === player.lane && o.y < player.y + player.h && o.y + o.h > player.y) {
                         alive = false;
+                        if (score > bestScore) {
+                            bestScore = Math.floor(score);
+                            localStorage.setItem('f1_best_score', bestScore);
+                        }
                     }
                 });
                 score += dt * 0.05;
@@ -1006,9 +1054,23 @@
                 ctx.fillStyle = '#1a2a1a';
                 ctx.fillRect(0, 0, 35, H);
                 ctx.fillRect(W - 35, 0, 35, H);
+                // kerbs
+                for (let i = 0; i < H / 20; i++) {
+                    const y = (i * 20 - (dashOffset / 2)) % H;
+                    ctx.fillStyle = i % 2 === 0 ? '#dc2626' : '#fff';
+                    ctx.fillRect(25, y, 10, 10);
+                    ctx.fillRect(W - 35, y, 10, 10);
+                }
                 // road
                 ctx.fillStyle = '#2a2a2a';
                 ctx.fillRect(35, 0, W - 70, H);
+                // finish line
+                for (let i = 0; i < 2; i++) {
+                    for (let j = 0; j < 4; j++) {
+                        ctx.fillStyle = (i + j) % 2 === 0 ? '#fff' : '#000';
+                        ctx.fillRect(35 + j * ((W - 70) / 4), H - 140 + i * 10, (W - 70) / 4, 10);
+                    }
+                }
                 // lane markers
                 ctx.strokeStyle = '#ffffff66';
                 ctx.lineWidth = 3;
@@ -1021,30 +1083,29 @@
                 ctx.setLineDash([]);
                 // obstacles
                 obstacles.forEach(function (o) {
-                    ctx.fillStyle = '#9aa0a6';
-                    ctx.fillRect(o.x, o.y, o.w, o.h);
-                    ctx.fillStyle = '#404040';
-                    ctx.fillRect(o.x + 8, o.y + 10, o.w - 16, 18);
-                    ctx.fillRect(o.x + 8, o.y + o.h - 28, o.w - 16, 18);
+                    drawF1Car(ctx, o.x, o.y, o.w, o.h, o.color, false);
                 });
                 // player
-                const accent = getAccent();
-                ctx.fillStyle = accent;
-                ctx.fillRect(player.x, player.y, player.w, player.h);
-                ctx.fillStyle = 'rgba(255,255,255,0.6)';
-                ctx.fillRect(player.x + 8, player.y + 12, player.w - 16, 14);
-                ctx.fillRect(player.x + 8, player.y + player.h - 22, player.w - 16, 14);
-                // score
+                drawF1Car(ctx, player.x, player.y, player.w, player.h, getAccent(), true);
+                // HUD
                 ctx.fillStyle = '#fff';
-                ctx.font = '600 16px ui-monospace, Menlo, monospace';
+                ctx.font = '600 15px ui-monospace, Menlo, monospace';
+                ctx.textAlign = 'left';
                 ctx.fillText(t('game.f1.score') + ': ' + Math.floor(score), 12, 26);
+                ctx.textAlign = 'center';
+                ctx.fillText('BEST: ' + bestScore, W / 2, 26);
+                ctx.textAlign = 'right';
+                ctx.fillText('SPEED: ' + Math.round(speed * 25) + ' KPH', W - 12, 26);
+                ctx.textAlign = 'left';
                 if (!alive) {
                     ctx.fillStyle = 'rgba(0,0,0,0.75)';
                     ctx.fillRect(0, H / 2 - 50, W, 100);
                     ctx.fillStyle = '#fff';
                     ctx.font = '600 18px sans-serif';
                     ctx.textAlign = 'center';
-                    ctx.fillText(t('game.f1.over'), W / 2, H / 2 + 6);
+                    ctx.fillText(t('game.f1.over'), W / 2, H / 2 - 10);
+                    ctx.font = '400 14px sans-serif';
+                    ctx.fillText('Final Score: ' + Math.floor(score), W / 2, H / 2 + 15);
                     ctx.textAlign = 'left';
                 }
             }
@@ -1056,6 +1117,7 @@
                 rafId = requestAnimationFrame(tick);
             }
             function onKey(e) {
+                if (!alive && e.key.toLowerCase() !== 'r') return;
                 if (e.key === 'ArrowLeft') { e.preventDefault(); player.lane = Math.max(0, player.lane - 1); player.targetX = LANES[player.lane]; }
                 else if (e.key === 'ArrowRight') { e.preventDefault(); player.lane = Math.min(3, player.lane + 1); player.targetX = LANES[player.lane]; }
                 else if (e.key.toLowerCase() === 'r') { reset(); }
@@ -1094,10 +1156,10 @@
 
             let bird = { x: 80, y: H / 2, vy: 0, r: 14 };
             let pipes = [];
-            let gap = 150;
-            let pipeSpeed = 2.2;
-            let gravity = 0.45;
-            let jump = -7.5;
+            let gap = 180; // Increased gap
+            let pipeSpeed = 1.8; // Slower speed
+            let gravity = 0.35; // Softer gravity
+            let jump = -6.5; // Softer jump
             let score = 0;
             let alive = true;
             let started = false;
@@ -1109,9 +1171,10 @@
                 pipes = []; score = 0; alive = true; started = false; spawnTimer = 0;
             }
             function spawn() {
-                const minTop = 50, maxTop = H - gap - 80;
+                const minTop = 60, maxTop = H - gap - 100;
                 const topH = minTop + Math.random() * (maxTop - minTop);
-                pipes.push({ x: W, topH: topH, gap: gap, name: NAMES[Math.floor(Math.random() * NAMES.length)], passed: false });
+                const name = NAMES[Math.floor(Math.random() * NAMES.length)];
+                pipes.push({ x: W, topH: topH, gap: gap, name: name, passed: false, windowSeed: Math.random() });
             }
             function update(dt) {
                 if (!alive) return;
@@ -1119,83 +1182,121 @@
                 bird.vy += gravity;
                 bird.y += bird.vy;
                 spawnTimer += dt;
-                if (spawnTimer > 1400) { spawn(); spawnTimer = 0; }
+                if (spawnTimer > 1800) { spawn(); spawnTimer = 0; } // Slower spawn
                 pipes.forEach(function (p) { p.x -= pipeSpeed; });
-                pipes = pipes.filter(function (p) { return p.x > -90; });
+                pipes = pipes.filter(function (p) { return p.x > -120; });
 
-                if (bird.y + bird.r > H || bird.y - bird.r < 0) alive = false;
+                if (bird.y + bird.r > H - 20) { // Ground collision
+                    bird.y = H - 20 - bird.r;
+                    bird.vy = 0;
+                    alive = false;
+                }
+                if (bird.y - bird.r < 0) { // Ceiling collision
+                    bird.y = bird.r;
+                    bird.vy = 0;
+                }
+
                 pipes.forEach(function (p) {
-                    if (p.x < bird.x + bird.r && p.x + 70 > bird.x - bird.r) {
+                    if (p.x < bird.x + bird.r && p.x + 80 > bird.x - bird.r) {
                         if (bird.y - bird.r < p.topH || bird.y + bird.r > p.topH + p.gap) alive = false;
                     }
-                    if (!p.passed && p.x + 70 < bird.x) { p.passed = true; score++; }
+                    if (!p.passed && p.x + 80 < bird.x) { p.passed = true; score++; }
                 });
             }
             function drawPipe(p) {
-                ctx.fillStyle = '#9aa0a6';
-                ctx.fillRect(p.x, 0, 70, p.topH);
-                ctx.fillRect(p.x, p.topH + p.gap, 70, H - p.topH - p.gap);
-                // windows
-                ctx.fillStyle = '#404040';
-                for (let yy = 12; yy < p.topH - 12; yy += 18) {
-                    ctx.fillRect(p.x + 8, yy, 12, 8);
-                    ctx.fillRect(p.x + 26, yy, 12, 8);
-                    ctx.fillRect(p.x + 44, yy, 12, 8);
+                const pipeW = 80;
+                // Building body
+                ctx.fillStyle = '#2c3e50';
+                ctx.fillRect(p.x, 0, pipeW, p.topH);
+                ctx.fillRect(p.x, p.topH + p.gap, pipeW, H - p.topH - p.gap);
+                // Building top/bottom caps
+                ctx.fillStyle = '#233140';
+                ctx.fillRect(p.x - 5, p.topH - 10, pipeW + 10, 10);
+                ctx.fillRect(p.x - 5, p.topH + p.gap, pipeW + 10, 10);
+
+                // Windows
+                for (let yy = p.topH - 30; yy > 10; yy -= 30) {
+                    for (let xx = 0; xx < 2; xx++) {
+                        if (Math.sin(p.windowSeed * yy + xx) > 0.3) {
+                            ctx.fillStyle = '#f1c40f'; // Lit window
+                            ctx.fillRect(p.x + 15 + xx * 35, yy, 15, 15);
+                        }
+                    }
                 }
-                for (let yy = p.topH + p.gap + 12; yy < H - 12; yy += 18) {
-                    ctx.fillRect(p.x + 8, yy, 12, 8);
-                    ctx.fillRect(p.x + 26, yy, 12, 8);
-                    ctx.fillRect(p.x + 44, yy, 12, 8);
+                for (let yy = p.topH + p.gap + 20; yy < H - 30; yy += 30) {
+                    for (let xx = 0; xx < 2; xx++) {
+                        if (Math.sin(p.windowSeed * yy + xx) > 0.3) {
+                            ctx.fillStyle = '#f1c40f'; // Lit window
+                            ctx.fillRect(p.x + 15 + xx * 35, yy, 15, 15);
+                        }
+                    }
                 }
-                // name vertical
-                ctx.save();
-                ctx.translate(p.x + 35, p.topH / 2);
-                ctx.rotate(-Math.PI / 2);
+
+                // Sign
+                const signH = 32;
+                const signY = p.topH + p.gap / 2 - signH / 2;
+                ctx.fillStyle = '#e74c3c';
+                ctx.fillRect(p.x, signY, pipeW + 20, signH);
+                ctx.fillStyle = '#c0392b';
+                ctx.fillRect(p.x, signY + signH - 4, pipeW + 20, 4);
                 ctx.fillStyle = '#fff';
-                ctx.font = '600 11px ui-monospace, Menlo, monospace';
+                ctx.font = 'bold 16px "Google Sans", sans-serif';
                 ctx.textAlign = 'center';
-                ctx.fillText(p.name, 0, 4);
-                ctx.restore();
+                ctx.textBaseline = 'middle';
+                ctx.fillText(p.name, p.x + (pipeW + 20) / 2, signY + signH / 2);
             }
             function draw() {
-                // sky gradient
+                // Sky gradient
                 const sky = ctx.createLinearGradient(0, 0, 0, H);
-                sky.addColorStop(0, '#1a2333');
-                sky.addColorStop(1, '#14171c');
+                sky.addColorStop(0, '#3498db');
+                sky.addColorStop(1, '#87ceeb');
                 ctx.fillStyle = sky;
                 ctx.fillRect(0, 0, W, H);
                 pipes.forEach(drawPipe);
-                // bird
+                // Ground
+                ctx.fillStyle = '#27ae60';
+                ctx.fillRect(0, H - 20, W, 20);
+                ctx.fillStyle = '#2ecc71';
+                ctx.fillRect(0, H - 20, W, 8);
+
+                // Bird
                 ctx.fillStyle = getAccent();
                 ctx.beginPath(); ctx.arc(bird.x, bird.y, bird.r, 0, Math.PI * 2); ctx.fill();
-                // eye
+                // Eye
                 ctx.fillStyle = '#fff';
                 ctx.beginPath(); ctx.arc(bird.x + 4, bird.y - 4, 4, 0, Math.PI * 2); ctx.fill();
                 ctx.fillStyle = '#000';
                 ctx.beginPath(); ctx.arc(bird.x + 5, bird.y - 4, 2, 0, Math.PI * 2); ctx.fill();
-                // score
+
+                // Score
                 ctx.fillStyle = '#fff';
-                ctx.font = '700 22px sans-serif';
-                ctx.textAlign = 'right';
-                ctx.fillText(score, W - 14, 32);
+                ctx.font = '700 32px "Google Sans", sans-serif';
+                ctx.textAlign = 'center';
+                ctx.strokeStyle = 'rgba(0,0,0,0.4)';
+                ctx.lineWidth = 4;
+                ctx.strokeText(score, W / 2, 50);
+                ctx.fillText(score, W / 2, 50);
                 ctx.textAlign = 'left';
-                // start/over messages
+
+                // Start/over messages
                 if (!started && alive) {
                     ctx.fillStyle = 'rgba(0,0,0,0.6)';
-                    ctx.fillRect(0, H / 2 - 30, W, 60);
+                    ctx.fillRect(0, H / 2 - 40, W, 80);
                     ctx.fillStyle = '#fff';
-                    ctx.font = '600 16px sans-serif';
+                    ctx.font = '600 18px sans-serif';
                     ctx.textAlign = 'center';
-                    ctx.fillText(t('game.flappy.start'), W / 2, H / 2 + 6);
+                    ctx.fillText(t('game.flappy.start'), W / 2, H / 2);
                     ctx.textAlign = 'left';
                 }
                 if (!alive) {
                     ctx.fillStyle = 'rgba(0,0,0,0.75)';
-                    ctx.fillRect(0, H / 2 - 50, W, 100);
+                    ctx.fillRect(0, H / 2 - 60, W, 120);
                     ctx.fillStyle = '#fff';
-                    ctx.font = '600 18px sans-serif';
+                    ctx.font = 'bold 24px sans-serif';
                     ctx.textAlign = 'center';
-                    ctx.fillText(t('game.flappy.over'), W / 2, H / 2 + 6);
+                    ctx.fillText(t('game.flappy.over'), W / 2, H / 2 - 15);
+                    ctx.font = '400 16px sans-serif';
+                    ctx.fillText('Score: ' + score, W / 2, H / 2 + 15);
                     ctx.textAlign = 'left';
                 }
             }
