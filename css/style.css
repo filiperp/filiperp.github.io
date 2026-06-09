@@ -1107,3 +1107,483 @@ body.offduty-on .tags { display: none; }
 @media (max-width: 420px) {
     .game-canvas { width: 320px; height: 460px; }
 }
+
+/* ============================================================
+   Página Empresas & Projetos (projects.html)
+   ============================================================ */
+
+.hero--compact { padding: var(--space-xl) 0 var(--space-md); }
+.hero-compact-inner {
+    max-width: 760px;
+    text-align: left;
+}
+.hero--compact .eyebrow {
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+}
+.hero--compact h1 {
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    margin-bottom: var(--space-md);
+}
+.hero--compact .lead {
+    color: var(--fg-muted);
+    font-size: 1.05rem;
+    max-width: 65ch;
+}
+
+.company-jump {
+    display: flex; flex-wrap: wrap; gap: 0.75rem;
+    margin-top: var(--space-lg);
+}
+.company-jump a {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.4rem 0.75rem 0.4rem 0.4rem;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--fg);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: border-color 0.15s, color 0.15s, transform 0.15s;
+}
+.company-jump a:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-1px);
+    text-decoration: none;
+}
+.company-jump .company-mark {
+    width: 28px; height: 28px;
+    font-size: 0.7rem;
+    border-radius: var(--radius-sm);
+}
+.company-jump-logo {
+    height: 20px;
+    width: auto;
+    max-width: 60px;
+    object-fit: contain;
+    display: block;
+}
+/* Dark theme: wash branco discreto atrás dos logos de bitmap claros (GL/IT) */
+html[data-theme="dark"] .company-jump a {
+    background: var(--bg-elev);
+}
+.company-jump a:has(.company-jump-logo[src*="goldenlearn"]),
+.company-jump a:has(.company-jump-logo[src*="integratech"]) {
+    padding-left: 0.55rem;
+}
+
+/* Empresas — header */
+.company-section {
+    padding: var(--space-2xl) 0;
+    scroll-margin-top: 72px;
+}
+.company-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+}
+.company-id {
+    flex: 1;
+    min-width: 0;
+}
+.company-id .section-title {
+    margin-bottom: 0.15rem;
+    padding-bottom: 0;
+}
+.company-id .section-title::after { display: none; }
+.company-role {
+    display: block;
+    color: var(--fg-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+}
+.company-cta { white-space: nowrap; }
+.company-cta svg { margin-left: 0.25rem; opacity: 0.8; }
+
+.company-mark {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 48px; height: 48px;
+    border-radius: var(--radius-md);
+    background: var(--accent);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+    flex-shrink: 0;
+}
+/* Cores extraídas das logos reais (ImageMagick):
+   BBI   → gradiente cyan→green (#06e1ea / #12edbd) — uso teal
+   GL    → navy #183967 + accent orange #F16E22 — uso navy
+   IT    → blue #024F7B + accent gold #A48A4E — uso gold (diferencia das 2 azuis)
+*/
+.mark-bbi { background: #0891b2; }
+.mark-gl  { background: #183967; }
+.mark-it  { background: #a18a51; }
+html[data-theme="dark"] .mark-bbi { background: #22d3ee; color: #0f1115; }
+html[data-theme="dark"] .mark-gl  { background: #60a5fa; color: #0f1115; }
+html[data-theme="dark"] .mark-it  { background: #d4a017; color: #0f1115; }
+@media (prefers-color-scheme: dark) {
+    html:not([data-theme]) .mark-bbi { background: #22d3ee; color: #0f1115; }
+    html:not([data-theme]) .mark-gl  { background: #60a5fa; color: #0f1115; }
+    html:not([data-theme]) .mark-it  { background: #d4a017; color: #0f1115; }
+}
+
+/* Variante .company-mark--logo: usa <img> no lugar das letras */
+.company-mark--logo {
+    background: transparent !important;
+    border: 1px solid var(--border);
+    padding: 4px;
+}
+.company-mark--logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+}
+/* No tema escuro, alguns logos PNG têm fundo claro: dar um wash branco sutil ao container */
+html[data-theme="dark"] .company-mark--logo { background: #f5f5f5 !important; }
+@media (prefers-color-scheme: dark) {
+    html:not([data-theme]) .company-mark--logo { background: #f5f5f5 !important; }
+}
+/* O logo BBI é SVG colorido sobre transparente — sem wash branco no dark */
+html[data-theme="dark"] .company-mark--logo.mark-bbi { background: transparent !important; border-color: var(--border-strong); }
+@media (prefers-color-scheme: dark) {
+    html:not([data-theme]) .company-mark--logo.mark-bbi { background: transparent !important; border-color: var(--border-strong); }
+}
+
+.company-lead {
+    color: var(--fg-muted);
+    font-size: 1rem;
+    max-width: 70ch;
+    margin-bottom: var(--space-lg);
+}
+.company-lead strong { color: var(--fg); font-weight: 600; }
+
+/* Grid de produtos BBI (cards maiores, ícone + cor) */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-md);
+}
+.products-grid--bbi {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.product-card {
+    position: relative;
+    padding: var(--space-lg);
+    padding-top: calc(var(--space-lg) + 4px);
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+}
+.product-card:hover {
+    border-color: var(--product-accent, var(--accent));
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+.product-stripe {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--product-accent, var(--accent));
+}
+.product-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px; height: 44px;
+    margin-bottom: 0.85rem;
+    border-radius: var(--radius-md);
+    background: color-mix(in srgb, var(--product-accent, var(--accent)) 14%, transparent);
+    color: var(--product-accent, var(--accent));
+}
+html[data-theme="dark"] .product-icon {
+    background: color-mix(in srgb, var(--product-accent, var(--accent)) 22%, transparent);
+}
+@media (prefers-color-scheme: dark) {
+    html:not([data-theme]) .product-icon {
+        background: color-mix(in srgb, var(--product-accent, var(--accent)) 22%, transparent);
+    }
+}
+.product-card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    color: var(--fg);
+    display: flex;
+    align-items: baseline;
+    gap: 0.05rem;
+    flex-wrap: wrap;
+}
+.product-suffix {
+    color: var(--fg-muted);
+    font-weight: 400;
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+}
+.product-card p {
+    color: var(--fg-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Badge "soft" (cinza neutro) para projetos em breve */
+.badge-soft {
+    background: color-mix(in srgb, var(--fg-muted) 14%, transparent);
+    color: var(--fg-muted);
+}
+
+/* CTA "Ver todos os projetos" no fim de #projects do index */
+.projects-cta {
+    margin-top: var(--space-lg);
+    display: flex;
+    justify-content: center;
+}
+
+/* Nav ativo */
+.nav a.is-active {
+    color: var(--accent);
+}
+
+/* Mobile: empilha header da empresa */
+@media (max-width: 640px) {
+    .company-header {
+        flex-wrap: wrap;
+    }
+    .company-cta {
+        margin-left: auto;
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        margin-top: 0.5rem;
+    }
+    .company-mark { width: 40px; height: 40px; }
+    .company-jump { gap: 0.5rem; }
+    .company-jump a { font-size: 0.85rem; }
+}
+
+/* ============================================================
+   v2: produtos self.bi com eyebrow + ícone inline
+   ============================================================ */
+
+.products-grid--bbi {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+}
+.product-card { padding: 1.1rem 1.1rem 1.15rem; }
+.product-head {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    margin-bottom: 0.6rem;
+}
+.product-head > div { min-width: 0; }
+.product-head .product-icon {
+    width: 40px; height: 40px;
+    margin-bottom: 0;
+    flex-shrink: 0;
+}
+.product-eyebrow {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--product-accent, var(--accent));
+    margin-bottom: 0.1rem;
+}
+.product-head h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.25;
+}
+.product-card p {
+    font-size: 0.9rem;
+    line-height: 1.55;
+}
+
+/* ============================================================
+   v2: GoldenLearn — cards com mockup grande
+   ============================================================ */
+
+.solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-md);
+}
+.solution-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+}
+.solution-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+.solution-mockup {
+    aspect-ratio: 1024 / 721;
+    background: var(--bg-alt);
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+}
+.solution-mockup img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+}
+.solution-body {
+    padding: 1rem 1.1rem 1.15rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+.solution-eyebrow {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+.solution-body h3 {
+    font-size: 1.05rem;
+    line-height: 1.25;
+    margin: 0;
+}
+.solution-body p {
+    color: var(--fg-muted);
+    font-size: 0.9rem;
+    line-height: 1.55;
+    margin: 0.15rem 0 0;
+}
+.solution-card--feature {
+    grid-column: span 2;
+}
+.solution-card--feature .solution-body h3 { font-size: 1.25rem; }
+.solution-card--feature .solution-body p { font-size: 0.95rem; }
+
+@media (max-width: 720px) {
+    .solution-card--feature { grid-column: auto; }
+}
+
+/* ============================================================
+   v2: Integratech — cards com vídeo 16:9
+   ============================================================ */
+
+.initiatives-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: var(--space-lg);
+}
+.initiative-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+}
+.initiative-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+.initiative-media {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: var(--bg-alt);
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+}
+.initiative-media iframe,
+.initiative-media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    object-fit: cover;
+    display: block;
+}
+.initiative-body {
+    padding: 1.1rem 1.25rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+.initiative-tagline {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+.initiative-body h3 {
+    font-size: 1.2rem;
+    line-height: 1.25;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+.initiative-body p {
+    color: var(--fg-muted);
+    font-size: 0.95rem;
+    line-height: 1.55;
+    margin: 0.2rem 0 0.5rem;
+}
+.initiative-link {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--accent);
+    margin-top: auto;
+}
+.initiative-link:hover { text-decoration: underline; }
+
+@media (max-width: 640px) {
+    .initiatives-grid { grid-template-columns: 1fr; gap: var(--space-md); }
+}
+
+/* Variante full-width — Life Academy (sem vídeo, CTA proeminente) */
+.initiative-card--full {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, var(--accent-soft), transparent 70%), var(--bg-elev);
+    border-color: var(--accent);
+}
+.initiative-card--full .initiative-body {
+    padding: 1.75rem 2rem;
+    gap: 0.5rem;
+    max-width: 760px;
+}
+.initiative-card--full h3 { font-size: 1.45rem; }
+.initiative-card--full p { font-size: 1rem; }
+.initiative-invite {
+    color: var(--fg);
+    font-weight: 500;
+}
+.initiative-cta {
+    align-self: flex-start;
+    margin-top: 0.5rem;
+}
+@media (max-width: 640px) {
+    .initiative-card--full .initiative-body { padding: 1.25rem 1.25rem 1.5rem; }
+    .initiative-card--full h3 { font-size: 1.2rem; }
+}

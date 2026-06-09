@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="companies.page.title">Empresas & Projetos — Filipe Rodrigues</title>
+    <meta name="description" data-i18n-attr="content:companies.page.meta" content="Portfólio de projetos das três empresas das quais Filipe Rodrigues é sócio: GoldenLearn, BBI.Solutions e Instituto Integratech.">
+    <meta name="author" content="Filipe Rodrigues (filiperp)">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Empresas & Projetos — Filipe Rodrigues">
+    <meta property="og:description" content="Portfólio de projetos das três empresas das quais Filipe Rodrigues é sócio.">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:locale:alternate" content="en_US">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23c2410c%22/><text x=%2250%22 y=%2266%22 font-size=%2256%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22600%22>FR</text></svg>">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans:400,500,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Caveat:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <a class="skip-link" href="#main" data-i18n="a11y.skip">Pular para o conteúdo</a>
+
+    <header class="topbar">
+        <div class="container topbar-inner">
+            <a href="index.html" class="brand" data-i18n-attr="aria-label:a11y.brand;title:brand.tooltip" aria-label="Filipe Rodrigues — início" title="Filipe Rodrigues (IPA: /fi.ˈli.pɘ rʊ.ˈdri.ɡəʒ/)">
+                <span class="brand-mark">FR</span>
+                <span class="brand-name">Filipe Rodrigues</span>
+            </a>
+            <nav class="nav" data-i18n-attr="aria-label:a11y.nav" aria-label="Navegação principal">
+                <a href="index.html#about" data-i18n="nav.about">Sobre</a>
+                <a href="index.html#experience" data-i18n="nav.experience">Experiência</a>
+                <a href="index.html#skills" data-i18n="nav.skills">Skills</a>
+                <a href="projects.html" class="is-active" aria-current="page" data-i18n="nav.companies">Empresas</a>
+                <a href="index.html#contact" data-i18n="nav.contact">Contato</a>
+            </nav>
+            <div class="header-controls">
+                <button id="lang-toggle" class="lang-toggle" type="button" data-i18n-attr="aria-label:a11y.lang;title:a11y.lang" aria-label="Alternar idioma" title="Alternar idioma">
+                    <span class="lang-opt is-active" data-lang-option="pt" aria-pressed="true">PT</span>
+                    <span class="lang-sep" aria-hidden="true">/</span>
+                    <span class="lang-opt" data-lang-option="en" aria-pressed="false">EN</span>
+                </button>
+                <button id="theme-toggle" class="theme-toggle" type="button" data-i18n-attr="aria-label:a11y.theme;title:a11y.theme" aria-label="Alternar tema" title="Alternar tema claro/escuro">
+                    <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.5" y1="4.5" x2="6.5" y2="6.5"/><line x1="17.5" y1="17.5" x2="19.5" y2="19.5"/><line x1="4.5" y1="19.5" x2="6.5" y2="17.5"/><line x1="17.5" y1="6.5" x2="19.5" y2="4.5"/></g></svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" fill="currentColor"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="hero hero--compact">
+            <div class="container hero-compact-inner">
+                <p class="eyebrow" data-i18n="companies.page.eyebrow">Portfólio · Empresas das quais sou sócio</p>
+                <h1><span data-i18n="companies.page.title_before">Três empresas, </span><span class="accent" data-i18n="companies.page.title_accent">um portfólio</span><span data-i18n="companies.page.title_after">.</span></h1>
+                <p class="lead" data-i18n="companies.page.lead">Cada projeto abaixo está claramente vinculado à empresa que o entrega e ao papel que ocupo nela. Use os links para visitar cada site.</p>
+                <div class="company-jump" aria-label="Atalhos de empresa">
+                    <a href="#company-bbi">
+                        <img class="company-jump-logo" src="assets/companies/bbi/logo-globo.svg" alt="" aria-hidden="true" loading="lazy">
+                        <span data-i18n="companies.bbi.name">BBI.Solutions</span>
+                    </a>
+                    <a href="#company-goldenlearn">
+                        <img class="company-jump-logo" src="assets/companies/goldenlearn/logo.png" alt="" aria-hidden="true" loading="lazy">
+                        <span data-i18n="companies.goldenlearn.name">GoldenLearn</span>
+                    </a>
+                    <a href="#company-integratech">
+                        <img class="company-jump-logo" src="assets/companies/integratech/logo.png" alt="" aria-hidden="true" loading="lazy">
+                        <span data-i18n="companies.integratech.name">Instituto Integratech</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             BBI.Solutions
+             ============================================================ -->
+        <section id="company-bbi" class="section company-section">
+            <div class="container">
+                <header class="company-header">
+                    <span class="company-mark company-mark--logo mark-bbi" aria-hidden="true">
+                        <img src="assets/companies/bbi/logo-globo.svg" alt="" loading="lazy">
+                    </span>
+                    <div class="company-id">
+                        <h2 class="section-title" data-i18n="companies.bbi.name">BBI.Solutions</h2>
+                        <span class="company-role" data-i18n="companies.bbi.role">Founder · Tech Lead</span>
+                    </div>
+                    <a class="btn btn-ghost company-cta" href="https://bbi.solutions/" target="_blank" rel="noopener">
+                        <span data-i18n="companies.cta.visit_site">Visitar site</span>
+                        <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zM19 19H5V5h7V3H5c-1.11 0-2 .89-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7z"/></svg>
+                    </a>
+                </header>
+                <p class="company-lead" data-i18n="companies.bbi.lead">Plataforma de produtos de dados — família <strong>self.bi</strong>. Seis produtos que atendem desde análise multiagente até mídia programática de rádio.</p>
+
+                <div class="products-grid products-grid--bbi">
+                    <article class="product-card" style="--product-accent:#7c3aed">
+                        <span class="product-stripe" aria-hidden="true"></span>
+                        <div class="product-head">
+                            <span class="product-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="22" height="22"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.2"/><circle cx="5" cy="18" r="2.2"/><circle cx="19" cy="18" r="2.2"/><circle cx="12" cy="12" r="2.2"/><path d="M12 7.2v2.6M10.4 13.3 6.6 16.5M13.6 13.3l3.8 3.2"/></g></svg>
+                            </span>
+                            <div>
+                                <span class="product-eyebrow" data-i18n="companies.bbi.k2.eyebrow">Análise multiagente</span>
+                                <h3>k2<span class="product-suffix">.self.bi</span></h3>
+                            </div>
+                        </div>
+                        <p data-i18n="companies.bbi.k2.desc">Analista de inteligência artificial proativo e multiagente, estruturado sobre um backbone de 3 camadas.</p>
+                    </article>
+
+                    <article class="product-card" style="--product-accent:#0ea5e9">
+                        <span class="product-stripe" aria-hidden="true"></span>
+                        <div class="product-head">
+                            <span class="product-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="22" height="22"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 14V9M11 14v-3M15 14V7M3 18h18"/></g></svg>
+                            </span>
+                            <div>
+                                <span class="product-eyebrow" data-i18n="companies.bbi.tailor.eyebrow">Visualização de dados</span>
+                                <h3>tailor<span class="product-suffix">.self.bi</span></h3>
+                            </div>
+                        </div>
+                        <p data-i18n="companies.bbi.tailor.desc">Núcleo de visualização de dados remodelado para clientes da BBI, que integra dashboards do Tableau via trusted ticket.</p>
+                    </article>
+
+                    <article class="product-card" style="--product-accent:#dc2626">
+                        <span class="product-stripe" aria-hidden="true"></span>
+                        <div class="product-head">
+                            <span class="product-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="22" height="22"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h2l2-5 3 10 3-7 2 4 2-3h4"/><circle cx="19.5" cy="5.5" r="1.8" fill="currentColor"/></g></svg>
+                            </span>
+                            <div>
+                                <span class="product-eyebrow" data-i18n="companies.bbi.livert.eyebrow">Audiovisual ao vivo</span>
+                                <h3>liveRT<span class="product-suffix">.self.bi</span></h3>
+                            </div>
+                        </div>
+                        <p data-i18n="companies.bbi.livert.desc">Central operacional com IA multimodal para monitoramento, transcrição e análise de audiência de livestreams minuto a minuto.</p>
+                    </article>
+
+                    <article class="product-card" style="--product-accent:#10b981">
+                        <span class="product-stripe" aria-hidden="true"></span>
+                        <div class="product-head">
+                            <span class="product-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="22" height="22"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="10" r="2.6"/></g></svg>
+                            </span>
+                            <div>
+                                <span class="product-eyebrow" data-i18n="companies.bbi.flux.eyebrow">Inteligência OOH</span>
+                                <h3>flux<span class="product-suffix">.self.bi</span></h3>
+                            </div>
+                        </div>
+                        <p data-i18n="companies.bbi.flux.desc">Plataforma de inteligência para OOH que calcula o alcance real e o perfil do público nas ruas, cruzando geolocalização, ANATEL e IBGE.</p>
+                    </article>
+
+                    <article class="product-card" style="--product-accent:#f59e0b">
+                        <span class="product-stripe" aria-hidden="true"></span>
+                        <div class="product-head">
+                            <span class="product-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="22" height="22"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.6 3.4 8.4 8 9 4.6-.6 8-4.4 8-9V6l-8-3Z"/><circle cx="12" cy="12" r="2.4"/><path d="M12 9.6V9M12 15v-.6"/></g></svg>
+                            </span>
+                            <div>
+                                <span class="product-eyebrow" data-i18n="companies.bbi.argus.eyebrow">Brand safety</span>
+                                <h3>argus<span class="product-suffix">.self.bi</span></h3>
+                            </div>
+                        </div>
+                        <p data-i18n="companies.bbi.argus.desc">SaaS de brand safety e auditoria de contexto para publishers: identifica anunciantes e classifica conteúdos via LLM multimodal.</p>
+                    </article>
+
+                    <article class="product-card" style="--product-accent:#4f46e5">
+                        <span class="product-stripe" aria-hidden="true"></span>
+                        <div class="product-head">
+                            <span class="product-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="22" height="22"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="2"/><path d="M8.5 16.5a5 5 0 0 1 0-7M15.5 9.5a5 5 0 0 1 0 7M5.5 19.5a9 9 0 0 1 0-13M18.5 6.5a9 9 0 0 1 0 13"/></g></svg>
+                            </span>
+                            <div>
+                                <span class="product-eyebrow" data-i18n="companies.bbi.hertz.eyebrow">Mídia radiofônica</span>
+                                <h3>hertz<span class="product-suffix">.self.bi</span></h3>
+                            </div>
+                        </div>
+                        <p data-i18n="companies.bbi.hertz.desc">Infraestrutura que transforma rádio offline em mídia programática e líquida, auditada por IA de áudio 24/7 com registro em blockchain.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             GoldenLearn — 10 produtos
+             ============================================================ -->
+        <section id="company-goldenlearn" class="section section-alt company-section">
+            <div class="container">
+                <header class="company-header">
+                    <span class="company-mark company-mark--logo mark-gl" aria-hidden="true">
+                        <img src="assets/companies/goldenlearn/logo.png" alt="" loading="lazy">
+                    </span>
+                    <div class="company-id">
+                        <h2 class="section-title" data-i18n="companies.goldenlearn.name">GoldenLearn</h2>
+                        <span class="company-role" data-i18n="companies.goldenlearn.role">CTO</span>
+                    </div>
+                    <a class="btn btn-ghost company-cta" href="https://www.goldenlearn.com.br/" target="_blank" rel="noopener">
+                        <span data-i18n="companies.cta.visit_site">Visitar site</span>
+                        <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zM19 19H5V5h7V3H5c-1.11 0-2 .89-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7z"/></svg>
+                    </a>
+                </header>
+                <p class="company-lead" data-i18n="companies.goldenlearn.lead">EdTech que combina plataformas de aprendizagem, automação de treinamentos, psicometria e analytics de pessoas. Dez soluções modulares, do conteúdo EAD à gestão de ativos data-driven.</p>
+
+                <div class="solutions-grid">
+                    <article class="solution-card solution-card--feature">
+                        <div class="solution-mockup">
+                            <img src="assets/companies/goldenlearn/paths-to-growth.png" alt="Paths to Growth — mockup" loading="lazy">
+                        </div>
+                        <div class="solution-body">
+                            <span class="solution-eyebrow" data-i18n="companies.gl.paths.eyebrow">Plataforma principal</span>
+                            <h3 data-i18n="companies.gl.paths.title">Paths to Growth</h3>
+                            <p data-i18n="companies.gl.paths.desc">Plataforma SaaS que transforma a gestão do desenvolvimento de pessoas e carreiras. Arquitetura modular oferecendo visibilidade, controle e eficiência da capacitação ao crescimento profissional dos colaboradores.</p>
+                        </div>
+                    </article>
+
+                    <article class="solution-card">
+                        <div class="solution-mockup">
+                            <img src="assets/companies/goldenlearn/td-planner.png" alt="TD Planner — mockup" loading="lazy">
+                        </div>
+                        <div class="solution-body">
+                            <span class="solution-eyebrow" data-i18n="companies.gl.tdplanner.eyebrow">Gestão de treinamentos</span>
+                            <h3 data-i18n="companies.gl.tdplanner.title">TD Planner</h3>
+                            <p data-i18n="companies.gl.tdplanner.desc">Automatiza 100% do ciclo de planejamento, execução e certificação de treinamentos corporativos, reduzindo custos operacionais com gestão centralizada, ágil e eficiente.</p>
+                        </div>
+                    </article>
+
+                    <article class="solution-card">
+                        <div class="solution-mockup">
+                            <img src="assets/companies/goldenlearn/comprova.png" alt="COMPROVA+ — mockup" loading="lazy">
+                        </div>
+                        <div class="solution-body">
+                            <span class="solution-eyebrow" data-i18n="companies.gl.comprova.eyebrow">Avaliação de competências</span>
+                            <h3 data-i18n="companies.gl.comprova.title">COMPROVA+</h3>
+                            <p data-i18n="companies.gl.comprova.desc">SaaS que automatiza a criação de questionários personalizados e gera relatórios analíticos detalhados — apoia decisões sobre talentos, mapeamento de gaps e sucessão em posições-chave.</p>
+                        </div>
+                    </article>
+
+                    <article class="solution-card">
+                        <div class="solution-mockup">
+                            <img src="assets/companies/goldenlearn/fabrica-conteudo.png" alt="Fábrica de Conteúdo EAD — mockup" loading="lazy">
+                        </div>
+                        <div class="solution-body">
+                            <span class="solution-eyebrow" data-i18n="companies.gl.fabrica.eyebrow">Produção EAD</span>
+                            <h3 data-i18n="companies.gl.fabrica.title">Fábrica de Conteúdo EAD</h3>
+                            <p data-i18n="companies.gl.fabrica.desc">Estrutura completa para converter treinamentos em experiências digitais — inteligência instrucional, recursos multimídia e integração corporativa para o conhecimento certo à pessoa certa na hora certa.</p>
+                        </div>
+                    </article>
+
+                    <article class="solution-card">
+                        <div class="solution-mockup">
+                            <img src="assets/companies/goldenlearn/immersive-learn.png" alt="Immersive Learn — mockup" loading="lazy">
+                        </div>
+                        <div class="solution-body">
+                            <span class="solution-eyebrow" data-i18n="companies.gl.immersive.eyebrow">VR / AR para treinamento</span>
+                            <h3 data-i18n="companies.gl.immersive.title">Immersive Learn</h3>
+                            <p data-i18n="companies.gl.immersive.desc">Virtual Learning que transforma treinamentos complexos em experiências imersivas com realidade virtual, aumentada e simuladores. Ideal para conteúdos DICE (perigosos, raros, caros ou inviáveis).</p>
+                        </div>
+                    </article>
+
+                    <article class="solution-card">
+                        <div class="solution-mockup">
+                            <img src="assets/companies/goldenlearn/hr-retention.png" alt="HR Retention Machine — mockup" loading="lazy">
+                        </div>
+                        <div class="solution-body">
+                            <span class="solution-eyebrow" data-i18n="companies.gl.retention.eyebrow">IA para retenção</span>
+                            <h3 data-i18n="companies.gl.retention.title">HR Retention Machine</h3>
+                            <p data-i18n="companies.gl.retention.desc">IA e ciência de dados que identificam riscos de desligamento, preveem padrões de rotatividade e orientam ações estratégicas de retenção — fortalecendo estabilidade e performance organizacional.</p>
+                        </div>
+                    </article>
+
+                    <article class="solution-card">
+                        <div class="solution-mockup">
+                            <img src="assets/companies/goldenlearn/data-driven.png" alt="Gestão Data-Driven — mockup" loading="lazy">
+                        </div>
+                        <div class="solution-body">
+                            <span class="solution-eyebrow" data-i18n="companies.gl.datadriven.eyebrow">Cultura data-driven</span>
+                            <h3 data-i18n="companies.gl.datadriven.title">Gestão Data-Driven</h3>
+                            <p data-i18n="companies.gl.datadriven.desc">Business Decision System completo: integração de dados, datalake, definição de KPIs, capacitação analítica e Business Decision Rooms com dashboards interativos para decisões ágeis e sustentáveis.</p>
+                        </div>
+                    </article>
+
+                    <article class="solution-card">
+                        <div class="solution-mockup">
+                            <img src="assets/companies/goldenlearn/gestao-ativos.png" alt="Sistema Inteligente de Gestão de Ativos — mockup" loading="lazy">
+                        </div>
+                        <div class="solution-body">
+                            <span class="solution-eyebrow" data-i18n="companies.gl.ativos.eyebrow">Gestão de ativos</span>
+                            <h3 data-i18n="companies.gl.ativos.title">Sistema Inteligente de Gestão de Ativos</h3>
+                            <p data-i18n="companies.gl.ativos.desc">Monitoramento e otimização do ciclo de vida de ativos integrando telemetria em tempo real, BI, dashboards e agentes de IA — da aquisição à revenda, maximizando valor residual.</p>
+                        </div>
+                    </article>
+
+                    <article class="solution-card">
+                        <div class="solution-mockup">
+                            <img src="assets/companies/goldenlearn/ppt.png" alt="Process Performance Tools — mockup" loading="lazy">
+                        </div>
+                        <div class="solution-body">
+                            <span class="solution-eyebrow" data-i18n="companies.gl.ppt.eyebrow">Operações & Manutenção</span>
+                            <h3 data-i18n="companies.gl.ppt.title">Process Performance Tools (PPT)</h3>
+                            <p data-i18n="companies.gl.ppt.desc">Solução digital e consultiva que transforma manutenção e operação com modelos de excelência, inspeções estruturadas e monitoramento inteligente — garantindo disponibilidade, produtividade e segurança.</p>
+                        </div>
+                    </article>
+
+                    <article class="solution-card">
+                        <div class="solution-mockup">
+                            <img src="assets/companies/goldenlearn/pontos-fortes.png" alt="Gestão Pontos Fortes — mockup" loading="lazy">
+                        </div>
+                        <div class="solution-body">
+                            <span class="solution-eyebrow" data-i18n="companies.gl.pontosfortes.eyebrow">Liderança & psicometria</span>
+                            <h3 data-i18n="companies.gl.pontosfortes.title">Gestão Pontos Fortes</h3>
+                            <p data-i18n="companies.gl.pontosfortes.desc">Modelo de gestão e liderança combinando psicometria de última geração, IA e Big Five para mapear personalidade, talentos e habilidades — potencializando desempenho individual, das equipes e da organização.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             Instituto Integratech — 4 iniciativas com vídeo
+             ============================================================ -->
+        <section id="company-integratech" class="section company-section">
+            <div class="container">
+                <header class="company-header">
+                    <span class="company-mark company-mark--logo mark-it" aria-hidden="true">
+                        <img src="assets/companies/integratech/logo.png" alt="" loading="lazy">
+                    </span>
+                    <div class="company-id">
+                        <h2 class="section-title" data-i18n="companies.integratech.name">Instituto Integratech</h2>
+                        <span class="company-role" data-i18n="companies.integratech.role">Sócio · Sem fins lucrativos</span>
+                    </div>
+                    <a class="btn btn-ghost company-cta" href="https://institutointegratech.org/" target="_blank" rel="noopener">
+                        <span data-i18n="companies.cta.visit_site">Visitar site</span>
+                        <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zM19 19H5V5h7V3H5c-1.11 0-2 .89-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7z"/></svg>
+                    </a>
+                </header>
+                <p class="company-lead" data-i18n="companies.integratech.lead">Instituto sem fins lucrativos que articula tecnologia, saúde e cidadania através de quatro iniciativas complementares.</p>
+
+                <div class="initiatives-grid">
+                    <article class="initiative-card">
+                        <div class="initiative-media">
+                            <iframe src="https://player.vimeo.com/video/1053787313?color&autopause=0&loop=0&muted=0&title=1&portrait=1&byline=1#t=" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="IntegraCity — Instituto Integratech"></iframe>
+                        </div>
+                        <div class="initiative-body">
+                            <span class="initiative-tagline" data-i18n="companies.it.integracity.tagline">Software para gestão pública</span>
+                            <h3 data-i18n="companies.it.integracity.title">IntegraCity</h3>
+                            <p data-i18n="companies.it.integracity.desc">Plataforma para reduzir o tempo de execução de tarefas em órgãos públicos, com acessibilidade cloud e segurança de dados como pilares. Hoje é o produto principal da nossa frente tech-pública.</p>
+                            <a class="initiative-link" href="https://institutointegratech.org/integracity/" target="_blank" rel="noopener" data-i18n="companies.it.cta">Conhecer iniciativa →</a>
+                        </div>
+                    </article>
+
+                    <article class="initiative-card">
+                        <div class="initiative-media">
+                            <iframe src="https://player.vimeo.com/video/1053787131?color&autopause=0&loop=0&muted=0&title=1&portrait=1&byline=1#t=" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Cidades Saudáveis — Instituto Integratech"></iframe>
+                        </div>
+                        <div class="initiative-body">
+                            <span class="initiative-tagline" data-i18n="companies.it.cidades.tagline">Saúde pública orientada por dados</span>
+                            <h3 data-i18n="companies.it.cidades.title">Cidades Saudáveis</h3>
+                            <p data-i18n="companies.it.cidades.desc">Programa que conecta dados de saúde pública e políticas urbanas para tornar municípios mais saudáveis — diagnóstico, KPIs e priorização de intervenção baseada em evidências.</p>
+                            <a class="initiative-link" href="https://institutointegratech.org/" target="_blank" rel="noopener" data-i18n="companies.it.cta">Conhecer iniciativa →</a>
+                        </div>
+                    </article>
+
+                    <article class="initiative-card">
+                        <div class="initiative-media">
+                            <iframe src="https://player.vimeo.com/video/1053786819?color&autopause=0&loop=0&muted=0&title=1&portrait=1&byline=1#t=" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="4Health — Instituto Integratech"></iframe>
+                        </div>
+                        <div class="initiative-body">
+                            <span class="initiative-tagline" data-i18n="companies.it.fourhealth.tagline">Desenvolvimento humano integrado</span>
+                            <h3 data-i18n="companies.it.fourhealth.title">4Health</h3>
+                            <p data-i18n="companies.it.fourhealth.desc">Iniciativa de saúde integrativa baseada em dados e prevenção, conectando desenvolvimento humano, empregabilidade e empreendedorismo.</p>
+                            <a class="initiative-link" href="https://institutointegratech.org/" target="_blank" rel="noopener" data-i18n="companies.it.cta">Conhecer iniciativa →</a>
+                        </div>
+                    </article>
+
+                    <article class="initiative-card initiative-card--full">
+                        <div class="initiative-body">
+                            <span class="initiative-tagline" data-i18n="companies.it.life.tagline">Desenvolvimento pessoal & profissional</span>
+                            <h3>
+                                <span data-i18n="companies.it.life.title">Life Academy</span>
+                                <span class="badge" data-i18n="companies.integratech.life.badge">sem fins lucrativos</span>
+                            </h3>
+                            <p data-i18n="companies.it.life.desc">Iniciativa fundada em 2020 focada em desenvolvimento pessoal e profissional. 2500+ pessoas atendidas em workshops, mentorias e conteúdos sobre tecnologia, soft skills e empreendedorismo. Plataforma multilíngue.</p>
+                            <p class="initiative-invite" data-i18n="companies.it.life.invite">Quer conhecer o trabalho de perto? Visite o site e veja workshops, mentorias e a comunidade ativa.</p>
+                            <a class="btn btn-primary initiative-cta" href="https://lifeacademy.pro" target="_blank" rel="noopener">
+                                <span data-i18n="companies.it.cta_life">Visitar lifeacademy.pro →</span>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt">
+            <div class="container contact-block">
+                <h2 class="section-title" data-i18n="companies.back.title">Quer ver o resto?</h2>
+                <p class="section-lead" data-i18n="companies.back.lead">Sobre, experiência, skills e contato continuam na página principal.</p>
+                <div class="contact-actions">
+                    <a class="btn btn-primary" href="index.html"><span data-i18n="companies.back.cta">Voltar ao início</span></a>
+                    <a class="btn btn-ghost" href="index.html#contact" data-i18n="contact.cta.email">Enviar email</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <span>© <span id="year"></span> Filipe Rodrigues</span>
+            <span class="muted" data-i18n="footer.tagline">Feito com cuidado em São Paulo</span>
+            <span class="version-tag" aria-label="App version">v<span id="app-version">dev</span></span>
+        </div>
+    </footer>
+
+    <script src="js/version.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
