@@ -12,6 +12,8 @@
             'a11y.theme': 'Alternar tema',
             'a11y.lang': 'Alternar idioma',
             'a11y.socials': 'Redes profissionais',
+            'a11y.menu_open': 'Abrir menu',
+            'a11y.menu_close': 'Fechar menu',
             'brand.tooltip': 'Filipe Rodrigues (IPA: /fi.ˈli.pɘ rʊ.ˈdri.ɡəʒ/)',
 
             'nav.about': 'Sobre',
@@ -34,7 +36,8 @@
 
             'companies.bbi.name': 'BBI.Solutions',
             'companies.bbi.role': 'Founder · Tech Lead',
-            'companies.bbi.lead': 'Plataforma de produtos de dados — família <strong>self.bi</strong>. Seis produtos que atendem desde análise multiagente até mídia programática de rádio.',
+            'companies.bbi.lead.before': 'Plataforma de produtos de dados — família ',
+            'companies.bbi.lead.after': '. Seis produtos que atendem desde análise multiagente até mídia programática de rádio.',
             'companies.bbi.stats.n1': '30+', 'companies.bbi.stats.l1': 'clientes enterprise',
             'companies.bbi.stats.n2': '60+ TB', 'companies.bbi.stats.l2': 'dados agregados',
             'companies.bbi.stats.n3': '10 anos', 'companies.bbi.stats.l3': 'no mercado',
@@ -186,7 +189,7 @@
             'hero.title.before': 'Construindo arquiteturas de dados que ',
             'hero.title.accent': 'escalam',
             'hero.title.after': '.',
-            'hero.lead': 'Olá, sou o Filipe Rodrigues (IPA: /fi.ˈli.pɘ rʊ.ˈdri.ɡəʒ/). 22+ anos desenhando e operando pipelines, plataformas analíticas e arquiteturas cloud para organizações que processam dezenas de terabytes por dia. Lidero times multidisciplinares com práticas ágeis e DevOps/CI-CD.',
+            'hero.lead': '22+ anos desenhando e operando pipelines, plataformas analíticas e arquiteturas cloud para organizações que processam dezenas de terabytes por dia. Lidero times multidisciplinares com práticas ágeis e DevOps/CI-CD.',
             'hero.cta.cv': 'Baixar CV (PDF)',
             'hero.cta.contact': 'Entrar em contato',
             'hero.cta.schedule': 'Agendar conversa',
@@ -226,7 +229,7 @@
 
             'jobs.athena.title': 'Tech Lead & Project Coordinator',
             'jobs.athena.company': 'Athena.bi',
-            'jobs.athena.meta': 'Out 2018 – Presente · Évora, Portugal (Remoto) · Concorrente',
+            'jobs.athena.meta': 'Out 2018 – Presente · Évora, Portugal (Remoto) · Em paralelo',
             'jobs.athena.b1': 'Lidero times entregando soluções analíticas e arquiteturas de dados integrando Alteryx, Python e cloud (AWS/Azure/GCP) para 9+ clientes enterprise.',
             'jobs.athena.b2': 'Arquitetei soluções de BI adotadas por grandes corporações brasileiras e portuguesas dos mercados de publicidade e mídia, suportando 360+ usuários.',
             'jobs.athena.b3': 'Cadência média de 1-2 deploys por mês com práticas DevOps.',
@@ -234,7 +237,7 @@
 
             'jobs.bbi.title': 'Partner / CTO',
             'jobs.bbi.company': 'BBI.Solutions',
-            'jobs.bbi.meta': 'Jun 2015 – Presente · São Paulo, Brasil · Concorrente',
+            'jobs.bbi.meta': 'Jun 2015 – Presente · São Paulo, Brasil · Em paralelo',
             'jobs.bbi.b1': 'Cofundador e diretor de estratégia tecnológica em empresa de produtos de dados; escalei produtos Big Data para 30+ clientes enterprise, com volume agregado > 60 TB.',
             'jobs.bbi.b2': 'Liderei iniciativas de integração de Data Warehouse e modelos de ML em produção para análise estratégica.',
             'jobs.bbi.b3': 'Supervisiono operações e releases em ambientes de 4-10 milhões de transações/dia, gerenciando times de até 30 engenheiros.',
@@ -269,6 +272,8 @@
             'jobs.unasp.b3': 'Redução de 7-12% em incidentes de produção através de melhorias em QA.',
 
             'skills.title': 'Habilidades técnicas',
+            'skills.yrs': 'anos',
+            'skills.yr': 'ano',
             'skills.languages': 'Linguagens',
             'skills.data': 'Dados & Analytics',
             'skills.ai': 'IA & Data Science',
@@ -312,12 +317,19 @@
             'contact.cta.cv': 'Baixar CV',
 
             'footer.tagline': 'Feito com cuidado em São Paulo',
+            'footer.cta_label': 'Próximo passo',
+            'footer.cta': 'Vamos construir algo juntos? →',
+            'footer.nav_label': 'Mapa',
+            'footer.meta_label': 'Daqui',
+            'footer.status_title': 'Métricas reais desta página via Performance API',
 
             'lang.label': 'Idioma',
 
-            'cmdk.placeholder': 'Buscar um comando…',
+            'cmdk.placeholder': 'Buscar um comando… (ou digite SQL)',
             'cmdk.empty': 'Nada encontrado.',
-            'cmdk.hint': '↑↓ navegar · ↵ executar · esc fechar',
+            'cmdk.hint': '↑↓ navegar · ↵ executar · esc fechar · psiu: SELECT * FROM experience',
+            'cmdk.sql_hint': 'dica: tente SELECT * FROM skills ORDER BY years DESC',
+            'cmdk.sql_mode_hint': 'modo SQL · SHOW TABLES lista as tabelas · esc fechar',
             'cmdk.section.nav': 'Navegar',
             'cmdk.section.actions': 'Ações',
             'cmdk.section.external': 'Externo',
@@ -387,7 +399,70 @@
             'game.flappy.controls': 'Space/click pular · Esc sair · R reiniciar',
             'game.flappy.over': 'Game Over — R para reiniciar',
             'game.worms.title': '🐛 Batalha de Artilharia',
-            'game.worms.controls': '←→ mover · ↑↓ ângulo · Espaço atirar (segure para força)'
+            'game.worms.controls': '←→ mover · ↑↓ ângulo · Espaço atirar (segure) · P pausa · no touch, arraste o tanque',
+
+            'game.mute': 'Silenciar sons',
+            'game.unmute': 'Ativar sons',
+            'game.paused': 'Pausado',
+            'game.resume_hint': 'Clique ou pressione Espaço para continuar',
+            'game.restart': 'Reiniciar',
+            'game.close': 'Fechar',
+            'game.score_final': 'Pontuação',
+            'game.best': 'Recorde',
+            'game.new_record': 'NOVO RECORDE!',
+            'game.f1.near_miss': 'PERTO! +25',
+            'game.flappy.medal_bronze': 'Medalha de bronze',
+            'game.flappy.medal_silver': 'Medalha de prata',
+            'game.flappy.medal_gold': 'Medalha de ouro',
+            'game.worms.mode_title': 'Escolha o modo',
+            'game.worms.mode_cpu': '1 Jogador (vs CPU)',
+            'game.worms.mode_2p': '2 Jogadores',
+            'game.worms.you': 'Você',
+            'game.worms.player': 'Jogador',
+            'game.worms.wins': 'venceu!',
+            'game.worms.win_you': 'Você venceu! 🏆',
+            'game.worms.win_cpu': 'A CPU venceu!',
+            'game.worms.wind': 'Vento',
+            'game.worms.cpu_thinking': 'CPU mirando...',
+
+            'cmdk.achievements': '🏆 Conquistas',
+            'cmdk.rain': '🌧️ Chuva de dados',
+            'ach.title': 'Conquistas',
+            'ach.subtitle': 'Easter eggs descobertos nesta página',
+            'ach.locked': 'Continue explorando…',
+            'ach.close': 'Fechar',
+            'ach.all_done': '🎉 100%! Você encontrou todos os easter eggs. Respeito.',
+            'ach.cmdk.name': 'Atalho de quem sabe',
+            'ach.cmdk.desc': 'Abriu o command palette (⌘K ou /)',
+            'ach.theme.name': 'Fotossensível',
+            'ach.theme.desc': 'Alternou entre tema claro e escuro',
+            'ach.lang.name': 'Bilíngue',
+            'ach.lang.desc': 'Trocou o idioma da página',
+            'ach.konami.name': 'Old school',
+            'ach.konami.desc': 'Digitou o Konami code ↑↑↓↓←→←→BA',
+            'ach.avatar.name': 'Paparazzi',
+            'ach.avatar.desc': 'Clicou 7× na foto e ela girou',
+            'ach.tts.name': 'Modo audiobook',
+            'ach.tts.desc': 'Ativou a leitura por voz',
+            'ach.offduty.name': 'Pichador',
+            'ach.offduty.desc': 'Viu o site fora do expediente',
+            'ach.color.name': 'Decorador',
+            'ach.color.desc': 'Trocou a cor de acento do site',
+            'ach.f1.name': 'Box, box!',
+            'ach.f1.desc': 'Pilotou na corrida de F1',
+            'ach.flappy.name': 'Demissão voluntária',
+            'ach.flappy.desc': 'Voou entre prédios corporativos',
+            'ach.worms.name': 'Artilheiro',
+            'ach.worms.desc': 'Disparou na batalha de artilharia',
+            'ach.sql.name': 'SELECT * FROM cv',
+            'ach.sql.desc': 'Consultou o currículo via SQL no ⌘K',
+
+            'err.page_title': '404 — Filipe Rodrigues',
+            'err.eyebrow': 'DAG site_router · execução falhou',
+            'err.title': 'Esta rota não retornou nenhuma linha.',
+            'err.cta_home': '← Voltar ao DAG principal',
+            'err.cta_projects': 'Ver projetos',
+            'err.cta_game': 'Enquanto o on-call não responde… 🐦'
         },
 
         en: {
@@ -400,6 +475,8 @@
             'a11y.theme': 'Toggle theme',
             'a11y.lang': 'Toggle language',
             'a11y.socials': 'Professional networks',
+            'a11y.menu_open': 'Open menu',
+            'a11y.menu_close': 'Close menu',
             'brand.tooltip': 'Filipe Rodrigues (IPA: /fi.ˈli.pɘ rʊ.ˈdri.ɡəʒ/)',
 
             'nav.about': 'About',
@@ -422,7 +499,8 @@
 
             'companies.bbi.name': 'BBI.Solutions',
             'companies.bbi.role': 'Founder · Tech Lead',
-            'companies.bbi.lead': 'Data products platform — the <strong>self.bi</strong> family. Six products ranging from proactive multi-agent analysis to programmatic radio media.',
+            'companies.bbi.lead.before': 'Data products platform — the ',
+            'companies.bbi.lead.after': ' family. Six products ranging from proactive multi-agent analysis to programmatic radio media.',
             'companies.bbi.stats.n1': '30+', 'companies.bbi.stats.l1': 'enterprise clients',
             'companies.bbi.stats.n2': '60+ TB', 'companies.bbi.stats.l2': 'aggregated data',
             'companies.bbi.stats.n3': '10 years', 'companies.bbi.stats.l3': 'in the market',
@@ -574,7 +652,7 @@
             'hero.title.before': 'Building data architectures that ',
             'hero.title.accent': 'scale',
             'hero.title.after': '.',
-            'hero.lead': "Hi, I'm Filipe Rodrigues (IPA: /fi.ˈli.pɘ rʊ.ˈdri.ɡəʒ/). 22+ years designing and operating pipelines, analytics platforms, and cloud architectures for organizations processing tens of terabytes per day. I lead cross-functional teams with Agile and DevOps/CI-CD practices.",
+            'hero.lead': '22+ years designing and operating pipelines, analytics platforms, and cloud architectures for organizations processing tens of terabytes per day. I lead cross-functional teams with Agile and DevOps/CI-CD practices.',
             'hero.cta.cv': 'Download CV (PDF)',
             'hero.cta.contact': 'Get in touch',
             'hero.cta.schedule': 'Schedule a chat',
@@ -657,6 +735,8 @@
             'jobs.unasp.b3': 'Strengthened QA practices and system reliability, reducing production incidents by 7-12%.',
 
             'skills.title': 'Technical skills',
+            'skills.yrs': 'yrs',
+            'skills.yr': 'yr',
             'skills.languages': 'Languages',
             'skills.data': 'Data & Analytics',
             'skills.ai': 'AI & Data Science',
@@ -700,12 +780,19 @@
             'contact.cta.cv': 'Download CV',
 
             'footer.tagline': 'Crafted with care in São Paulo',
+            'footer.cta_label': 'Next step',
+            'footer.cta': "Let's build something together? →",
+            'footer.nav_label': 'Map',
+            'footer.meta_label': 'From here',
+            'footer.status_title': 'Real metrics for this page via the Performance API',
 
             'lang.label': 'Language',
 
-            'cmdk.placeholder': 'Search for a command…',
+            'cmdk.placeholder': 'Search for a command… (or type SQL)',
             'cmdk.empty': 'Nothing found.',
-            'cmdk.hint': '↑↓ navigate · ↵ run · esc close',
+            'cmdk.hint': '↑↓ navigate · ↵ run · esc close · psst: SELECT * FROM experience',
+            'cmdk.sql_hint': 'tip: try SELECT * FROM skills ORDER BY years DESC',
+            'cmdk.sql_mode_hint': 'SQL mode · SHOW TABLES lists the tables · esc to close',
             'cmdk.section.nav': 'Navigate',
             'cmdk.section.actions': 'Actions',
             'cmdk.section.external': 'External',
@@ -775,7 +862,70 @@
             'game.flappy.controls': 'Space/click flap · Esc exit · R restart',
             'game.flappy.over': 'Game Over — R to restart',
             'game.worms.title': '🐛 Artillery Battle',
-            'game.worms.controls': '←→ move · ↑↓ angle · Space fire (hold for power)'
+            'game.worms.controls': '←→ move · ↑↓ angle · Space fire (hold) · P pause · on touch, drag the tank',
+
+            'game.mute': 'Mute sounds',
+            'game.unmute': 'Unmute sounds',
+            'game.paused': 'Paused',
+            'game.resume_hint': 'Click or press Space to resume',
+            'game.restart': 'Restart',
+            'game.close': 'Close',
+            'game.score_final': 'Score',
+            'game.best': 'Best',
+            'game.new_record': 'NEW RECORD!',
+            'game.f1.near_miss': 'CLOSE! +25',
+            'game.flappy.medal_bronze': 'Bronze medal',
+            'game.flappy.medal_silver': 'Silver medal',
+            'game.flappy.medal_gold': 'Gold medal',
+            'game.worms.mode_title': 'Choose mode',
+            'game.worms.mode_cpu': '1 Player (vs CPU)',
+            'game.worms.mode_2p': '2 Players',
+            'game.worms.you': 'You',
+            'game.worms.player': 'Player',
+            'game.worms.wins': 'wins!',
+            'game.worms.win_you': 'You win! 🏆',
+            'game.worms.win_cpu': 'CPU wins!',
+            'game.worms.wind': 'Wind',
+            'game.worms.cpu_thinking': 'CPU aiming...',
+
+            'cmdk.achievements': '🏆 Achievements',
+            'cmdk.rain': '🌧️ Data rain',
+            'ach.title': 'Achievements',
+            'ach.subtitle': 'Easter eggs found on this page',
+            'ach.locked': 'Keep exploring…',
+            'ach.close': 'Close',
+            'ach.all_done': "🎉 100%! You found every easter egg. Respect.",
+            'ach.cmdk.name': 'Power user',
+            'ach.cmdk.desc': 'Opened the command palette (⌘K or /)',
+            'ach.theme.name': 'Photosensitive',
+            'ach.theme.desc': 'Toggled between light and dark theme',
+            'ach.lang.name': 'Bilingual',
+            'ach.lang.desc': 'Switched the page language',
+            'ach.konami.name': 'Old school',
+            'ach.konami.desc': 'Typed the Konami code ↑↑↓↓←→←→BA',
+            'ach.avatar.name': 'Paparazzi',
+            'ach.avatar.desc': 'Clicked the photo 7× and it spun',
+            'ach.tts.name': 'Audiobook mode',
+            'ach.tts.desc': 'Enabled the voice reader',
+            'ach.offduty.name': 'Tagger',
+            'ach.offduty.desc': 'Saw the site off-duty',
+            'ach.color.name': 'Decorator',
+            'ach.color.desc': "Changed the site's accent color",
+            'ach.f1.name': 'Box, box!',
+            'ach.f1.desc': 'Raced in the F1 game',
+            'ach.flappy.name': 'Voluntary resignation',
+            'ach.flappy.desc': 'Flew between corporate buildings',
+            'ach.worms.name': 'Gunner',
+            'ach.worms.desc': 'Fired a shot in the artillery battle',
+            'ach.sql.name': 'SELECT * FROM cv',
+            'ach.sql.desc': 'Queried the CV via SQL in ⌘K',
+
+            'err.page_title': '404 — Filipe Rodrigues',
+            'err.eyebrow': 'DAG site_router · run failed',
+            'err.title': 'This route returned zero rows.',
+            'err.cta_home': '← Back to the main DAG',
+            'err.cta_projects': 'See projects',
+            'err.cta_game': "While on-call doesn't pick up… 🐦"
         }
     };
 
@@ -820,12 +970,17 @@
             });
         });
 
-        // <title>
-        if (dict['title.page']) document.title = dict['title.page'];
+        // <title> — só usa a chave global quando o <title> não declara a própria chave
+        const titleEl = document.querySelector('title');
+        if (titleEl && !titleEl.hasAttribute('data-i18n') && dict['title.page']) {
+            document.title = dict['title.page'];
+        }
 
-        // meta description
+        // meta description — idem (projects.html usa data-i18n-attr próprio)
         const metaDesc = document.querySelector('meta[name="description"]');
-        if (metaDesc && dict['meta.description']) metaDesc.setAttribute('content', dict['meta.description']);
+        if (metaDesc && !metaDesc.hasAttribute('data-i18n-attr') && dict['meta.description']) {
+            metaDesc.setAttribute('content', dict['meta.description']);
+        }
 
         // lang-toggle visual state
         document.querySelectorAll('[data-lang-option]').forEach(function (el) {

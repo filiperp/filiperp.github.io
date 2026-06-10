@@ -3,7 +3,7 @@
 > **Senior Data Engineer · Solution Architect · Tech Lead**
 > 22+ anos construindo arquiteturas de dados que escalam.
 
-🌐 **Live:** <https://filiperp.github.io>
+🌐 **Live:** <https://rodrigues.haus> (também em <https://filiperp.github.io>)
 
 ---
 
@@ -26,33 +26,47 @@ Disponível para **consultoria, arquitetura, tech leadership, advisory e palestr
 
 ## A página
 
-Site estático, mono-arquivo HTML, **CSS puro** (sem frameworks) e **JavaScript vanilla**. Sem build, sem `npm install`, sem dependências de runtime. Hospedado via GitHub Pages.
+Site estático, **CSS puro** (sem frameworks) e **JavaScript vanilla**. Sem build, sem `npm install`, sem dependências de runtime. Hospedado via GitHub Pages.
 
 ### Funcionalidades
 
-- 🌓 **Tema claro/escuro** — detecta a preferência do sistema operacional, com toggle manual persistido em `localStorage`.
+- 🌓 **Tema claro/escuro** — detecta a preferência do sistema, toggle persistido em `localStorage`, e transição com **View Transitions API** (reveal circular a partir do botão, com fallback gracioso).
 - 🌐 **Bilíngue PT/EN** — dicionário em JSON + atributo `data-i18n`; troca dinâmica sem reload. Detecta idioma do navegador no primeiro acesso.
-- 🎨 **Tipografia Google Sans** com fallbacks robustos (Product Sans → Inter → system-ui).
-- 🟧 **Identidade visual** — burnt orange como cor de acento, grid sutil no background com fade radial central.
-- 📄 **CV em PDF** disponível em `assets/filipe_rodrigues.pdf`.
-- 🗓️ **Agendamento direto** via Google Calendar.
-- ⌨️ **Command palette** (estilo Raycast) para navegação por teclado.
-- ♿ **Acessível** — skip link, ARIA labels, foco visível, suporte a `prefers-reduced-motion`.
+- 🕸️ **Pipeline animado no hero** — canvas com um DAG (sources → ingest → transform → serve) e partículas fluindo na cor de acento; pausa fora da viewport, respeita `prefers-reduced-motion`, oculto no mobile.
+- ✨ **Grid reativo** — o grid de fundo "acende" na cor de acento ao redor do cursor (só pointer fino, GPU-only via mask).
+- 📈 **Stats com count-up** — números do hero animam ao entrar na viewport, com `tabular-nums` para não deslocar o layout.
+- 🍔 **Menu hamburger no mobile** — painel acessível (`aria-expanded`, Esc fecha e devolve o foco, fecha ao clicar fora).
+- 🧭 **Scroll progress + scroll-spy + reveal** — nas duas páginas (`js/page-effects.js`).
+- 🦶 **Footer com observabilidade** — hora local de São Paulo ao vivo e linha de status com métricas reais da página (render, transfer) via Performance API.
+- 🟧 **Identidade visual** — burnt orange como acento, eyebrow em monospace, seções numeradas (`01`, `02`, …), grid sutil no background.
+- 📄 **CV em PDF** em `assets/filipe_rodrigues.pdf` · 🗓️ **Agendamento** via Google Calendar.
+- ⌨️ **Command palette** (estilo Raycast) com **fuzzy search** (acento-insensível, com highlight) — e um segredo SQL (veja abaixo).
+- 🚨 **404 temática** — a página de erro é um log de DAG falhado, com streaming de linhas e acesso ao mini-jogo.
+- ♿ **Acessível** — skip link, ARIA (combobox no ⌘K, foco preso/restaurado nos modais), `:focus-visible` global, contraste AA, `prefers-reduced-motion` em todas as animações.
+- 🔎 **SEO** — `og-image.png` (1200×630, gerado do SVG fonte), JSON-LD, sitemap.
 
 ### Estrutura
 
 ```
 filiperp.github.io/
 ├── index.html
+├── projects.html        # 3 empresas, 20 produtos
+├── 404.html             # log de DAG falhado + mini-jogo
 ├── css/style.css
 ├── js/
-│   ├── main.js          # tema + email ofuscado + ano + versão no footer
+│   ├── main.js          # tema (View Transitions) + hamburger + email + count-up + footer vivo + spotlight
 │   ├── i18n.js          # dicionário PT/EN + troca dinâmica
-│   ├── easter-eggs.js   # Konami, console, foto, command palette, ...
+│   ├── page-effects.js  # fade-in, scroll-spy, scroll-progress, print (index + projects)
+│   ├── hero-pipeline.js # DAG animado do hero
+│   ├── easter-eggs.js   # Konami, console, ⌘K + SQL, off-duty, color picker, 3 jogos
+│   ├── achievements.js  # conquistas dos easter eggs (12, com confete no 100%)
 │   └── version.js       # carimbo de versão (regenerado por git hook)
 ├── assets/
 │   ├── filipe_rodrigues.pdf
-│   └── foto.jpg
+│   ├── foto.jpg
+│   ├── og-image.svg     # fonte
+│   ├── og-image.png     # 1200×630 para social scrapers
+│   └── companies/       # logos e mockups (BBI, GoldenLearn, Integratech)
 ├── .githooks/
 │   ├── pre-commit       # stampa js/version.js em cada commit
 │   └── install.sh       # ativa o hook localmente
@@ -70,9 +84,7 @@ Ou qualquer outro servidor estático (`npx serve`, `caddy file-server`, etc).
 
 ### Versionamento
 
-A página exibe a versão no rodapé no formato `Y.m.d.H.i.S` (ano.mês.dia.hora.minuto.segundo) — por exemplo `v2026.06.04.03.19.59`.
-
-Ela é regenerada automaticamente antes de cada commit por um git hook em `.githooks/pre-commit`. Para ativar após clonar o repositório:
+A página exibe a versão no rodapé no formato `Y.m.d.H.i.S` — por exemplo `v2026.06.04.03.19.59`. Ela é regenerada automaticamente antes de cada commit por um git hook em `.githooks/pre-commit`. Para ativar após clonar:
 
 ```bash
 bash .githooks/install.sh
@@ -80,101 +92,68 @@ bash .githooks/install.sh
 git config core.hooksPath .githooks
 ```
 
-Sem o hook ativo, `js/version.js` mantém o último valor commitado — a página continua funcionando, mas o timestamp não atualiza.
-
 ---
 
 ## Easter eggs
 
-A página esconde **9 detalhes** para visitantes curiosos. Todos (exceto Konami e foto) podem ser acionados pelo command palette:
+A página esconde **12 conquistas** para visitantes curiosos — todas rastreadas pelo sistema de **achievements** (`⌘K → "Conquistas"`), com progresso persistido e **confete** ao fechar 100%. Quase tudo pode ser acionado pelo command palette.
 
-### 1. 🎮 Konami code
+### 1. ⌨️ Command palette (⌘K ou `/`)
 
-Digite a sequência clássica em qualquer parte da página:
+Estilo Raycast/Linear, com **fuzzy search** com score e highlight (digite `exprincia` e ele acha "Experiência"), aliases por comando e grupos: Navegar · Ações · Diversão · Externo.
 
+### 2. 🗄️ SQL console — *query the CV*
+
+Dentro do ⌘K, digite SQL e o currículo vira um banco de dados:
+
+```sql
+SHOW TABLES;
+SELECT * FROM experience;
+SELECT name, years FROM skills WHERE category = 'data' ORDER BY years DESC LIMIT 5;
+DESCRIBE certifications;
 ```
-↑ ↑ ↓ ↓ ← → ← → B A
-```
 
-Resultado: overlay full-screen com uma **chuva de dados** caindo na tela — colunas de palavras como `SELECT`, `df.fit()`, `S3://`, `airflow`, `40 TB/day`, renderizadas com `<canvas>`. Dura ~6 segundos. `Esc` cancela antes.
+Tabelas: `experience`, `skills`, `projects`, `certifications` (bilíngues — seguem o idioma da página). Erros no estilo Postgres. `DROP TABLE` responde `permission denied (nice try)`. Há uma tabela `secrets`…
 
-Junto aparece um toast confirmando: *"🎉 Modo Data Engineer ativado"*.
+### 3. 🎮 Konami code
 
-### 2. 💻 Mensagem no DevTools
+`↑ ↑ ↓ ↓ ← → ← → B A` → chuva de dados em canvas (SELECT, airflow, dbt run, 40 TB/day…) **na cor de acento atual**. `Esc` cancela. Também disponível no ⌘K ("Chuva de dados") para quem está no celular. Respeita `prefers-reduced-motion`.
 
-Abra o console do navegador (F12 / ⌥⌘I). Você verá um ASCII art "FR" colorido na cor de acento atual e uma **mensagem bilíngue** convidando para conversar, que segue o idioma ativo no momento. A mensagem é reemitida ao trocar de idioma.
+### 4. 💻 Mensagem no DevTools
 
-### 3. 📸 Foto clicada 7×
+ASCII art "FR" na cor de acento + convite bilíngue. Reemitida ao trocar de idioma.
 
-Clique 7 vezes seguidas na minha foto no hero. Ela gira **360°** com uma animação cubic-bezier suave e aparece um toast comemorativo. Janela de detecção: 2 segundos sem clique reseta o contador.
+### 5. 📸 Foto clicada 7×
 
-### 4. ⌘K Command palette
+Gira 360° com toast comemorativo. Janela de 2s entre cliques.
 
-Pressione **`/`** ou **`⌘K`** (Mac) / **`Ctrl+K`** (Win/Linux) em qualquer lugar da página. Abre um command palette estilo Raycast / Linear com comandos organizados em 4 grupos:
+### 6. 🔊 Modo leitura por voz (TTS)
 
-**Navegar** — Sobre · Experiência · Skills · Projetos · Contato
+`⌘K → "Ativar leitura por voz"` — clique em qualquer texto para ouvir (Web Speech API, no idioma atual). `Esc` desativa.
 
-**Ações** — Alternar tema · Alternar idioma · Baixar CV · Copiar email
+### 7. 🎨 Modo Off-duty (pichação)
 
-**Diversão** — Modo leitura por voz · Off-duty · Cor de acento · F1 · Flappy
+`⌘K → "Modo Off-duty"` — pichações, stickers e doodles tomam conta do site, e os textos viram um currículo paralelo de zoeira. As fontes de grafite só são baixadas quando o modo é ativado. `Esc` limpa tudo.
 
-**Externo** — Agendar conversa · LinkedIn · GitHub · MDB
+### 8. 🌈 Color picker
 
-Controles:
-- `↑` `↓` — navegar pela lista
-- `Enter` — executar comando selecionado
-- `Esc` — fechar
-- digitar — filtrar por substring
+8 presets + cor personalizada, persistida. Cores muito claras são escurecidas automaticamente e o texto sobre o acento troca para preto/branco conforme a luminância (WCAG). Tudo no site — inclusive o pipeline do hero e a chuva de dados — segue a cor escolhida.
 
-A busca é case-insensitive e considera nome do comando e seção. A ação "Copiar email" usa a Clipboard API com fallback para `document.execCommand`.
+### 9. 🏎️ Mini-jogo F1
 
-### 5. 🔊 Modo leitura por voz (TTS)
+Canvas nítido em retina (DPR scaling), **touch** (swipe/tap), colisão justa (AABB com mercy margin), bônus de *near-miss* (+25), tráfego com velocidades diferentes, spawn que nunca cria paredes impossíveis, partículas + screen shake + freeze-frame no crash, recorde persistido, pause automático ao trocar de aba (`P` pausa manual), sons procedurais WebAudio com mute persistido.
 
-Comando: `⌘K → "Ativar leitura por voz"`. Usa a Web Speech API nativa do navegador.
+### 10. 🐦 Flappy Corporate
 
-Quando ativo, clique em qualquer parágrafo, título ou bullet para **ouvir** a leitura na voz do sistema, no idioma atual da página (PT-BR ou EN-US). Clique novamente cancela a leitura em andamento. `Esc` desativa o modo.
+Prédios corporativos parodiados (FAtDonalds, StarSucks, MicroHard…). Recorde persistido, medalhas (🥉 ≥10 · 🥈 ≥25 · 🥇 ≥50), dificuldade progressiva, céu que anoitece, rotação/squash/tumble do pássaro, `pointerdown` no modal inteiro (zero latência no touch).
 
-Não requer conexão com APIs externas — tudo roda no navegador. Qualidade da voz varia por SO.
+### 11. 💥 Batalha de Artilharia
 
-### 6. 🎨 Modo Off-duty (pichação)
+**1 Jogador vs CPU** (IA por bracketing que erra perto e vai fechando o cerco, com telegraph de mira) ou 2 jogadores locais. Barra de força visível, bandeira de vento, preview de trajetória com a física real, chevron quando o projétil sai da tela, **estilingue touch** (arraste perto do tanque), dano direto com bônus, crateras no terreno.
 
-Comando: `⌘K → "Modo Off-duty"`. **Picha o site inteiro** — sobrepõe ~18 tags grafite, stickers e doodles SVG ancorados em pontos do conteúdo real, como se alguém tivesse invadido a página profissional para deixar marcas pessoais:
+### 12. 🏆 Conquistas
 
-- **Tags** (handwriting Permanent Marker, rotação aleatória): Niki Lauda > all, RT.66, Crossfit > cardio, post malone, Breaking Bad ⚗, Band of Brothers, Dostoyevsky 😱, Off-duty 🤙
-- **Stickers** (caixa colorida estilo skate): 🏈 GO BRONCOS!, 🇧🇷❤️🇦🇴, WEEZER 🎸, Veritasium ⚡, QUEEN 👑, SUBARU 💙, DENVER ⛰️
-- **Doodles SVG**: coração na cor de acento, halter na seção de experiência, capacete F1 vermelho nos projetos
-
-Animação sequencial de pop-in (cada uma com ~70ms de delay). Botão flutuante "✕ tirar a pichação" no canto inferior direito (rotação -3°, sombra accent offset). `Esc` ou clique no botão limpa tudo. Redimensionar a janela recoloca as pichações.
-
-### 7. 🎨 Color picker
-
-Comando: `⌘K → "Trocar cor de acento"`. Abre um modal com:
-
-- **8 presets curados** — Burnt orange (padrão), Amber, Emerald, Cyan, Indigo, Purple, Pink, Red
-- **Personalizada** — `<input type="color">` nativo para liberdade total
-- **Restaurar padrão** — volta ao burnt orange
-
-A cor escolhida é salva em `localStorage` e persiste entre visitas. Hover e soft variants são derivados automaticamente em JS. Funciona em ambos os temas (claro e escuro).
-
-### 8. 🏎️ Mini-jogo F1
-
-Comando: `⌘K → "Jogo: corrida F1"`. Mini-jogo em canvas:
-
-- Carro na **cor de acento atual** (atualiza dinamicamente se você mudar a cor).
-- `←` `→` movem entre 4 pistas
-- Obstáculos descem aleatoriamente; velocidade aumenta com o tempo
-- Score em tempo real no topo
-- `R` reinicia · `Esc` sai
-
-### 9. 🐦 Flappy Corporate
-
-Comando: `⌘K → "Flappy corporativo"`. Versão paródica do Flappy Bird:
-
-- Pássaro circular na cor de acento
-- `Space` ou click pulam
-- Os "canos" são **prédios corporativos parodiados**: FAtDonalds, StarSucks, Bang of America, MetAfterlife, MicroHard, AmaZone, NewtFlux, X (formerly Y)…
-- Score = prédios passados
-- `R` reinicia · `Esc` sai
+`⌘K → "Conquistas"` — 12 badges (tema, idioma, Konami, foto, TTS, off-duty, cor, ⌘K, SQL e os 3 jogos). Bloqueadas aparecem como `???`. No 100%: confete na cor de acento.
 
 ---
 

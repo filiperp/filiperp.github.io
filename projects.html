@@ -17,7 +17,7 @@
     <meta property="og:title" content="Empresas & Projetos — Filipe Rodrigues">
     <meta property="og:description" content="Portfólio das 3 empresas das quais Filipe Rodrigues é sócio: BBI.Solutions (6 produtos self.bi), GoldenLearn (10 soluções EdTech) e Instituto Integratech (4 iniciativas sociais).">
     <meta property="og:url" content="https://rodrigues.haus/projects.html">
-    <meta property="og:image" content="https://rodrigues.haus/assets/og-image.svg">
+    <meta property="og:image" content="https://rodrigues.haus/assets/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Portfólio de Filipe Rodrigues — 3 empresas, 20 produtos">
@@ -27,19 +27,16 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Empresas & Projetos — Filipe Rodrigues">
     <meta name="twitter:description" content="3 empresas, 20 produtos. BBI.Solutions · GoldenLearn · Instituto Integratech.">
-    <meta name="twitter:image" content="https://rodrigues.haus/assets/og-image.svg">
+    <meta name="twitter:image" content="https://rodrigues.haus/assets/og-image.png">
 
-    <link rel="alternate" hreflang="pt-BR" href="https://rodrigues.haus/projects.html">
-    <link rel="alternate" hreflang="en" href="https://rodrigues.haus/projects.html">
     <link rel="alternate" hreflang="x-default" href="https://rodrigues.haus/projects.html">
 
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23c2410c%22/><text x=%2250%22 y=%2266%22 font-size=%2256%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22600%22>FR</text></svg>">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css?family=Google+Sans:400,500,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Caveat:wght@700&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap"></noscript>
 
     <link rel="stylesheet" href="css/style.css">
 
@@ -161,7 +158,7 @@
                 <span class="brand-mark">FR</span>
                 <span class="brand-name">Filipe Rodrigues</span>
             </a>
-            <nav class="nav" data-i18n-attr="aria-label:a11y.nav" aria-label="Navegação principal">
+            <nav id="site-nav" class="nav" data-i18n-attr="aria-label:a11y.nav" aria-label="Navegação principal">
                 <a href="index.html#about" data-i18n="nav.about">Sobre</a>
                 <a href="index.html#experience" data-i18n="nav.experience">Experiência</a>
                 <a href="index.html#skills" data-i18n="nav.skills">Skills</a>
@@ -169,13 +166,17 @@
                 <a href="index.html#contact" data-i18n="nav.contact">Contato</a>
             </nav>
             <div class="header-controls">
+                <button id="nav-toggle" class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-i18n-attr="aria-label:a11y.menu_open;title:a11y.menu_open" aria-label="Abrir menu" title="Abrir menu">
+                    <svg class="icon-burger" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></g></svg>
+                    <svg class="icon-close" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></g></svg>
+                </button>
                 <button id="print-button" class="theme-toggle print-button" type="button" data-i18n-attr="aria-label:print.button;title:print.button" aria-label="Baixar PDF" title="Baixar PDF">
                     <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M19 8h-1V3H6v5H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zM8 5h8v3H8V5zm8 14H8v-4h8v4zm4-4h-2v-2H6v2H4v-4c0-.55.45-1 1-1h14c.55 0 1 .45 1 1v4z"/><circle cx="18" cy="11.5" r="1" fill="currentColor"/></svg>
                 </button>
                 <button id="lang-toggle" class="lang-toggle" type="button" data-i18n-attr="aria-label:a11y.lang;title:a11y.lang" aria-label="Alternar idioma" title="Alternar idioma">
-                    <span class="lang-opt is-active" data-lang-option="pt" aria-pressed="true">PT</span>
+                    <span class="lang-opt is-active" data-lang-option="pt" aria-hidden="true">PT</span>
                     <span class="lang-sep" aria-hidden="true">/</span>
-                    <span class="lang-opt" data-lang-option="en" aria-pressed="false">EN</span>
+                    <span class="lang-opt" data-lang-option="en" aria-hidden="true">EN</span>
                 </button>
                 <button id="theme-toggle" class="theme-toggle" type="button" data-i18n-attr="aria-label:a11y.theme;title:a11y.theme" aria-label="Alternar tema" title="Alternar tema claro/escuro">
                     <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.5" y1="4.5" x2="6.5" y2="6.5"/><line x1="17.5" y1="17.5" x2="19.5" y2="19.5"/><line x1="4.5" y1="19.5" x2="6.5" y2="17.5"/><line x1="17.5" y1="6.5" x2="19.5" y2="4.5"/></g></svg>
@@ -191,7 +192,7 @@
                 <p class="eyebrow" data-i18n="companies.page.eyebrow">Portfólio · Empresas das quais sou sócio</p>
                 <h1><span data-i18n="companies.page.title_before">Três empresas, </span><span class="accent" data-i18n="companies.page.title_accent">um portfólio</span><span data-i18n="companies.page.title_after">.</span></h1>
                 <p class="lead" data-i18n="companies.page.lead">Cada projeto abaixo está claramente vinculado à empresa que o entrega e ao papel que ocupo nela. Use os links para visitar cada site.</p>
-                <div class="company-jump" aria-label="Atalhos de empresa">
+                <nav class="company-jump" aria-label="Atalhos de empresa">
                     <a href="#company-bbi">
                         <img class="company-jump-logo" src="assets/companies/bbi/logo-globo.svg" alt="" aria-hidden="true" loading="lazy">
                         <span data-i18n="companies.bbi.name">BBI.Solutions</span>
@@ -204,7 +205,7 @@
                         <img class="company-jump-logo" src="assets/companies/integratech/logo.png" alt="" aria-hidden="true" loading="lazy">
                         <span data-i18n="companies.integratech.name">Instituto Integratech</span>
                     </a>
-                </div>
+                </nav>
             </div>
         </section>
 
@@ -231,7 +232,7 @@
                         <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zM19 19H5V5h7V3H5c-1.11 0-2 .89-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7z"/></svg>
                     </a>
                 </header>
-                <p class="company-lead" data-i18n="companies.bbi.lead">Plataforma de produtos de dados — família <strong>self.bi</strong>. Seis produtos que atendem desde análise multiagente até mídia programática de rádio.</p>
+                <p class="company-lead"><span data-i18n="companies.bbi.lead.before">Plataforma de produtos de dados — família </span><strong>self.bi</strong><span data-i18n="companies.bbi.lead.after">. Seis produtos que atendem desde análise multiagente até mídia programática de rádio.</span></p>
 
                 <div class="products-grid products-grid--bbi">
                     <article class="product-card" id="k2" style="--product-accent:#7c3aed">
@@ -712,6 +713,38 @@
     </main>
 
     <footer class="footer">
+        <div class="container footer-top">
+            <div>
+                <span class="footer-col-label" data-i18n="footer.cta_label">Próximo passo</span>
+                <p class="footer-cta-title"><a href="index.html#contact" data-i18n="footer.cta">Vamos construir algo juntos? →</a></p>
+                <ul class="socials" data-i18n-attr="aria-label:a11y.socials" aria-label="Redes profissionais">
+                    <li><a href="https://www.linkedin.com/in/filiperp" target="_blank" rel="noopener" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+                    </a></li>
+                    <li><a href="https://github.com/filiperp" target="_blank" rel="noopener" aria-label="GitHub">
+                        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.27-1.68-1.27-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18.92-.26 1.92-.39 2.9-.4.98.01 1.98.14 2.9.4 2.2-1.49 3.17-1.18 3.17-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.41-5.26 5.69.41.35.78 1.05.78 2.12v3.14c0 .31.21.67.8.56 4.56-1.52 7.85-5.83 7.85-10.91C23.5 5.65 18.35.5 12 .5z"/></svg>
+                    </a></li>
+                </ul>
+            </div>
+            <nav class="footer-nav" data-i18n-attr="aria-label:a11y.nav" aria-label="Navegação principal">
+                <span class="footer-col-label" data-i18n="footer.nav_label">Mapa</span>
+                <a href="index.html#about" data-i18n="nav.about">Sobre</a>
+                <a href="index.html#experience" data-i18n="nav.experience">Experiência</a>
+                <a href="index.html#skills" data-i18n="nav.skills">Skills</a>
+                <a href="projects.html" data-i18n="nav.companies">Empresas</a>
+                <a href="index.html#contact" data-i18n="nav.contact">Contato</a>
+            </nav>
+            <div>
+                <span class="footer-col-label" data-i18n="footer.meta_label">Daqui</span>
+                <div class="footer-nav">
+                    <span class="muted">São Paulo · <span id="local-time">UTC−3</span></span>
+                    <span class="footer-status" id="footer-status" data-i18n-attr="title:footer.status_title" title="Métricas reais desta página via Performance API">ingest ok</span>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <span class="footer-watermark" aria-hidden="true">FILIPE RODRIGUES</span>
+        </div>
         <div class="container footer-inner">
             <span>© <span id="year"></span> Filipe Rodrigues</span>
             <span class="muted" data-i18n="footer.tagline">Feito com cuidado em São Paulo</span>
@@ -722,6 +755,6 @@
     <script src="js/version.js"></script>
     <script src="js/i18n.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/projects-page.js"></script>
+    <script src="js/page-effects.js"></script>
 </body>
 </html>

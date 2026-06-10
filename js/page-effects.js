@@ -1,7 +1,7 @@
 /* ============================================================
-   projects.html — comportamentos específicos da página
-   - Fade-in nos cards quando entram em viewport
-   - Scroll-spy: chip ativo no .company-jump
+   page-effects.js — comportamentos compartilhados (index + projects)
+   - Fade-in nos cards/blocos quando entram em viewport
+   - Scroll-spy: chips de empresa (projects) e nav principal (index)
    - Scroll-progress: width % via rAF (fallback p/ Safari sem scroll-timeline)
    - Print: window.print() + garante is-visible em todos antes de imprimir
    ============================================================ */
@@ -9,9 +9,11 @@
 (function () {
     'use strict';
 
-    if (!document.querySelector('.company-section')) return;
-
-    const fadeSelector = '.product-card, .solution-card, .initiative-card, .compare-cell, .company-stats, .company-lead';
+    const fadeSelector = [
+        '.product-card', '.solution-card', '.initiative-card', '.compare-cell',
+        '.company-stats', '.company-lead',
+        '.job', '.skill-group', '.cred-card', '.project', '.meta'
+    ].join(', ');
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     // ---------- Fade-in ----------
@@ -32,28 +34,34 @@
         fadeTargets.forEach(el => io.observe(el));
     }
 
-    // ---------- Scroll-spy nos chips ----------
-    const chips = document.querySelectorAll('.company-jump a[href^="#company-"]');
-    const sectionMap = new Map();
-    chips.forEach(chip => {
-        const id = chip.getAttribute('href').slice(1);
-        const section = document.getElementById(id);
-        if (section) sectionMap.set(section, chip);
-    });
-
-    if ('IntersectionObserver' in window && sectionMap.size > 0) {
+    // ---------- Scroll-spy genérico ----------
+    // (links âncora -> seções correspondentes; vale para .company-jump e para a nav do index)
+    function spyOn(links) {
+        const sectionMap = new Map();
+        links.forEach(link => {
+            const href = link.getAttribute('href') || '';
+            if (href.indexOf('#') < 0) return;
+            const id = href.slice(href.indexOf('#') + 1);
+            const section = document.getElementById(id);
+            if (section) sectionMap.set(section, link);
+        });
+        if (!('IntersectionObserver' in window) || sectionMap.size === 0) return;
+        const all = Array.from(sectionMap.values());
         const spy = new IntersectionObserver((entries) => {
             entries.forEach(e => {
-                const chip = sectionMap.get(e.target);
-                if (!chip) return;
+                const link = sectionMap.get(e.target);
+                if (!link) return;
                 if (e.isIntersecting) {
-                    chips.forEach(c => c.classList.remove('is-active'));
-                    chip.classList.add('is-active');
+                    all.forEach(l => l.classList.remove('is-active'));
+                    link.classList.add('is-active');
                 }
             });
         }, { rootMargin: '-30% 0px -55% 0px', threshold: 0 });
-        sectionMap.forEach((_chip, section) => spy.observe(section));
+        sectionMap.forEach((_link, section) => spy.observe(section));
     }
+
+    spyOn(document.querySelectorAll('.company-jump a[href^="#company-"]'));
+    spyOn(document.querySelectorAll('.topbar .nav a[href^="#"]'));
 
     // ---------- Scroll-progress (fallback p/ browsers sem scroll-timeline) ----------
     const progressBar = document.querySelector('.scroll-progress span');
