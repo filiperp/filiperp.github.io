@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Disallow GitHub Pages internals (none expected, but defensive)
+Disallow: /.git/
+Disallow: /.githooks/
+Disallow: /.idea/
+Disallow: /.claude/
+
+Sitemap: https://rodrigues.haus/sitemap.xml

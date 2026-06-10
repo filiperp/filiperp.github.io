@@ -7,11 +7,31 @@
     <meta name="description" data-i18n-attr="content:companies.page.meta" content="Portfólio de projetos das três empresas das quais Filipe Rodrigues é sócio: GoldenLearn, BBI.Solutions e Instituto Integratech.">
     <meta name="author" content="Filipe Rodrigues (filiperp)">
 
+    <link rel="canonical" href="https://rodrigues.haus/projects.html">
+
+    <meta name="theme-color" content="#c2410c" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)">
+
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Filipe Rodrigues">
     <meta property="og:title" content="Empresas & Projetos — Filipe Rodrigues">
-    <meta property="og:description" content="Portfólio de projetos das três empresas das quais Filipe Rodrigues é sócio.">
+    <meta property="og:description" content="Portfólio das 3 empresas das quais Filipe Rodrigues é sócio: BBI.Solutions (6 produtos self.bi), GoldenLearn (10 soluções EdTech) e Instituto Integratech (4 iniciativas sociais).">
+    <meta property="og:url" content="https://rodrigues.haus/projects.html">
+    <meta property="og:image" content="https://rodrigues.haus/assets/og-image.svg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Portfólio de Filipe Rodrigues — 3 empresas, 20 produtos">
     <meta property="og:locale" content="pt_BR">
     <meta property="og:locale:alternate" content="en_US">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Empresas & Projetos — Filipe Rodrigues">
+    <meta name="twitter:description" content="3 empresas, 20 produtos. BBI.Solutions · GoldenLearn · Instituto Integratech.">
+    <meta name="twitter:image" content="https://rodrigues.haus/assets/og-image.svg">
+
+    <link rel="alternate" hreflang="pt-BR" href="https://rodrigues.haus/projects.html">
+    <link rel="alternate" hreflang="en" href="https://rodrigues.haus/projects.html">
+    <link rel="alternate" hreflang="x-default" href="https://rodrigues.haus/projects.html">
 
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23c2410c%22/><text x=%2250%22 y=%2266%22 font-size=%2256%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22600%22>FR</text></svg>">
 
@@ -29,10 +49,15 @@
         "@graph": [
             {
                 "@type": "Person",
-                "@id": "https://filiperp.github.io/#filipe",
+                "@id": "https://rodrigues.haus/#filipe",
                 "name": "Filipe Rodrigues",
-                "url": "https://filiperp.github.io/",
+                "url": "https://rodrigues.haus/",
+                "image": "https://rodrigues.haus/assets/foto.jpg",
                 "jobTitle": "Senior Data Engineer & Solution Architect",
+                "sameAs": [
+                    "https://www.linkedin.com/in/filiperp",
+                    "https://github.com/filiperp"
+                ],
                 "worksFor": [
                     { "@id": "https://bbi.solutions/#org" },
                     { "@id": "https://www.goldenlearn.com.br/#org" },
@@ -45,7 +70,7 @@
                 "name": "BBI.Solutions",
                 "url": "https://bbi.solutions/",
                 "description": "Plataforma de produtos de dados — família self.bi: análise multiagente, visualização, livestream, OOH, brand safety e rádio programático.",
-                "member": { "@id": "https://filiperp.github.io/#filipe" }
+                "member": { "@id": "https://rodrigues.haus/#filipe" }
             },
             {
                 "@type": "Organization",
@@ -53,7 +78,7 @@
                 "name": "GoldenLearn",
                 "url": "https://www.goldenlearn.com.br/",
                 "description": "EdTech corporativa com 10 soluções modulares: plataforma de desenvolvimento de pessoas, automação de treinamentos, psicometria e analytics de people management.",
-                "member": { "@id": "https://filiperp.github.io/#filipe" }
+                "member": { "@id": "https://rodrigues.haus/#filipe" }
             },
             {
                 "@type": "Organization",
@@ -61,7 +86,66 @@
                 "name": "Instituto Integratech",
                 "url": "https://institutointegratech.org/",
                 "description": "Instituto sem fins lucrativos que articula tecnologia, saúde e cidadania através de quatro iniciativas: IntegraCity, Cidades Saudáveis, 4Health e Life Academy.",
-                "member": { "@id": "https://filiperp.github.io/#filipe" }
+                "member": { "@id": "https://rodrigues.haus/#filipe" }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "@id": "https://rodrigues.haus/projects.html#breadcrumb",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://rodrigues.haus/" },
+                    { "@type": "ListItem", "position": 2, "name": "Empresas & Projetos", "item": "https://rodrigues.haus/projects.html" }
+                ]
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://rodrigues.haus/#site",
+                "url": "https://rodrigues.haus/",
+                "name": "Filipe Rodrigues",
+                "inLanguage": ["pt-BR","en"],
+                "publisher": { "@id": "https://rodrigues.haus/#filipe" }
+            },
+            {
+                "@type": "WebPage",
+                "@id": "https://rodrigues.haus/projects.html#webpage",
+                "url": "https://rodrigues.haus/projects.html",
+                "name": "Empresas & Projetos — Filipe Rodrigues",
+                "isPartOf": { "@id": "https://rodrigues.haus/#site" },
+                "about": { "@id": "https://rodrigues.haus/#filipe" },
+                "breadcrumb": { "@id": "https://rodrigues.haus/projects.html#breadcrumb" },
+                "inLanguage": "pt-BR",
+                "hasPart": [
+                    { "@type": "WebPageElement", "@id": "https://rodrigues.haus/projects.html#company-bbi",          "name": "BBI.Solutions",        "url": "https://rodrigues.haus/projects.html#company-bbi" },
+                    { "@type": "WebPageElement", "@id": "https://rodrigues.haus/projects.html#company-goldenlearn", "name": "GoldenLearn",          "url": "https://rodrigues.haus/projects.html#company-goldenlearn" },
+                    { "@type": "WebPageElement", "@id": "https://rodrigues.haus/projects.html#company-integratech", "name": "Instituto Integratech", "url": "https://rodrigues.haus/projects.html#company-integratech" }
+                ]
+            },
+            {
+                "@type": "ItemList",
+                "@id": "https://rodrigues.haus/projects.html#projects-list",
+                "name": "20 produtos e iniciativas",
+                "numberOfItems": 20,
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1,  "name": "k2.self.bi",        "url": "https://rodrigues.haus/projects.html#k2" },
+                    { "@type": "ListItem", "position": 2,  "name": "tailor.self.bi",    "url": "https://rodrigues.haus/projects.html#tailor" },
+                    { "@type": "ListItem", "position": 3,  "name": "liveRT.self.bi",    "url": "https://rodrigues.haus/projects.html#livert" },
+                    { "@type": "ListItem", "position": 4,  "name": "flux.self.bi",      "url": "https://rodrigues.haus/projects.html#flux" },
+                    { "@type": "ListItem", "position": 5,  "name": "argus.self.bi",     "url": "https://rodrigues.haus/projects.html#argus" },
+                    { "@type": "ListItem", "position": 6,  "name": "hertz.self.bi",     "url": "https://rodrigues.haus/projects.html#hertz" },
+                    { "@type": "ListItem", "position": 7,  "name": "Paths to Growth",   "url": "https://rodrigues.haus/projects.html#paths-to-growth" },
+                    { "@type": "ListItem", "position": 8,  "name": "TD Planner",        "url": "https://rodrigues.haus/projects.html#td-planner" },
+                    { "@type": "ListItem", "position": 9,  "name": "COMPROVA+",         "url": "https://rodrigues.haus/projects.html#comprova" },
+                    { "@type": "ListItem", "position": 10, "name": "Fábrica de Conteúdo EAD", "url": "https://rodrigues.haus/projects.html#fabrica-conteudo" },
+                    { "@type": "ListItem", "position": 11, "name": "Immersive Learn",   "url": "https://rodrigues.haus/projects.html#immersive-learn" },
+                    { "@type": "ListItem", "position": 12, "name": "HR Retention Machine", "url": "https://rodrigues.haus/projects.html#hr-retention" },
+                    { "@type": "ListItem", "position": 13, "name": "Gestão Data-Driven", "url": "https://rodrigues.haus/projects.html#data-driven" },
+                    { "@type": "ListItem", "position": 14, "name": "Sistema Inteligente de Gestão de Ativos", "url": "https://rodrigues.haus/projects.html#gestao-ativos" },
+                    { "@type": "ListItem", "position": 15, "name": "Process Performance Tools (PPT)", "url": "https://rodrigues.haus/projects.html#ppt" },
+                    { "@type": "ListItem", "position": 16, "name": "Gestão Pontos Fortes", "url": "https://rodrigues.haus/projects.html#pontos-fortes" },
+                    { "@type": "ListItem", "position": 17, "name": "IntegraCity",       "url": "https://rodrigues.haus/projects.html#integracity" },
+                    { "@type": "ListItem", "position": 18, "name": "Cidades Saudáveis", "url": "https://rodrigues.haus/projects.html#cidades-saudaveis" },
+                    { "@type": "ListItem", "position": 19, "name": "4Health",           "url": "https://rodrigues.haus/projects.html#4health" },
+                    { "@type": "ListItem", "position": 20, "name": "Life Academy",      "url": "https://rodrigues.haus/projects.html#life-academy" }
+                ]
             }
         ]
     }
@@ -150,7 +234,7 @@
                 <p class="company-lead" data-i18n="companies.bbi.lead">Plataforma de produtos de dados — família <strong>self.bi</strong>. Seis produtos que atendem desde análise multiagente até mídia programática de rádio.</p>
 
                 <div class="products-grid products-grid--bbi">
-                    <article class="product-card" style="--product-accent:#7c3aed">
+                    <article class="product-card" id="k2" style="--product-accent:#7c3aed">
                         <span class="product-stripe" aria-hidden="true"></span>
                         <div class="product-head">
                             <span class="product-icon" aria-hidden="true">
@@ -170,7 +254,7 @@
                         <p class="product-impact" data-i18n="companies.bbi.k2.impact">Reduz tempo de análise de horas para minutos em decisões executivas.</p>
                     </article>
 
-                    <article class="product-card" style="--product-accent:#0ea5e9">
+                    <article class="product-card" id="tailor" style="--product-accent:#0ea5e9">
                         <span class="product-stripe" aria-hidden="true"></span>
                         <div class="product-head">
                             <span class="product-icon" aria-hidden="true">
@@ -190,7 +274,7 @@
                         <p class="product-impact" data-i18n="companies.bbi.tailor.impact">Adotado por 75% das grandes mídias brasileiras.</p>
                     </article>
 
-                    <article class="product-card" style="--product-accent:#dc2626">
+                    <article class="product-card" id="livert" style="--product-accent:#dc2626">
                         <span class="product-stripe" aria-hidden="true"></span>
                         <div class="product-head">
                             <span class="product-icon" aria-hidden="true">
@@ -210,7 +294,7 @@
                         <p class="product-impact" data-i18n="companies.bbi.livert.impact">Análise minuto a minuto de audiência ao vivo, sem espera de relatórios.</p>
                     </article>
 
-                    <article class="product-card" style="--product-accent:#10b981">
+                    <article class="product-card" id="flux" style="--product-accent:#10b981">
                         <span class="product-stripe" aria-hidden="true"></span>
                         <div class="product-head">
                             <span class="product-icon" aria-hidden="true">
@@ -229,7 +313,7 @@
                         </ul>
                     </article>
 
-                    <article class="product-card" style="--product-accent:#f59e0b">
+                    <article class="product-card" id="argus" style="--product-accent:#f59e0b">
                         <span class="product-stripe" aria-hidden="true"></span>
                         <div class="product-head">
                             <span class="product-icon" aria-hidden="true">
@@ -248,7 +332,7 @@
                         </ul>
                     </article>
 
-                    <article class="product-card" style="--product-accent:#4f46e5">
+                    <article class="product-card" id="hertz" style="--product-accent:#4f46e5">
                         <span class="product-stripe" aria-hidden="true"></span>
                         <div class="product-head">
                             <span class="product-icon" aria-hidden="true">
@@ -296,7 +380,7 @@
                 <p class="company-lead" data-i18n="companies.goldenlearn.lead">EdTech que combina plataformas de aprendizagem, automação de treinamentos, psicometria e analytics de pessoas. Dez soluções modulares, do conteúdo EAD à gestão de ativos data-driven.</p>
 
                 <div class="solutions-grid">
-                    <article class="solution-card solution-card--feature">
+                    <article class="solution-card solution-card--feature" id="paths-to-growth">
                         <div class="solution-mockup">
                             <img src="assets/companies/goldenlearn/paths-to-growth.png" alt="Paths to Growth — mockup" loading="lazy">
                         </div>
@@ -312,7 +396,7 @@
                         </div>
                     </article>
 
-                    <article class="solution-card">
+                    <article class="solution-card" id="td-planner">
                         <div class="solution-mockup">
                             <img src="assets/companies/goldenlearn/td-planner.png" alt="TD Planner — mockup" loading="lazy">
                         </div>
@@ -328,7 +412,7 @@
                         </div>
                     </article>
 
-                    <article class="solution-card">
+                    <article class="solution-card" id="comprova">
                         <div class="solution-mockup">
                             <img src="assets/companies/goldenlearn/comprova.png" alt="COMPROVA+ — mockup" loading="lazy">
                         </div>
@@ -344,7 +428,7 @@
                         </div>
                     </article>
 
-                    <article class="solution-card">
+                    <article class="solution-card" id="fabrica-conteudo">
                         <div class="solution-mockup">
                             <img src="assets/companies/goldenlearn/fabrica-conteudo.png" alt="Fábrica de Conteúdo EAD — mockup" loading="lazy">
                         </div>
@@ -360,7 +444,7 @@
                         </div>
                     </article>
 
-                    <article class="solution-card">
+                    <article class="solution-card" id="immersive-learn">
                         <div class="solution-mockup">
                             <img src="assets/companies/goldenlearn/immersive-learn.png" alt="Immersive Learn — mockup" loading="lazy">
                         </div>
@@ -376,7 +460,7 @@
                         </div>
                     </article>
 
-                    <article class="solution-card">
+                    <article class="solution-card" id="hr-retention">
                         <div class="solution-mockup">
                             <img src="assets/companies/goldenlearn/hr-retention.png" alt="HR Retention Machine — mockup" loading="lazy">
                         </div>
@@ -393,7 +477,7 @@
                         </div>
                     </article>
 
-                    <article class="solution-card">
+                    <article class="solution-card" id="data-driven">
                         <div class="solution-mockup">
                             <img src="assets/companies/goldenlearn/data-driven.png" alt="Gestão Data-Driven — mockup" loading="lazy">
                         </div>
@@ -409,7 +493,7 @@
                         </div>
                     </article>
 
-                    <article class="solution-card">
+                    <article class="solution-card" id="gestao-ativos">
                         <div class="solution-mockup">
                             <img src="assets/companies/goldenlearn/gestao-ativos.png" alt="Sistema Inteligente de Gestão de Ativos — mockup" loading="lazy">
                         </div>
@@ -425,7 +509,7 @@
                         </div>
                     </article>
 
-                    <article class="solution-card">
+                    <article class="solution-card" id="ppt">
                         <div class="solution-mockup">
                             <img src="assets/companies/goldenlearn/ppt.png" alt="Process Performance Tools — mockup" loading="lazy">
                         </div>
@@ -441,7 +525,7 @@
                         </div>
                     </article>
 
-                    <article class="solution-card">
+                    <article class="solution-card" id="pontos-fortes">
                         <div class="solution-mockup">
                             <img src="assets/companies/goldenlearn/pontos-fortes.png" alt="Gestão Pontos Fortes — mockup" loading="lazy">
                         </div>
@@ -487,7 +571,7 @@
                 <p class="company-lead" data-i18n="companies.integratech.lead">Instituto sem fins lucrativos que articula tecnologia, saúde e cidadania através de quatro iniciativas complementares.</p>
 
                 <div class="initiatives-grid">
-                    <article class="initiative-card">
+                    <article class="initiative-card" id="integracity">
                         <div class="initiative-media">
                             <iframe src="https://player.vimeo.com/video/1053787313?color&autopause=0&loop=0&muted=0&title=1&portrait=1&byline=1#t=" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="IntegraCity — Instituto Integratech"></iframe>
                         </div>
@@ -505,7 +589,7 @@
                         </div>
                     </article>
 
-                    <article class="initiative-card">
+                    <article class="initiative-card" id="cidades-saudaveis">
                         <div class="initiative-media">
                             <iframe src="https://player.vimeo.com/video/1053787131?color&autopause=0&loop=0&muted=0&title=1&portrait=1&byline=1#t=" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Cidades Saudáveis — Instituto Integratech"></iframe>
                         </div>
@@ -522,7 +606,7 @@
                         </div>
                     </article>
 
-                    <article class="initiative-card">
+                    <article class="initiative-card" id="4health">
                         <div class="initiative-media">
                             <iframe src="https://player.vimeo.com/video/1053786819?color&autopause=0&loop=0&muted=0&title=1&portrait=1&byline=1#t=" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="4Health — Instituto Integratech"></iframe>
                         </div>
@@ -539,7 +623,7 @@
                         </div>
                     </article>
 
-                    <article class="initiative-card initiative-card--full">
+                    <article class="initiative-card initiative-card--full" id="life-academy">
                         <div class="initiative-body">
                             <span class="initiative-tagline" data-i18n="companies.it.life.tagline">Desenvolvimento pessoal & profissional</span>
                             <h3>
