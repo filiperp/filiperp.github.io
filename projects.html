@@ -22,8 +22,53 @@
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Caveat:wght@700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Person",
+                "@id": "https://filiperp.github.io/#filipe",
+                "name": "Filipe Rodrigues",
+                "url": "https://filiperp.github.io/",
+                "jobTitle": "Senior Data Engineer & Solution Architect",
+                "worksFor": [
+                    { "@id": "https://bbi.solutions/#org" },
+                    { "@id": "https://www.goldenlearn.com.br/#org" },
+                    { "@id": "https://institutointegratech.org/#org" }
+                ]
+            },
+            {
+                "@type": "Organization",
+                "@id": "https://bbi.solutions/#org",
+                "name": "BBI.Solutions",
+                "url": "https://bbi.solutions/",
+                "description": "Plataforma de produtos de dados — família self.bi: análise multiagente, visualização, livestream, OOH, brand safety e rádio programático.",
+                "member": { "@id": "https://filiperp.github.io/#filipe" }
+            },
+            {
+                "@type": "Organization",
+                "@id": "https://www.goldenlearn.com.br/#org",
+                "name": "GoldenLearn",
+                "url": "https://www.goldenlearn.com.br/",
+                "description": "EdTech corporativa com 10 soluções modulares: plataforma de desenvolvimento de pessoas, automação de treinamentos, psicometria e analytics de people management.",
+                "member": { "@id": "https://filiperp.github.io/#filipe" }
+            },
+            {
+                "@type": "Organization",
+                "@id": "https://institutointegratech.org/#org",
+                "name": "Instituto Integratech",
+                "url": "https://institutointegratech.org/",
+                "description": "Instituto sem fins lucrativos que articula tecnologia, saúde e cidadania através de quatro iniciativas: IntegraCity, Cidades Saudáveis, 4Health e Life Academy.",
+                "member": { "@id": "https://filiperp.github.io/#filipe" }
+            }
+        ]
+    }
+    </script>
 </head>
 <body>
+    <div class="scroll-progress" aria-hidden="true"><span></span></div>
     <a class="skip-link" href="#main" data-i18n="a11y.skip">Pular para o conteúdo</a>
 
     <header class="topbar">
@@ -40,6 +85,9 @@
                 <a href="index.html#contact" data-i18n="nav.contact">Contato</a>
             </nav>
             <div class="header-controls">
+                <button id="print-button" class="theme-toggle print-button" type="button" data-i18n-attr="aria-label:print.button;title:print.button" aria-label="Baixar PDF" title="Baixar PDF">
+                    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M19 8h-1V3H6v5H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zM8 5h8v3H8V5zm8 14H8v-4h8v4zm4-4h-2v-2H6v2H4v-4c0-.55.45-1 1-1h14c.55 0 1 .45 1 1v4z"/><circle cx="18" cy="11.5" r="1" fill="currentColor"/></svg>
+                </button>
                 <button id="lang-toggle" class="lang-toggle" type="button" data-i18n-attr="aria-label:a11y.lang;title:a11y.lang" aria-label="Alternar idioma" title="Alternar idioma">
                     <span class="lang-opt is-active" data-lang-option="pt" aria-pressed="true">PT</span>
                     <span class="lang-sep" aria-hidden="true">/</span>
@@ -89,6 +137,11 @@
                         <h2 class="section-title" data-i18n="companies.bbi.name">BBI.Solutions</h2>
                         <span class="company-role" data-i18n="companies.bbi.role">Founder · Tech Lead</span>
                     </div>
+                    <dl class="company-stats" aria-label="Métricas BBI">
+                        <div><dt data-i18n="companies.bbi.stats.n1">30+</dt><dd data-i18n="companies.bbi.stats.l1">clientes enterprise</dd></div>
+                        <div><dt data-i18n="companies.bbi.stats.n2">60+ TB</dt><dd data-i18n="companies.bbi.stats.l2">dados agregados</dd></div>
+                        <div><dt data-i18n="companies.bbi.stats.n3">10 anos</dt><dd data-i18n="companies.bbi.stats.l3">no mercado</dd></div>
+                    </dl>
                     <a class="btn btn-ghost company-cta" href="https://bbi.solutions/" target="_blank" rel="noopener">
                         <span data-i18n="companies.cta.visit_site">Visitar site</span>
                         <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zM19 19H5V5h7V3H5c-1.11 0-2 .89-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7z"/></svg>
@@ -108,7 +161,13 @@
                                 <h3>k2<span class="product-suffix">.self.bi</span></h3>
                             </div>
                         </div>
-                        <p data-i18n="companies.bbi.k2.desc">Analista de inteligência artificial proativo e multiagente, estruturado sobre um backbone de 3 camadas.</p>
+                        <p data-i18n="companies.bbi.k2.desc">Analista de inteligência artificial proativo e multiagente, estruturado sobre um backbone de 3 camadas. Atua como um agente sênior digital — recebe contexto, planeja a investigação, delega a sub-agentes especialistas e devolve a síntese diretamente para o tomador de decisão.</p>
+                        <ul class="product-pillars">
+                            <li data-i18n="companies.bbi.k2.p1">IA multi-agente</li>
+                            <li data-i18n="companies.bbi.k2.p2">Backbone 3 camadas</li>
+                            <li data-i18n="companies.bbi.k2.p3">Análise proativa</li>
+                        </ul>
+                        <p class="product-impact" data-i18n="companies.bbi.k2.impact">Reduz tempo de análise de horas para minutos em decisões executivas.</p>
                     </article>
 
                     <article class="product-card" style="--product-accent:#0ea5e9">
@@ -122,7 +181,13 @@
                                 <h3>tailor<span class="product-suffix">.self.bi</span></h3>
                             </div>
                         </div>
-                        <p data-i18n="companies.bbi.tailor.desc">Núcleo de visualização de dados remodelado para clientes da BBI, que integra dashboards do Tableau via trusted ticket.</p>
+                        <p data-i18n="companies.bbi.tailor.desc">Núcleo de visualização de dados remodelado para clientes da BBI, que integra dashboards do Tableau via trusted ticket. Entrega experiência white-label, controle de acesso granular e o mesmo conjunto analítico que já é referência no mercado de mídia brasileiro.</p>
+                        <ul class="product-pillars">
+                            <li data-i18n="companies.bbi.tailor.p1">Tableau embarcado</li>
+                            <li data-i18n="companies.bbi.tailor.p2">Trusted ticket</li>
+                            <li data-i18n="companies.bbi.tailor.p3">White-label</li>
+                        </ul>
+                        <p class="product-impact" data-i18n="companies.bbi.tailor.impact">Adotado por 75% das grandes mídias brasileiras.</p>
                     </article>
 
                     <article class="product-card" style="--product-accent:#dc2626">
@@ -136,7 +201,13 @@
                                 <h3>liveRT<span class="product-suffix">.self.bi</span></h3>
                             </div>
                         </div>
-                        <p data-i18n="companies.bbi.livert.desc">Central operacional com IA multimodal para monitoramento, transcrição e análise de audiência de livestreams minuto a minuto.</p>
+                        <p data-i18n="companies.bbi.livert.desc">Central operacional com IA multimodal para monitoramento, transcrição e análise de audiência de livestreams minuto a minuto. Cruza vídeo, áudio e métricas de plataforma em uma única timeline, permitindo reagir em tempo real a quedas de engajamento ou picos de oportunidade.</p>
+                        <ul class="product-pillars">
+                            <li data-i18n="companies.bbi.livert.p1">IA multimodal</li>
+                            <li data-i18n="companies.bbi.livert.p2">Tempo real</li>
+                            <li data-i18n="companies.bbi.livert.p3">Transcrição + audiência</li>
+                        </ul>
+                        <p class="product-impact" data-i18n="companies.bbi.livert.impact">Análise minuto a minuto de audiência ao vivo, sem espera de relatórios.</p>
                     </article>
 
                     <article class="product-card" style="--product-accent:#10b981">
@@ -150,7 +221,12 @@
                                 <h3>flux<span class="product-suffix">.self.bi</span></h3>
                             </div>
                         </div>
-                        <p data-i18n="companies.bbi.flux.desc">Plataforma de inteligência para OOH que calcula o alcance real e o perfil do público nas ruas, cruzando geolocalização, ANATEL e IBGE.</p>
+                        <p data-i18n="companies.bbi.flux.desc">Plataforma de inteligência para OOH que calcula o alcance real e o perfil do público nas ruas, cruzando geolocalização, ANATEL e IBGE. Substitui métricas estimadas por evidências cruzadas com fontes oficiais — o anunciante deixa de comprar pontos no mapa e passa a comprar audiência qualificada.</p>
+                        <ul class="product-pillars">
+                            <li data-i18n="companies.bbi.flux.p1">Geolocalização</li>
+                            <li data-i18n="companies.bbi.flux.p2">ANATEL</li>
+                            <li data-i18n="companies.bbi.flux.p3">IBGE</li>
+                        </ul>
                     </article>
 
                     <article class="product-card" style="--product-accent:#f59e0b">
@@ -164,7 +240,12 @@
                                 <h3>argus<span class="product-suffix">.self.bi</span></h3>
                             </div>
                         </div>
-                        <p data-i18n="companies.bbi.argus.desc">SaaS de brand safety e auditoria de contexto para publishers: identifica anunciantes e classifica conteúdos via LLM multimodal.</p>
+                        <p data-i18n="companies.bbi.argus.desc">SaaS de brand safety e auditoria de contexto para publishers: identifica anunciantes e classifica conteúdos via LLM multimodal. Mostra ao publisher exatamente quem anuncia onde — útil para times comerciais, jurídicos e de produto que precisam de evidência (não de planilha).</p>
+                        <ul class="product-pillars">
+                            <li data-i18n="companies.bbi.argus.p1">LLM multimodal</li>
+                            <li data-i18n="companies.bbi.argus.p2">Brand safety</li>
+                            <li data-i18n="companies.bbi.argus.p3">Publishers</li>
+                        </ul>
                     </article>
 
                     <article class="product-card" style="--product-accent:#4f46e5">
@@ -178,7 +259,12 @@
                                 <h3>hertz<span class="product-suffix">.self.bi</span></h3>
                             </div>
                         </div>
-                        <p data-i18n="companies.bbi.hertz.desc">Infraestrutura que transforma rádio offline em mídia programática e líquida, auditada por IA de áudio 24/7 com registro em blockchain.</p>
+                        <p data-i18n="companies.bbi.hertz.desc">Infraestrutura que transforma rádio offline em mídia programática e líquida, auditada por IA de áudio 24/7 com registro em blockchain. Cada inserção comercial vira evento verificável e cada audiência vira inventário negociável — abrindo o rádio para o mesmo modelo de compra que o digital.</p>
+                        <ul class="product-pillars">
+                            <li data-i18n="companies.bbi.hertz.p1">Áudio 24/7</li>
+                            <li data-i18n="companies.bbi.hertz.p2">Blockchain</li>
+                            <li data-i18n="companies.bbi.hertz.p3">Mídia programática</li>
+                        </ul>
                     </article>
                 </div>
             </div>
@@ -197,6 +283,11 @@
                         <h2 class="section-title" data-i18n="companies.goldenlearn.name">GoldenLearn</h2>
                         <span class="company-role" data-i18n="companies.goldenlearn.role">CTO</span>
                     </div>
+                    <dl class="company-stats" aria-label="Métricas GoldenLearn">
+                        <div><dt data-i18n="companies.gl.stats.n1">10</dt><dd data-i18n="companies.gl.stats.l1">soluções modulares</dd></div>
+                        <div><dt data-i18n="companies.gl.stats.n2">3</dt><dd data-i18n="companies.gl.stats.l2">linhas de produto</dd></div>
+                        <div><dt data-i18n="companies.gl.stats.n3">10+</dt><dd data-i18n="companies.gl.stats.l3">engenheiros no time</dd></div>
+                    </dl>
                     <a class="btn btn-ghost company-cta" href="https://www.goldenlearn.com.br/" target="_blank" rel="noopener">
                         <span data-i18n="companies.cta.visit_site">Visitar site</span>
                         <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zM19 19H5V5h7V3H5c-1.11 0-2 .89-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7z"/></svg>
@@ -212,7 +303,12 @@
                         <div class="solution-body">
                             <span class="solution-eyebrow" data-i18n="companies.gl.paths.eyebrow">Plataforma principal</span>
                             <h3 data-i18n="companies.gl.paths.title">Paths to Growth</h3>
-                            <p data-i18n="companies.gl.paths.desc">Plataforma SaaS que transforma a gestão do desenvolvimento de pessoas e carreiras. Arquitetura modular oferecendo visibilidade, controle e eficiência da capacitação ao crescimento profissional dos colaboradores.</p>
+                            <p data-i18n="companies.gl.paths.desc">Plataforma SaaS que transforma a gestão do desenvolvimento de pessoas e carreiras. Arquitetura modular oferecendo visibilidade, controle e eficiência da capacitação ao crescimento profissional dos colaboradores — o RH deixa de operar por planilhas e passa a operar por trilhas vivas.</p>
+                            <ul class="product-pillars">
+                                <li data-i18n="companies.gl.paths.p1">SaaS</li>
+                                <li data-i18n="companies.gl.paths.p2">Arquitetura modular</li>
+                                <li data-i18n="companies.gl.paths.p3">Pessoas + carreiras</li>
+                            </ul>
                         </div>
                     </article>
 
@@ -223,7 +319,12 @@
                         <div class="solution-body">
                             <span class="solution-eyebrow" data-i18n="companies.gl.tdplanner.eyebrow">Gestão de treinamentos</span>
                             <h3 data-i18n="companies.gl.tdplanner.title">TD Planner</h3>
-                            <p data-i18n="companies.gl.tdplanner.desc">Automatiza 100% do ciclo de planejamento, execução e certificação de treinamentos corporativos, reduzindo custos operacionais com gestão centralizada, ágil e eficiente.</p>
+                            <p data-i18n="companies.gl.tdplanner.desc">Automatiza 100% do ciclo de planejamento, execução e certificação de treinamentos corporativos, com gestão centralizada e ágil. Tira do RH a operação repetitiva e libera tempo para o trabalho que realmente desenvolve gente.</p>
+                            <ul class="product-pillars">
+                                <li data-i18n="companies.gl.tdplanner.p1">Automação 100%</li>
+                                <li data-i18n="companies.gl.tdplanner.p2">Planejamento</li>
+                                <li data-i18n="companies.gl.tdplanner.p3">Certificação</li>
+                            </ul>
                         </div>
                     </article>
 
@@ -234,7 +335,12 @@
                         <div class="solution-body">
                             <span class="solution-eyebrow" data-i18n="companies.gl.comprova.eyebrow">Avaliação de competências</span>
                             <h3 data-i18n="companies.gl.comprova.title">COMPROVA+</h3>
-                            <p data-i18n="companies.gl.comprova.desc">SaaS que automatiza a criação de questionários personalizados e gera relatórios analíticos detalhados — apoia decisões sobre talentos, mapeamento de gaps e sucessão em posições-chave.</p>
+                            <p data-i18n="companies.gl.comprova.desc">SaaS que automatiza a criação de questionários personalizados e gera relatórios analíticos detalhados sobre competências. Apoia decisões críticas de talento — mapeamento de gaps, plano de desenvolvimento individual e sucessão em posições-chave — com base em dado, não em achismo.</p>
+                            <ul class="product-pillars">
+                                <li data-i18n="companies.gl.comprova.p1">SaaS</li>
+                                <li data-i18n="companies.gl.comprova.p2">Avaliação personalizada</li>
+                                <li data-i18n="companies.gl.comprova.p3">Sucessão</li>
+                            </ul>
                         </div>
                     </article>
 
@@ -245,7 +351,12 @@
                         <div class="solution-body">
                             <span class="solution-eyebrow" data-i18n="companies.gl.fabrica.eyebrow">Produção EAD</span>
                             <h3 data-i18n="companies.gl.fabrica.title">Fábrica de Conteúdo EAD</h3>
-                            <p data-i18n="companies.gl.fabrica.desc">Estrutura completa para converter treinamentos em experiências digitais — inteligência instrucional, recursos multimídia e integração corporativa para o conhecimento certo à pessoa certa na hora certa.</p>
+                            <p data-i18n="companies.gl.fabrica.desc">Estrutura completa para converter treinamentos em experiências digitais — inteligência instrucional, recursos multimídia e integração aos sistemas corporativos. Escala conteúdo sem escalar custo: o conhecimento certo chega à pessoa certa, na hora certa.</p>
+                            <ul class="product-pillars">
+                                <li data-i18n="companies.gl.fabrica.p1">Multimídia</li>
+                                <li data-i18n="companies.gl.fabrica.p2">Personalização</li>
+                                <li data-i18n="companies.gl.fabrica.p3">Integração corporativa</li>
+                            </ul>
                         </div>
                     </article>
 
@@ -256,7 +367,12 @@
                         <div class="solution-body">
                             <span class="solution-eyebrow" data-i18n="companies.gl.immersive.eyebrow">VR / AR para treinamento</span>
                             <h3 data-i18n="companies.gl.immersive.title">Immersive Learn</h3>
-                            <p data-i18n="companies.gl.immersive.desc">Virtual Learning que transforma treinamentos complexos em experiências imersivas com realidade virtual, aumentada e simuladores. Ideal para conteúdos DICE (perigosos, raros, caros ou inviáveis).</p>
+                            <p data-i18n="companies.gl.immersive.desc">Virtual Learning que transforma treinamentos complexos em experiências imersivas com realidade virtual, aumentada e simuladores. Ideal para conteúdos DICE (perigosos, raros, caros ou inviáveis) — o aprendiz pratica o cenário difícil antes de viver o real.</p>
+                            <ul class="product-pillars">
+                                <li data-i18n="companies.gl.immersive.p1">VR</li>
+                                <li data-i18n="companies.gl.immersive.p2">AR</li>
+                                <li data-i18n="companies.gl.immersive.p3">Conteúdo DICE</li>
+                            </ul>
                         </div>
                     </article>
 
@@ -267,7 +383,13 @@
                         <div class="solution-body">
                             <span class="solution-eyebrow" data-i18n="companies.gl.retention.eyebrow">IA para retenção</span>
                             <h3 data-i18n="companies.gl.retention.title">HR Retention Machine</h3>
-                            <p data-i18n="companies.gl.retention.desc">IA e ciência de dados que identificam riscos de desligamento, preveem padrões de rotatividade e orientam ações estratégicas de retenção — fortalecendo estabilidade e performance organizacional.</p>
+                            <p data-i18n="companies.gl.retention.desc">IA e ciência de dados que identificam riscos de desligamento, preveem padrões de rotatividade e orientam ações estratégicas de retenção. Transforma turnover em sinal early-warning em vez de surpresa de fim de trimestre.</p>
+                            <ul class="product-pillars">
+                                <li data-i18n="companies.gl.retention.p1">IA</li>
+                                <li data-i18n="companies.gl.retention.p2">Ciência de dados</li>
+                                <li data-i18n="companies.gl.retention.p3">Predição de turnover</li>
+                            </ul>
+                            <p class="product-impact" data-i18n="companies.gl.retention.impact">Antecipa risco de desligamento meses antes do pedido de demissão.</p>
                         </div>
                     </article>
 
@@ -278,7 +400,12 @@
                         <div class="solution-body">
                             <span class="solution-eyebrow" data-i18n="companies.gl.datadriven.eyebrow">Cultura data-driven</span>
                             <h3 data-i18n="companies.gl.datadriven.title">Gestão Data-Driven</h3>
-                            <p data-i18n="companies.gl.datadriven.desc">Business Decision System completo: integração de dados, datalake, definição de KPIs, capacitação analítica e Business Decision Rooms com dashboards interativos para decisões ágeis e sustentáveis.</p>
+                            <p data-i18n="companies.gl.datadriven.desc">Business Decision System completo: integração de dados, datalake, definição de KPIs, capacitação analítica e Business Decision Rooms com dashboards interativos. Implanta a cultura de decisão por dado em toda a empresa — não só na sala de TI.</p>
+                            <ul class="product-pillars">
+                                <li data-i18n="companies.gl.datadriven.p1">Datalake</li>
+                                <li data-i18n="companies.gl.datadriven.p2">KPIs</li>
+                                <li data-i18n="companies.gl.datadriven.p3">Decision Rooms</li>
+                            </ul>
                         </div>
                     </article>
 
@@ -289,7 +416,12 @@
                         <div class="solution-body">
                             <span class="solution-eyebrow" data-i18n="companies.gl.ativos.eyebrow">Gestão de ativos</span>
                             <h3 data-i18n="companies.gl.ativos.title">Sistema Inteligente de Gestão de Ativos</h3>
-                            <p data-i18n="companies.gl.ativos.desc">Monitoramento e otimização do ciclo de vida de ativos integrando telemetria em tempo real, BI, dashboards e agentes de IA — da aquisição à revenda, maximizando valor residual.</p>
+                            <p data-i18n="companies.gl.ativos.desc">Monitoramento e otimização do ciclo de vida de ativos integrando telemetria em tempo real, BI, dashboards e agentes de IA. Da aquisição à revenda — disponibilidade maior, custo menor e valor residual maximizado em cada fase.</p>
+                            <ul class="product-pillars">
+                                <li data-i18n="companies.gl.ativos.p1">Telemetria</li>
+                                <li data-i18n="companies.gl.ativos.p2">BI</li>
+                                <li data-i18n="companies.gl.ativos.p3">Agentes de IA</li>
+                            </ul>
                         </div>
                     </article>
 
@@ -300,7 +432,12 @@
                         <div class="solution-body">
                             <span class="solution-eyebrow" data-i18n="companies.gl.ppt.eyebrow">Operações & Manutenção</span>
                             <h3 data-i18n="companies.gl.ppt.title">Process Performance Tools (PPT)</h3>
-                            <p data-i18n="companies.gl.ppt.desc">Solução digital e consultiva que transforma manutenção e operação com modelos de excelência, inspeções estruturadas e monitoramento inteligente — garantindo disponibilidade, produtividade e segurança.</p>
+                            <p data-i18n="companies.gl.ppt.desc">Solução digital e consultiva que transforma manutenção e operação com modelos de excelência, inspeções estruturadas e monitoramento inteligente. Reduz tempo de parada não-planejada e padroniza a operação em todas as plantas — garantindo disponibilidade, produtividade e segurança.</p>
+                            <ul class="product-pillars">
+                                <li data-i18n="companies.gl.ppt.p1">Inspeções estruturadas</li>
+                                <li data-i18n="companies.gl.ppt.p2">Modelos de excelência</li>
+                                <li data-i18n="companies.gl.ppt.p3">Monitoramento inteligente</li>
+                            </ul>
                         </div>
                     </article>
 
@@ -311,7 +448,13 @@
                         <div class="solution-body">
                             <span class="solution-eyebrow" data-i18n="companies.gl.pontosfortes.eyebrow">Liderança & psicometria</span>
                             <h3 data-i18n="companies.gl.pontosfortes.title">Gestão Pontos Fortes</h3>
-                            <p data-i18n="companies.gl.pontosfortes.desc">Modelo de gestão e liderança combinando psicometria de última geração, IA e Big Five para mapear personalidade, talentos e habilidades — potencializando desempenho individual, das equipes e da organização.</p>
+                            <p data-i18n="companies.gl.pontosfortes.desc">Modelo de gestão e liderança combinando psicometria de última geração, IA e Big Five para mapear personalidade, talentos e habilidades. Vai além do feedback subjetivo: cada profissional ganha um mapa científico do que potencializa seu melhor desempenho — e cada gestor, um manual de como liderá-lo.</p>
+                            <ul class="product-pillars">
+                                <li data-i18n="companies.gl.pontosfortes.p1">Psicometria</li>
+                                <li data-i18n="companies.gl.pontosfortes.p2">Big Five</li>
+                                <li data-i18n="companies.gl.pontosfortes.p3">Liderança</li>
+                            </ul>
+                            <p class="product-impact" data-i18n="companies.gl.pontosfortes.impact">Baseado no modelo Big Five validado por Oxford e Johns Hopkins.</p>
                         </div>
                     </article>
                 </div>
@@ -331,6 +474,11 @@
                         <h2 class="section-title" data-i18n="companies.integratech.name">Instituto Integratech</h2>
                         <span class="company-role" data-i18n="companies.integratech.role">Sócio · Sem fins lucrativos</span>
                     </div>
+                    <dl class="company-stats" aria-label="Métricas Instituto Integratech">
+                        <div><dt data-i18n="companies.it.stats.n1">4</dt><dd data-i18n="companies.it.stats.l1">iniciativas ativas</dd></div>
+                        <div><dt data-i18n="companies.it.stats.n2">2500+</dt><dd data-i18n="companies.it.stats.l2">pessoas atendidas</dd></div>
+                        <div><dt data-i18n="companies.it.stats.n3">PT · EN</dt><dd data-i18n="companies.it.stats.l3">plataforma multilíngue</dd></div>
+                    </dl>
                     <a class="btn btn-ghost company-cta" href="https://institutointegratech.org/" target="_blank" rel="noopener">
                         <span data-i18n="companies.cta.visit_site">Visitar site</span>
                         <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zM19 19H5V5h7V3H5c-1.11 0-2 .89-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7z"/></svg>
@@ -346,7 +494,13 @@
                         <div class="initiative-body">
                             <span class="initiative-tagline" data-i18n="companies.it.integracity.tagline">Software para gestão pública</span>
                             <h3 data-i18n="companies.it.integracity.title">IntegraCity</h3>
-                            <p data-i18n="companies.it.integracity.desc">Plataforma para reduzir o tempo de execução de tarefas em órgãos públicos, com acessibilidade cloud e segurança de dados como pilares. Hoje é o produto principal da nossa frente tech-pública.</p>
+                            <p data-i18n="companies.it.integracity.desc">Plataforma para reduzir o tempo de execução de tarefas em órgãos públicos, com acessibilidade cloud e segurança de dados como pilares. Hoje é o produto principal da nossa frente tech-pública — leva tecnologia de gestão moderna para quem mais precisa: a máquina pública municipal.</p>
+                            <ul class="product-pillars">
+                                <li data-i18n="companies.it.integracity.p1">Cloud</li>
+                                <li data-i18n="companies.it.integracity.p2">Acessibilidade</li>
+                                <li data-i18n="companies.it.integracity.p3">Segurança de dados</li>
+                            </ul>
+                            <p class="product-impact" data-i18n="companies.it.integracity.impact">Plataforma de cabeceira da frente tech-pública do Instituto.</p>
                             <a class="initiative-link" href="https://institutointegratech.org/integracity/" target="_blank" rel="noopener" data-i18n="companies.it.cta">Conhecer iniciativa →</a>
                         </div>
                     </article>
@@ -358,7 +512,12 @@
                         <div class="initiative-body">
                             <span class="initiative-tagline" data-i18n="companies.it.cidades.tagline">Saúde pública orientada por dados</span>
                             <h3 data-i18n="companies.it.cidades.title">Cidades Saudáveis</h3>
-                            <p data-i18n="companies.it.cidades.desc">Programa que conecta dados de saúde pública e políticas urbanas para tornar municípios mais saudáveis — diagnóstico, KPIs e priorização de intervenção baseada em evidências.</p>
+                            <p data-i18n="companies.it.cidades.desc">Programa que conecta dados de saúde pública e políticas urbanas para tornar municípios mais saudáveis. Une diagnóstico territorial, KPIs comparáveis entre cidades e priorização de intervenção baseada em evidências — gestão de saúde pública sai do retrovisor e ganha agenda preventiva.</p>
+                            <ul class="product-pillars">
+                                <li data-i18n="companies.it.cidades.p1">Diagnóstico territorial</li>
+                                <li data-i18n="companies.it.cidades.p2">KPIs comparáveis</li>
+                                <li data-i18n="companies.it.cidades.p3">Decisão baseada em evidência</li>
+                            </ul>
                             <a class="initiative-link" href="https://institutointegratech.org/" target="_blank" rel="noopener" data-i18n="companies.it.cta">Conhecer iniciativa →</a>
                         </div>
                     </article>
@@ -370,7 +529,12 @@
                         <div class="initiative-body">
                             <span class="initiative-tagline" data-i18n="companies.it.fourhealth.tagline">Desenvolvimento humano integrado</span>
                             <h3 data-i18n="companies.it.fourhealth.title">4Health</h3>
-                            <p data-i18n="companies.it.fourhealth.desc">Iniciativa de saúde integrativa baseada em dados e prevenção, conectando desenvolvimento humano, empregabilidade e empreendedorismo.</p>
+                            <p data-i18n="companies.it.fourhealth.desc">Iniciativa de saúde integrativa baseada em dados e prevenção, conectando desenvolvimento humano, empregabilidade e empreendedorismo. Olha o indivíduo inteiro — físico, mental, financeiro e profissional — e oferece trilhas práticas para sair do diagnóstico e chegar à ação.</p>
+                            <ul class="product-pillars">
+                                <li data-i18n="companies.it.fourhealth.p1">Desenvolvimento humano</li>
+                                <li data-i18n="companies.it.fourhealth.p2">Empregabilidade</li>
+                                <li data-i18n="companies.it.fourhealth.p3">Empreendedorismo</li>
+                            </ul>
                             <a class="initiative-link" href="https://institutointegratech.org/" target="_blank" rel="noopener" data-i18n="companies.it.cta">Conhecer iniciativa →</a>
                         </div>
                     </article>
@@ -382,12 +546,70 @@
                                 <span data-i18n="companies.it.life.title">Life Academy</span>
                                 <span class="badge" data-i18n="companies.integratech.life.badge">sem fins lucrativos</span>
                             </h3>
-                            <p data-i18n="companies.it.life.desc">Iniciativa fundada em 2020 focada em desenvolvimento pessoal e profissional. 2500+ pessoas atendidas em workshops, mentorias e conteúdos sobre tecnologia, soft skills e empreendedorismo. Plataforma multilíngue.</p>
+                            <p data-i18n="companies.it.life.desc">Iniciativa que fundei em 2020, focada em desenvolvimento pessoal e profissional. 2500+ pessoas atendidas em workshops, mentorias e conteúdos sobre tecnologia, soft skills e empreendedorismo, numa plataforma multilíngue que cresceu como comunidade ativa — não como base de e-mails.</p>
+                            <ul class="product-pillars">
+                                <li data-i18n="companies.it.life.p1">2500+ pessoas atendidas</li>
+                                <li data-i18n="companies.it.life.p2">Multilíngue (PT/EN/ES)</li>
+                                <li data-i18n="companies.it.life.p3">Comunidade ativa</li>
+                            </ul>
                             <p class="initiative-invite" data-i18n="companies.it.life.invite">Quer conhecer o trabalho de perto? Visite o site e veja workshops, mentorias e a comunidade ativa.</p>
                             <a class="btn btn-primary initiative-cta" href="https://lifeacademy.pro" target="_blank" rel="noopener">
                                 <span data-i18n="companies.it.cta_life">Visitar lifeacademy.pro →</span>
                             </a>
                         </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section compare-section">
+            <div class="container">
+                <h2 class="section-title" data-i18n="compare.title">Comparativo rápido</h2>
+                <p class="section-lead" data-i18n="compare.lead">Três empresas, três modos de operar. Resumo prático para você situar.</p>
+                <div class="compare-grid">
+                    <article class="compare-cell">
+                        <header>
+                            <span class="company-mark company-mark--logo mark-bbi" aria-hidden="true">
+                                <img src="assets/companies/bbi/logo-globo.svg" alt="" loading="lazy">
+                            </span>
+                            <h3 data-i18n="companies.bbi.name">BBI.Solutions</h3>
+                        </header>
+                        <dl>
+                            <div><dt data-i18n="compare.focus">Foco</dt><dd data-i18n="compare.bbi.focus">Produtos de dados para mídia e publicidade</dd></div>
+                            <div><dt data-i18n="compare.lineup">Linha</dt><dd data-i18n="compare.bbi.lineup">6 produtos self.bi (k2, tailor, liveRT, flux, argus, hertz)</dd></div>
+                            <div><dt data-i18n="compare.role">Posição</dt><dd data-i18n="compare.bbi.role">Founder · Tech Lead</dd></div>
+                            <div><dt data-i18n="compare.signal">Diferencial</dt><dd data-i18n="compare.bbi.signal">Especialização técnica profunda em mídia + IA</dd></div>
+                        </dl>
+                    </article>
+
+                    <article class="compare-cell">
+                        <header>
+                            <span class="company-mark company-mark--logo mark-gl" aria-hidden="true">
+                                <img src="assets/companies/goldenlearn/logo.png" alt="" loading="lazy">
+                            </span>
+                            <h3 data-i18n="companies.goldenlearn.name">GoldenLearn</h3>
+                        </header>
+                        <dl>
+                            <div><dt data-i18n="compare.focus">Foco</dt><dd data-i18n="compare.gl.focus">EdTech corporativa de ponta a ponta</dd></div>
+                            <div><dt data-i18n="compare.lineup">Linha</dt><dd data-i18n="compare.gl.lineup">10 soluções modulares — pessoas, conteúdo e ativos</dd></div>
+                            <div><dt data-i18n="compare.role">Posição</dt><dd data-i18n="compare.gl.role">CTO</dd></div>
+                            <div><dt data-i18n="compare.signal">Diferencial</dt><dd data-i18n="compare.gl.signal">Stack inteira sob um mesmo guarda-chuva</dd></div>
+                        </dl>
+                    </article>
+
+                    <article class="compare-cell">
+                        <header>
+                            <span class="company-mark company-mark--logo mark-it" aria-hidden="true">
+                                <img src="assets/companies/integratech/logo.png" alt="" loading="lazy">
+                            </span>
+                            <h3 data-i18n="companies.integratech.name">Instituto Integratech</h3>
+                        </header>
+                        <dl>
+                            <div><dt data-i18n="compare.focus">Foco</dt><dd data-i18n="compare.it.focus">Tecnologia social — saúde, cidades e pessoas</dd></div>
+                            <div><dt data-i18n="compare.lineup">Linha</dt><dd data-i18n="compare.it.lineup">4 iniciativas (IntegraCity, Cidades Saudáveis, 4Health, Life Academy)</dd></div>
+                            <div><dt data-i18n="compare.role">Posição</dt><dd data-i18n="compare.it.role">Sócio · Sem fins lucrativos</dd></div>
+                            <div><dt data-i18n="compare.signal">Diferencial</dt><dd data-i18n="compare.it.signal">Impacto público e desenvolvimento humano</dd></div>
+                        </dl>
                     </article>
                 </div>
             </div>
@@ -416,5 +638,6 @@
     <script src="js/version.js"></script>
     <script src="js/i18n.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/projects-page.js"></script>
 </body>
 </html>

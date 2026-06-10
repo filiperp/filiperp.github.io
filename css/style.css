@@ -1587,3 +1587,304 @@ html[data-theme="dark"] .product-icon {
     .initiative-card--full .initiative-body { padding: 1.25rem 1.25rem 1.5rem; }
     .initiative-card--full h3 { font-size: 1.2rem; }
 }
+
+/* ============================================================
+   v3: ritmo, narrativa, exportação
+   ============================================================ */
+
+/* Scroll progress bar fixa no topo da página */
+.scroll-progress {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: transparent;
+    z-index: 100;
+    pointer-events: none;
+}
+.scroll-progress span {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: var(--accent);
+    transform-origin: left center;
+    transition: width 0.05s linear;
+}
+@supports (animation-timeline: scroll()) {
+    .scroll-progress span {
+        width: 100%;
+        transform: scaleX(0);
+        transform-origin: left center;
+        animation: scaleProgress linear forwards;
+        animation-timeline: scroll(root block);
+        transition: none;
+    }
+    @keyframes scaleProgress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+}
+
+/* Botão print no header */
+.print-button {
+    /* herda visual de .theme-toggle (mesmo tamanho, padding, border) */
+}
+
+/* Sticky header da empresa — fica grudado no topo enquanto rola a seção dela */
+.company-section { position: relative; }
+.company-header {
+    position: sticky;
+    top: 60px;
+    z-index: 4;
+    margin: 0 calc(var(--space-lg) * -1);
+    padding: 0.85rem var(--space-lg);
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: saturate(150%) blur(10px);
+    -webkit-backdrop-filter: saturate(150%) blur(10px);
+    border-bottom: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+    border-radius: var(--radius-md);
+}
+.section-alt .company-header {
+    background: color-mix(in srgb, var(--bg-alt) 88%, transparent);
+}
+.company-header .section-title {
+    font-size: 1.4rem;
+}
+
+/* Stats no header da empresa */
+.company-stats {
+    display: flex;
+    gap: 1.25rem;
+    margin: 0;
+    padding-left: 0.5rem;
+    border-left: 1px solid var(--border);
+    flex-wrap: wrap;
+}
+.company-stats > div { margin: 0; }
+.company-stats dt {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1.1;
+    margin: 0;
+    font-feature-settings: "tnum";
+}
+.company-stats dd {
+    font-size: 0.7rem;
+    color: var(--fg-muted);
+    line-height: 1.2;
+    margin: 0.1rem 0 0;
+    letter-spacing: 0.01em;
+}
+
+/* Pilares (chips pequenos abaixo de cada card) */
+.product-pillars {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin: 0.7rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+.product-pillars li {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    padding: 0.2rem 0.55rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--fg-muted);
+    background: transparent;
+    transition: color 0.15s, border-color 0.15s;
+    white-space: nowrap;
+}
+.product-card .product-pillars li:hover,
+.solution-card .product-pillars li:hover,
+.initiative-card .product-pillars li:hover {
+    color: var(--product-accent, var(--accent));
+    border-color: var(--product-accent, var(--accent));
+}
+
+/* Linha de impacto (destaque vendedor) */
+.product-impact,
+.initiative-impact {
+    margin: 0.7rem 0 0;
+    padding: 0.35rem 0 0.35rem 0.7rem;
+    border-left: 3px solid var(--product-accent, var(--accent));
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--fg);
+    line-height: 1.4;
+}
+.solution-card .product-impact { font-size: 0.88rem; }
+
+/* Fade-in nos cards via IntersectionObserver */
+.fade-in {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.2, 0.6, 0.2, 1);
+    will-change: opacity, transform;
+}
+.fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+    .fade-in { opacity: 1; transform: none; transition: none; }
+}
+
+/* Scroll-spy: chip ativo no .company-jump */
+.company-jump a.is-active {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-soft);
+}
+
+/* Compare-grid no fim */
+.compare-section { padding-top: var(--space-xl); }
+.compare-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+}
+.compare-cell {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.1rem 1.25rem 1.25rem;
+}
+.compare-cell header {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-bottom: 0.9rem;
+    padding-bottom: 0.7rem;
+    border-bottom: 1px solid var(--border);
+}
+.compare-cell header .company-mark {
+    width: 36px; height: 36px;
+}
+.compare-cell h3 {
+    font-size: 1rem;
+    margin: 0;
+}
+.compare-cell dl { margin: 0; display: flex; flex-direction: column; gap: 0.7rem; }
+.compare-cell dl > div { margin: 0; }
+.compare-cell dt {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin-bottom: 0.1rem;
+}
+.compare-cell dd {
+    margin: 0;
+    font-size: 0.88rem;
+    line-height: 1.45;
+    color: var(--fg);
+}
+
+/* Mobile: stats empilham, sticky compacto */
+@media (max-width: 720px) {
+    .company-stats {
+        border-left: 0;
+        padding-left: 0;
+        gap: 0.85rem;
+        order: 4;
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+    .company-header { position: static; padding: 0; margin: 0; background: transparent; backdrop-filter: none; border: 0; }
+}
+
+/* ============================================================
+   v3: print stylesheet (PDF light, sem nav, page-break por empresa)
+   ============================================================ */
+
+@media print {
+    /* Força paleta light independente do data-theme */
+    html, html[data-theme="dark"], html:not([data-theme]) {
+        --bg: #ffffff !important;
+        --bg-alt: #f7f8fa !important;
+        --bg-elev: #ffffff !important;
+        --fg: #1a1a1a !important;
+        --fg-muted: #5f6368 !important;
+        --fg-subtle: #8a8f98 !important;
+        --border: #e6e8eb !important;
+        --border-strong: #d1d5db !important;
+        --accent: #c2410c !important;
+        --accent-hover: #9a3412 !important;
+        --accent-soft: rgba(194, 65, 12, 0.09) !important;
+        --grid-line: transparent !important;
+        background: #fff !important;
+        color: #1a1a1a !important;
+        color-scheme: light !important;
+    }
+    body { background: #fff !important; color: #1a1a1a !important; }
+    body::before { display: none !important; }
+
+    /* Esconder elementos não-conteúdo */
+    .topbar, .scroll-progress, .footer,
+    #cmdk-root, #offduty-root, #color-root, #game-root,
+    .print-button, .company-cta, .company-jump,
+    .skip-link, .hero-actions, .contact-actions,
+    .initiative-link, .initiative-cta { display: none !important; }
+
+    /* Vídeos viram texto */
+    .initiative-media { aspect-ratio: auto; min-height: 0; border: 1px dashed #ccc; padding: 0.5rem; background: #fafafa; }
+    .initiative-media iframe, .initiative-media img { display: none !important; }
+    .initiative-media::after {
+        content: "Vídeo disponível na versão online: " attr(data-video-note);
+        display: block;
+        font-size: 0.75rem;
+        color: #666;
+        font-style: italic;
+    }
+
+    /* Quebra de página por empresa */
+    .company-section { page-break-before: always; break-before: page; padding: 1rem 0 !important; }
+    .company-section:first-of-type, #company-bbi { page-break-before: avoid; break-before: auto; }
+    .compare-section { page-break-before: always; break-before: page; }
+    .product-card, .solution-card, .initiative-card, .compare-cell {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    /* Sticky e backdrop não fazem sentido no print */
+    .company-header {
+        position: static !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background: transparent !important;
+        border: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Garantir que fade-in seja visível mesmo sem JS rodar */
+    .fade-in { opacity: 1 !important; transform: none !important; }
+
+    /* Mostrar URL dos links externos */
+    a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.75em;
+        color: #666;
+        font-weight: normal;
+    }
+    /* mas não em links visuais como brand, logos, etc */
+    .brand[href^="http"]::after,
+    .company-mark--logo a::after,
+    .compare-cell header a::after { content: "" !important; }
+
+    /* Layout mais compacto para print */
+    .hero--compact { padding: 1.5rem 0 1rem !important; }
+    .section { padding: 1.5rem 0 !important; }
+    .container { max-width: 100% !important; padding: 0 1cm !important; }
+    .products-grid, .solutions-grid, .initiatives-grid, .compare-grid {
+        gap: 0.6rem !important;
+    }
+    .product-card, .solution-card, .initiative-card {
+        box-shadow: none !important;
+        background: #fff !important;
+    }
+
+    @page { margin: 1.5cm 1cm; size: A4; }
+}
