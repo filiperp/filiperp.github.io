@@ -63,6 +63,24 @@
     spyOn(document.querySelectorAll('.company-jump a[href^="#company-"]'));
     spyOn(document.querySelectorAll('.topbar .nav a[href^="#"]'));
 
+    // ---------- Sombra do header sticky de empresa (projects) ----------
+    // O pill gruda em top: 72px (CSS); medir a posição real evita os
+    // casos-limite de threshold do IntersectionObserver em saltos de scroll.
+    const companyHeaders = Array.from(document.querySelectorAll('.company-section .company-header'));
+    if (companyHeaders.length) {
+        let pinTicking = false;
+        const updatePinned = () => {
+            companyHeaders.forEach(h => {
+                h.classList.toggle('is-stuck', h.getBoundingClientRect().top <= 72.5);
+            });
+            pinTicking = false;
+        };
+        window.addEventListener('scroll', () => {
+            if (!pinTicking) { requestAnimationFrame(updatePinned); pinTicking = true; }
+        }, { passive: true });
+        updatePinned();
+    }
+
     // ---------- Scroll-progress (fallback p/ browsers sem scroll-timeline) ----------
     const progressBar = document.querySelector('.scroll-progress span');
     const supportsScrollTimeline = window.CSS && CSS.supports && CSS.supports('animation-timeline: scroll()');

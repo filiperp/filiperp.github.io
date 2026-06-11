@@ -26,9 +26,9 @@
             'projects.see_all': 'Ver todos os projetos por empresa →',
 
             'companies.page.title': 'Empresas & Projetos — Filipe Rodrigues',
-            'companies.page.meta': 'Portfólio de projetos das três empresas das quais Filipe Rodrigues é sócio: GoldenLearn, BBI.Solutions e Instituto Integratech.',
+            'companies.page.meta': 'Portfólio de projetos das quatro empresas das quais Filipe Rodrigues é sócio: GoldenLearn, BBI.Solutions, Instituto Integratech e DiveSafe.',
             'companies.page.eyebrow': 'Portfólio · Empresas das quais sou sócio',
-            'companies.page.title_before': 'Três empresas, ',
+            'companies.page.title_before': 'Quatro empresas, ',
             'companies.page.title_accent': 'um portfólio',
             'companies.page.title_after': '.',
             'companies.page.lead': 'Cada projeto abaixo está claramente vinculado à empresa que o entrega e ao papel que ocupo nela. Use os links para visitar cada site.',
@@ -160,8 +160,20 @@
             'companies.it.life.p1': '2500+ pessoas atendidas', 'companies.it.life.p2': 'Multilíngue (PT/EN/ES)', 'companies.it.life.p3': 'Comunidade ativa',
             'companies.it.life.invite': 'Quer conhecer o trabalho de perto? Visite o site e veja workshops, mentorias e a comunidade ativa.',
 
+            'companies.divesafe.name': 'DiveSafe',
+            'companies.divesafe.role': 'Sócio · Tech Lead',
+            'companies.divesafe.lead': 'Software para mergulho profissional, construído por quem entende do que acontece a 30 metros de profundidade. O PPO₂ é o primeiro produto: operação, conformidade e auditoria numa única plataforma.',
+            'companies.ds.stats.n1': '100%', 'companies.ds.stats.l1': 'operação offline-first',
+            'companies.ds.stats.n2': 'SHA-256', 'companies.ds.stats.l2': 'auditoria com hash em cadeia',
+            'companies.ds.stats.n3': '3', 'companies.ds.stats.l3': 'plataformas (iOS, Android, Web)',
+
+            'companies.ds.ppo2.eyebrow': 'Mergulho profissional',
+            'companies.ds.ppo2.desc': 'Plataforma B2B para gestão técnica de operações de mergulho profissional — planejamento, execução em campo e auditoria, em conformidade com NORMAM-15 e NR-15. Offline-first de verdade: o mergulhador preenche checklists com foto e GPS mesmo sem sinal, e cada evento é gravado com hash encadeado, pronto para fiscalização da Marinha.',
+            'companies.ds.ppo2.p1': 'Offline-first', 'companies.ds.ppo2.p2': 'Multi-tenant', 'companies.ds.ppo2.p3': 'Auditoria SHA-256',
+            'companies.ds.ppo2.impact': 'Da assinatura ao primeiro mergulho em horas, não em semanas.',
+
             'compare.title': 'Comparativo rápido',
-            'compare.lead': 'Três empresas, três modos de operar. Resumo prático para você situar.',
+            'compare.lead': 'Quatro empresas, quatro modos de operar. Resumo prático para você situar.',
             'compare.focus': 'Foco',
             'compare.lineup': 'Linha',
             'compare.role': 'Posição',
@@ -178,6 +190,10 @@
             'compare.it.lineup': '4 iniciativas (IntegraCity, Cidades Saudáveis, 4Health, Life Academy)',
             'compare.it.role': 'Sócio · Sem fins lucrativos',
             'compare.it.signal': 'Impacto público e desenvolvimento humano',
+            'compare.ds.focus': 'Tecnologia para mergulho profissional e segurança operacional',
+            'compare.ds.lineup': '1 produto — PPO₂ (iOS, Android e Web)',
+            'compare.ds.role': 'Sócio · Tech Lead',
+            'compare.ds.signal': 'Conformidade NORMAM-15/NR-15 com auditoria criptográfica',
 
             'print.button': 'Baixar PDF',
 
@@ -489,9 +505,9 @@
             'projects.see_all': 'See all projects by company →',
 
             'companies.page.title': 'Companies & Projects — Filipe Rodrigues',
-            'companies.page.meta': 'Project portfolio of the three companies Filipe Rodrigues is a partner in: GoldenLearn, BBI.Solutions, and Instituto Integratech.',
+            'companies.page.meta': 'Project portfolio of the four companies Filipe Rodrigues is a partner in: GoldenLearn, BBI.Solutions, Instituto Integratech, and DiveSafe.',
             'companies.page.eyebrow': 'Portfolio · Companies I’m a partner in',
-            'companies.page.title_before': 'Three companies, ',
+            'companies.page.title_before': 'Four companies, ',
             'companies.page.title_accent': 'one portfolio',
             'companies.page.title_after': '.',
             'companies.page.lead': 'Each project below is clearly linked to the company that delivers it and to my role there. Use the links to visit each website.',
@@ -623,8 +639,20 @@
             'companies.it.life.p1': '2500+ people reached', 'companies.it.life.p2': 'Multilingual (PT/EN/ES)', 'companies.it.life.p3': 'Active community',
             'companies.it.life.invite': 'Want to see the work up close? Visit the site to explore workshops, mentoring, and the active community.',
 
+            'companies.divesafe.name': 'DiveSafe',
+            'companies.divesafe.role': 'Partner · Tech Lead',
+            'companies.divesafe.lead': 'Software for professional diving, built by people who understand what happens 30 meters down. PPO₂ is the first product: operations, compliance, and auditing in a single platform.',
+            'companies.ds.stats.n1': '100%', 'companies.ds.stats.l1': 'offline-first operation',
+            'companies.ds.stats.n2': 'SHA-256', 'companies.ds.stats.l2': 'chained-hash audit trail',
+            'companies.ds.stats.n3': '3', 'companies.ds.stats.l3': 'platforms (iOS, Android, Web)',
+
+            'companies.ds.ppo2.eyebrow': 'Professional diving',
+            'companies.ds.ppo2.desc': 'B2B platform for the technical management of professional diving operations — planning, field execution, and auditing, compliant with Brazil’s NORMAM-15 and NR-15. Truly offline-first: divers fill out checklists with photo and GPS even without signal, and every event is recorded with a chained hash, ready for Navy inspection.',
+            'companies.ds.ppo2.p1': 'Offline-first', 'companies.ds.ppo2.p2': 'Multi-tenant', 'companies.ds.ppo2.p3': 'SHA-256 audit trail',
+            'companies.ds.ppo2.impact': 'From signup to first dive in hours, not weeks.',
+
             'compare.title': 'Quick comparison',
-            'compare.lead': 'Three companies, three ways of operating. A practical recap to help you situate.',
+            'compare.lead': 'Four companies, four ways of operating. A practical recap to help you situate.',
             'compare.focus': 'Focus',
             'compare.lineup': 'Lineup',
             'compare.role': 'Role',
@@ -641,6 +669,10 @@
             'compare.it.lineup': '4 initiatives (IntegraCity, Healthy Cities, 4Health, Life Academy)',
             'compare.it.role': 'Partner · Non-profit',
             'compare.it.signal': 'Public impact and human development',
+            'compare.ds.focus': 'Tech for professional diving and operational safety',
+            'compare.ds.lineup': '1 product — PPO₂ (iOS, Android, and Web)',
+            'compare.ds.role': 'Partner · Tech Lead',
+            'compare.ds.signal': 'NORMAM-15/NR-15 compliance with cryptographic auditing',
 
             'print.button': 'Download PDF',
 

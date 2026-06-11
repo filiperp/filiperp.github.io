@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56" role="img" aria-label="PPO2 — DiveSafe">
+  <!-- bolha extraída do brand-logo.svg do PPO₂ (apps/site/public/brand-logo.svg) -->
+  <circle cx="28" cy="28" r="22" fill="#10b981" />
+  <ellipse cx="22" cy="20" rx="5" ry="3" fill="#6ee7b7" opacity="0.75" />
+  <text x="28" y="35" text-anchor="middle"
+        font-family="system-ui,-apple-system,Segoe UI,Roboto,sans-serif"
+        font-weight="700" font-size="16" fill="#0f172a"
+        letter-spacing="-0.5">O₂</text>
+</svg>

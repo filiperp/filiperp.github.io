@@ -48,7 +48,12 @@
       "Bash(sed -n '85,150p' js/easter-eggs.js)",
       "Bash(sed -n '170,200p' js/easter-eggs.js)",
       "Bash(sed -n 1780,1870p /Users/filipe/projects/pessoal/filiperp.github.io/js/easter-eggs.js)",
-      "Bash(sed -n 2100,2180p /Users/filipe/projects/pessoal/filiperp.github.io/js/easter-eggs.js)"
+      "Bash(sed -n 2100,2180p /Users/filipe/projects/pessoal/filiperp.github.io/js/easter-eggs.js)",
+      "Bash(curl -s --max-time 10 http://localhost:3002/)",
+      "Read(//Users/filipe/projects/pessoal/safe_dive/apps/site/public/**)",
+      "Read(//Users/filipe/projects/pessoal/safe_dive/apps/site/src/**)",
+      "Bash(cat /Users/filipe/projects/pessoal/safe_dive/apps/site/public/brand-logo.svg; echo \"---FAVICON---\"; cat /Users/filipe/projects/pessoal/safe_dive/apps/site/public/favicon.svg; echo \"---NOMES---\"; grep -rhoiE \"safedive|divesafe|safe.?dive\" /Users/filipe/projects/pessoal/safe_dive/apps/site/src /Users/filipe/projects/pessoal/safe_dive/README.md 2>/dev/null | sort | uniq -c | sort -rn | head)",
+      "Bash(python3 -c ' *)"
     ]
   }
 }

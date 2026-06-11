@@ -1475,17 +1475,21 @@ html[data-theme="dark"] .company-jump a {
    BBI   → gradiente cyan→green (#06e1ea / #12edbd) — uso teal
    GL    → navy #183967 + accent orange #F16E22 — uso navy
    IT    → blue #024F7B + accent gold #A48A4E — uso gold (diferencia das 2 azuis)
+   DS    → bolha emerald #10b981 do brand PPO₂
 */
 .mark-bbi { background: #0891b2; }
 .mark-gl  { background: #183967; }
 .mark-it  { background: #a18a51; }
+.mark-ds  { background: #10b981; }
 html[data-theme="dark"] .mark-bbi { background: #22d3ee; color: #0f1115; }
 html[data-theme="dark"] .mark-gl  { background: #60a5fa; color: #0f1115; }
 html[data-theme="dark"] .mark-it  { background: #d4a017; color: #0f1115; }
+html[data-theme="dark"] .mark-ds  { background: #34d399; color: #0f1115; }
 @media (prefers-color-scheme: dark) {
     html:not([data-theme]) .mark-bbi { background: #22d3ee; color: #0f1115; }
     html:not([data-theme]) .mark-gl  { background: #60a5fa; color: #0f1115; }
     html:not([data-theme]) .mark-it  { background: #d4a017; color: #0f1115; }
+    html:not([data-theme]) .mark-ds  { background: #34d399; color: #0f1115; }
 }
 
 /* Variante .company-mark--logo: usa <img> no lugar das letras */
@@ -1505,10 +1509,12 @@ html[data-theme="dark"] .company-mark--logo { background: #f5f5f5 !important; }
 @media (prefers-color-scheme: dark) {
     html:not([data-theme]) .company-mark--logo { background: #f5f5f5 !important; }
 }
-/* O logo BBI é SVG colorido sobre transparente — sem wash branco no dark */
-html[data-theme="dark"] .company-mark--logo.mark-bbi { background: transparent !important; border-color: var(--border-strong); }
+/* Os logos BBI e DiveSafe são SVG coloridos sobre transparente — sem wash branco no dark */
+html[data-theme="dark"] .company-mark--logo.mark-bbi,
+html[data-theme="dark"] .company-mark--logo.mark-ds { background: transparent !important; border-color: var(--border-strong); }
 @media (prefers-color-scheme: dark) {
-    html:not([data-theme]) .company-mark--logo.mark-bbi { background: transparent !important; border-color: var(--border-strong); }
+    html:not([data-theme]) .company-mark--logo.mark-bbi,
+    html:not([data-theme]) .company-mark--logo.mark-ds { background: transparent !important; border-color: var(--border-strong); }
 }
 
 .company-lead {
@@ -1878,22 +1884,31 @@ html[data-theme="dark"] .product-icon {
     /* herda visual de .theme-toggle (mesmo tamanho, padding, border) */
 }
 
-/* Sticky header da empresa — fica grudado no topo enquanto rola a seção dela */
+/* Sticky header da empresa — fica grudado no topo enquanto rola a seção dela.
+   top alinhado ao scroll-margin-top (72px): a topbar tem 65px, sobra uma fresta
+   proposital para o pill flutuar inteiro em vez de ficar cortado atrás dela. */
 .company-section { position: relative; }
 .company-header {
     position: sticky;
-    top: 60px;
+    top: 72px;
     z-index: 4;
-    margin: 0 calc(var(--space-lg) * -1);
+    margin: 0 calc(var(--space-lg) * -1) var(--space-lg);
     padding: 0.85rem var(--space-lg);
     background: color-mix(in srgb, var(--bg) 88%, transparent);
     backdrop-filter: saturate(150%) blur(10px);
     -webkit-backdrop-filter: saturate(150%) blur(10px);
     border-bottom: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
     border-radius: var(--radius-md);
+    transition: box-shadow 0.25s ease;
 }
 .section-alt .company-header {
     background: color-mix(in srgb, var(--bg-alt) 88%, transparent);
+}
+/* Sombra sutil apenas enquanto o pill está grudado (.is-stuck via page-effects.js) */
+.company-header.is-stuck { box-shadow: 0 10px 24px -12px rgba(15, 17, 21, 0.28); }
+html[data-theme="dark"] .company-header.is-stuck { box-shadow: 0 12px 26px -12px rgba(0, 0, 0, 0.6); }
+@media (prefers-color-scheme: dark) {
+    html:not([data-theme]) .company-header.is-stuck { box-shadow: 0 12px 26px -12px rgba(0, 0, 0, 0.6); }
 }
 .company-header .section-title {
     font-size: 1.4rem;
@@ -2044,7 +2059,7 @@ html[data-theme="dark"] .product-icon {
         width: 100%;
         margin-top: 0.5rem;
     }
-    .company-header { position: static; padding: 0; margin: 0; background: transparent; backdrop-filter: none; border: 0; }
+    .company-header { position: static; padding: 0; margin: 0 0 var(--space-md); background: transparent; backdrop-filter: none; border: 0; box-shadow: none !important; }
 }
 
 /* ============================================================
@@ -2110,6 +2125,7 @@ html[data-theme="dark"] .product-icon {
         border: 0 !important;
         margin: 0 !important;
         padding: 0 !important;
+        box-shadow: none !important;
     }
 
     /* Garantir que fade-in seja visível mesmo sem JS rodar */
